@@ -134,7 +134,7 @@ export default function Hero() {
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-teal-500/20 to-orange-500/20 backdrop-blur-sm border border-white/10">
                 <div className="absolute inset-4">
                   <Image
-                    src={heroImages[currentImageIndex] || "/placeholder.svg"}
+                    src="/images/firefighter.jpg"
                     alt="Professional fire protection equipment and safety systems"
                     fill
                     className="object-cover rounded-2xl transition-all duration-1000 ease-in-out"
@@ -143,7 +143,7 @@ export default function Hero() {
                 </div>
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 via-transparent to-transparent rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900  rounded-3xl"></div>
 
                 {/* Floating Elements */}
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl rotate-12 shadow-xl opacity-80"></div>

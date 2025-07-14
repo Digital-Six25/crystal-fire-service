@@ -149,7 +149,7 @@ export default function Purpose() {
               <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-teal-500/20 to-orange-500/20 backdrop-blur-sm border border-white/10">
                 <div className="absolute inset-4">
                   <Image
-                    src="/placeholder.svg?height=400&width=600&text=Fire+Safety+Equipment"
+                    src="/images/fire-extinguishers.jpg"
                     alt="Fire safety equipment installation and maintenance work"
                     fill
                     className="object-cover rounded-2xl"
