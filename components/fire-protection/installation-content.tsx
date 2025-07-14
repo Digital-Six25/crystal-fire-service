@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const installationServices = [
   "Smoke detection and heat detection systems",
@@ -10,7 +10,7 @@ const installationServices = [
   "Fire pumpsets",
   "Extinguishers",
   "Fire Hose Reel Systems",
-]
+];
 
 const additionalServices = [
   "Smoke alarms",
@@ -18,10 +18,10 @@ const additionalServices = [
   "Fire doors and other passive fire protection",
   "Special Hazard and Gaseous Systems",
   "Fire System Block Plans",
-]
+];
 
 export default function InstallationContent() {
-  const { ref, isVisible } = useScrollAnimation()
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <>
@@ -32,7 +32,9 @@ export default function InstallationContent() {
             {/* Left Image */}
             <div
               className={`transition-all duration-1000 ease-out ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-8"
               }`}
             >
               <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
@@ -48,25 +50,31 @@ export default function InstallationContent() {
             {/* Center Text Content */}
             <div
               className={`text-center transition-all duration-1000 ease-out delay-300 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
             >
               <p className="text-gray-600 leading-relaxed mb-6">
-                We install wet, dry and passive fire systems as well as portable firefighting equipment to all building
-                types and industries
+                We install wet, dry and passive fire systems as well as portable
+                firefighting equipment to all building types and industries
               </p>
 
               <p className="text-gray-600 leading-relaxed">
-                All installations are commissioned in accordance with the relevant Australian Standard and current
-                Building Code of Australia. The Final Fire Safety Certificate is provided by Crystal Fire Services and
-                endorsed by a Competent Fire Safety Practitioner.
+                All installations are commissioned in accordance with the
+                relevant Australian Standard and current Building Code of
+                Australia. The Final Fire Safety Certificate is provided by
+                Crystal Fire Services and endorsed by a Competent Fire Safety
+                Practitioner.
               </p>
             </div>
 
             {/* Right Image */}
             <div
               className={`transition-all duration-1000 ease-out delay-500 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-8"
               }`}
             >
               <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
@@ -87,17 +95,23 @@ export default function InstallationContent() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             className={`text-center mb-16 transition-all duration-1000 ease-out ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-4">WE ARE LICENSED TO INSTALL:</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-4">
+              WE ARE LICENSED TO INSTALL:
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Left Column */}
             <div
               className={`space-y-4 transition-all duration-1000 ease-out delay-300 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-8"
               }`}
             >
               {installationServices.map((service, index) => (
@@ -111,7 +125,9 @@ export default function InstallationContent() {
             {/* Right Column */}
             <div
               className={`space-y-4 transition-all duration-1000 ease-out delay-500 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-8"
               }`}
             >
               {additionalServices.map((service, index) => (
@@ -125,5 +141,5 @@ export default function InstallationContent() {
         </div>
       </section>
     </>
-  )
+  );
 }

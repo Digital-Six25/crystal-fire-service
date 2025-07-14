@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 
 const certifications = [
   {
@@ -68,33 +69,71 @@ export default function Certifications() {
   return (
     <section ref={ref} className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Professional Memberships & Certifications
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Crystal Fire Services maintains the highest industry standards
+            through our professional memberships and ISO certifications
+          </p>
+        </div>
+
         {/* Professional Memberships */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {certifications.map((cert, index) => (
             <Link
               href={cert.link}
               target="_blank"
               key={index}
-              className={`text-center transition-all duration-1000 ease-out ${
+              className={`block transition-all duration-1000 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="mb-6 flex justify-center">
-                <div className="relative w-48 h-24">
-                  <Image
-                    src={cert.logo || "/placeholder.svg"}
-                    alt={cert.alt}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed max-w-md mx-auto">
-                {cert.description}
-              </p>
+              <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-gray-200 hover:border-teal-300">
+                <CardContent className="p-8 text-center h-full flex flex-col justify-between">
+                  <div>
+                    <div className="mb-6 flex justify-center">
+                      <div className="relative w-48 h-24 group-hover:scale-105 transition-transform duration-300">
+                        <Image
+                          src={cert.logo || "/placeholder.svg"}
+                          alt={cert.alt}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-teal-600 transition-colors duration-300">
+                      {cert.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {cert.description}
+                    </p>
+                  </div>
+                  <div className="mt-6">
+                    <div className="inline-flex items-center text-teal-600 font-medium group-hover:text-teal-700 transition-colors duration-300">
+                      Learn More
+                      <svg
+                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </Link>
           ))}
         </div>
@@ -108,32 +147,70 @@ export default function Certifications() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="flex justify-center items-center gap-6 mb-8 flex-wrap">
-              {isoAccreditations.map((iso, index) => (
-                <Link
-                  href={"https://atlascertification.com.au/"}
-                  target="_blank"
-                  key={index}
-                  className={`relative transition-all duration-1000 ease-out ${
-                    isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                  }`}
-                  style={{ transitionDelay: `${(index + 3) * 150}ms` }}
-                >
-                  <Image
-                    src={iso.logo || "/placeholder.svg"}
-                    alt={iso.alt}
-                    width={iso.standard === "JAS-ANZ" ? 120 : 80}
-                    height={80}
-                    className="object-contain"
-                  />
-                </Link>
-              ))}
-            </div>
-            <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              ISO Accreditations
+            </h3>
+            <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto mb-12">
               Crystal Fire Services is ISO accredited in Quality Assurance,
               Environmental & Occupational Health & Safety Management Systems
             </p>
           </div>
+
+          <Link
+            href="/certification"
+            className={`block transition-all duration-1000 ease-out ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+            style={{ transitionDelay: "800ms" }}
+          >
+            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-gray-200 hover:border-teal-300 cursor-pointer">
+              <CardContent className="p-8">
+                <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
+                  {isoAccreditations.map((iso, index) => (
+                    <div
+                      key={index}
+                      className={`relative transition-all duration-1000 ease-out ${
+                        isVisible
+                          ? "opacity-100 scale-100"
+                          : "opacity-0 scale-95"
+                      }`}
+                      style={{ transitionDelay: `${(index + 3) * 150}ms` }}
+                    >
+                      <div className="group-hover:scale-110 transition-transform duration-300">
+                        <Image
+                          src={iso.logo || "/placeholder.svg"}
+                          alt={iso.alt}
+                          width={iso.standard === "JAS-ANZ" ? 120 : 80}
+                          height={80}
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center text-teal-600 font-medium group-hover:text-teal-700 transition-colors duration-300">
+                    View All Certifications
+                    <svg
+                      className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
 
         {/* Trust Indicators */}
@@ -143,35 +220,44 @@ export default function Certifications() {
               icon: "✓",
               title: "Fully Accredited",
               description: "All certifications current and maintained",
+              color: "bg-green-100 text-green-600",
             },
             {
               icon: "★",
               title: "Industry Recognition",
               description: "Recognized by leading industry bodies",
+              color: "bg-blue-100 text-blue-600",
             },
             {
               icon: "⚡",
               title: "Quality Assured",
               description: "ISO certified management systems",
+              color: "bg-teal-100 text-teal-600",
             },
           ].map((item, index) => (
-            <div
+            <Card
               key={index}
-              className={`text-center p-6 bg-gray-50 rounded-lg transition-all duration-1000 ease-out ${
+              className={`group hover:shadow-lg transition-all duration-500 ease-out hover:-translate-y-1 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${(index + 6) * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-teal-600 font-bold text-xl">
-                  {item.icon}
-                </span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.description}</p>
-            </div>
+              <CardContent className="p-8 text-center">
+                <div
+                  className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <span className="font-bold text-2xl">{item.icon}</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3 text-lg group-hover:text-teal-600 transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

@@ -1,12 +1,17 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
-const complianceServices = ["Asset based reporting", "AFSS reports", "AS1851 testing", "Mechanical interface testing"]
+const complianceServices = [
+  "Asset based reporting",
+  "AFSS reports",
+  "AS1851 testing",
+  "Mechanical interface testing",
+];
 
 export default function ComplianceContent() {
-  const { ref, isVisible } = useScrollAnimation()
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <>
@@ -17,7 +22,9 @@ export default function ComplianceContent() {
             {/* Left Image */}
             <div
               className={`transition-all duration-1000 ease-out ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-8"
               }`}
             >
               <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
@@ -33,10 +40,14 @@ export default function ComplianceContent() {
             {/* Center Text Content */}
             <div
               className={`text-center transition-all duration-1000 ease-out delay-300 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
             >
-              <p className="text-gray-600 leading-relaxed mb-6">Our Compliance Services include:</p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Our Compliance Services include:
+              </p>
 
               <ul className="space-y-3 text-left max-w-sm mx-auto">
                 {complianceServices.map((service, index) => (
@@ -51,7 +62,9 @@ export default function ComplianceContent() {
             {/* Right Image */}
             <div
               className={`transition-all duration-1000 ease-out delay-500 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-8"
               }`}
             >
               <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
@@ -72,53 +85,68 @@ export default function ComplianceContent() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             className={`text-center mb-16 transition-all duration-1000 ease-out ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-4">WHEN IS TESTING REQUIRED?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-300 mb-4">
+              WHEN IS TESTING REQUIRED?
+            </h2>
           </div>
 
           <div className="max-w-5xl mx-auto space-y-8 text-center">
             <div
               className={`transition-all duration-1000 ease-out delay-300 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
             >
               <p className="text-gray-300 leading-relaxed text-lg">
-                Testing your Fire Protection System is required by law. It also provides you with peace of mind as
-                you'll know your system will perform correctly in the event of an emergency.
+                Testing your Fire Protection System is required by law. It also
+                provides you with peace of mind as you'll know your system will
+                perform correctly in the event of an emergency.
               </p>
             </div>
 
             <div
               className={`transition-all duration-1000 ease-out delay-500 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
             >
               <p className="text-gray-300 leading-relaxed text-lg">
-                Frequency of testing is dependent on the system you have installed. It must be tested in accordance with
-                the AS1851 maintenance schedule. Most systems require at least two inspections per year - once every 6
-                months.
+                Frequency of testing is dependent on the system you have
+                installed. It must be tested in accordance with the AS1851
+                maintenance schedule. Most systems require at least two
+                inspections per year - once every 6 months.
               </p>
             </div>
 
             <div
               className={`transition-all duration-1000 ease-out delay-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
             >
               <p className="text-gray-300 leading-relaxed text-lg">
-                Crystal Fire Services offers competitive pricing for full inspection, testing and maintenance for any
-                system that requires certification. Our technicians are fully qualified and will thoroughly test and
-                audit your system to ensure its compliance with all regional industry standards and government
-                regulations. We retain comprehensive maintenance records and complete all necessary compliance reports.
-                This enables us to provide an Annual Fire Safety Statement, which is enforced by Council and the NSW
-                Fire Brigade.
+                Crystal Fire Services offers competitive pricing for full
+                inspection, testing and maintenance for any system that requires
+                certification. Our technicians are fully qualified and will
+                thoroughly test and audit your system to ensure its compliance
+                with all regional industry standards and government regulations.
+                We retain comprehensive maintenance records and complete all
+                necessary compliance reports. This enables us to provide an
+                Annual Fire Safety Statement, which is enforced by Council and
+                the NSW Fire Brigade.
               </p>
             </div>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
