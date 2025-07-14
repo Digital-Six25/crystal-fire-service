@@ -267,7 +267,7 @@ export default function AboutContent() {
             <div className="relative">
               <div className="aspect-video relative rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/images/expertise.jpg"
                   alt="Professional technician maintaining fire safety equipment"
                   fill
                   className="object-cover"

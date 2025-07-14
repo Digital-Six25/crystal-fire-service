@@ -9,6 +9,7 @@ import {
   Shield,
   TrendingUp,
 } from "lucide-react";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -127,18 +128,14 @@ export default function UptickContent() {
             }`}
           >
             <div className="relative w-full max-w-md">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-blue-400/20 rounded-3xl blur-2xl transform rotate-6"></div>
               <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50 hover:scale-105 transition-all duration-500">
                 <Image
-                  src="/placeholder.svg?height=400&width=600&text=Uptick+Dashboard"
+                  src="/images/uptick.png"
                   alt="Uptick software dashboard interface showing fire maintenance management system"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-2xl shadow-lg"
+                  width={400}
+                  height={200}
+                  className="w-full h-auto rounded-2xl"
                 />
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  Live Demo
-                </div>
               </div>
             </div>
           </div>
@@ -200,9 +197,13 @@ export default function UptickContent() {
               </div>
 
               <div className="mt-8 text-center">
-                <button className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:from-teal-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <Link
+                  href={"https://www.uptickhq.com/us/our-story"}
+                  target="_blank"
+                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:from-teal-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                >
                   Learn More About Uptick
-                </button>
+                </Link>
               </div>
             </div>
           </div>

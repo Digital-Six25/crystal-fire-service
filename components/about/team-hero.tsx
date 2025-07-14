@@ -44,7 +44,7 @@ export default function TeamHero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/placeholder.svg?height=600&width=1200"
+          src="/images/team.jpg"
           alt="Professional fire protection team"
           fill
           className="object-cover opacity-20"
