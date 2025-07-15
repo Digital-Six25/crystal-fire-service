@@ -22,7 +22,7 @@ export default function CertificationHero() {
       {/* Background Image Overlay */}
       <div className="absolute inset-0">
         <Image
-          src="https://sjc.microlink.io/LPNWW0CHjnW0oQQrGPsDgtTGy2sPlqSIQ3RQUXetIIa7_L04X23uxh_Wjqs0k7iPiTLADEeGdAgKl5IvVgDckw.jpeg"
+          src="/images/testing.jpg"
           alt="Professional fire protection equipment and certification systems"
           fill
           className="object-cover opacity-20"

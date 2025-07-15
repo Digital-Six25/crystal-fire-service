@@ -51,7 +51,7 @@ export default function AFSSPrograms() {
           >
             <div className="aspect-square relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-600/20 to-teal-600/20 backdrop-blur-sm border border-white/10">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src="/images/testing.jpg"
                 alt="Professional fire sprinkler system installation"
                 fill
                 className="object-cover rounded-3xl"

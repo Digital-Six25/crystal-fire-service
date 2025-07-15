@@ -51,7 +51,7 @@ export default function EFSMSection() {
           >
             <div className="aspect-square relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600/20 to-indigo-600/20 backdrop-blur-sm border border-white/10">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-09%20at%2010.15.05-1UWuXDBfTb1Vo1He6RQtyYOXsomPgH.png"
+                src="/images/safety.jpg"
                 alt="Professional fire sprinkler system - Essential Fire Safety Measures"
                 fill
                 className="object-cover rounded-3xl"
