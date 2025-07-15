@@ -1,95 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import {
-  Phone,
-  Mail,
-  ArrowRight,
-  Shield,
-  CheckCircle,
-  Clock,
-  Users,
-  Award,
-} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { ArrowRight, Award, CheckCircle, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 
 export default function InspectionTestingContent() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
     <div>
-      {/* Hero Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6">
-              <Shield className="w-6 h-6 text-purple-600" />
-              <span className="font-semibold text-gray-900">
-                Testing Excellence
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-              Professional Testing Services
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                icon: CheckCircle,
-                label: "Pass Rate",
-                value: "98%",
-                color: "purple",
-              },
-              {
-                icon: Clock,
-                label: "Response Time",
-                value: "24hrs",
-                color: "pink",
-              },
-              {
-                icon: Users,
-                label: "Certified Techs",
-                value: "20+",
-                color: "rose",
-              },
-              {
-                icon: Award,
-                label: "Systems Tested",
-                value: "5000+",
-                color: "purple",
-              },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-white/20`}
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br from-${stat.color}-500 to-${stat.color}-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
-                >
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Main Content Section */}
       <section ref={ref} className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -154,7 +79,7 @@ export default function InspectionTestingContent() {
               <div className="relative group">
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/testing.jpg"
                     alt="Professional fire system testing and inspection"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

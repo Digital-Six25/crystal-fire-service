@@ -17,33 +17,6 @@ import {
 export default function ComplianceHero() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
-  const stats = [
-    {
-      icon: FileCheck,
-      label: "Compliance Reports",
-      value: "1500+",
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      icon: CheckCircle,
-      label: "Success Rate",
-      value: "100%",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: Users,
-      label: "Certified Auditors",
-      value: "15+",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: Clock,
-      label: "Report Turnaround",
-      value: "24hrs",
-      color: "from-orange-500 to-red-500",
-    },
-  ];
-
   return (
     <section
       ref={ref}
@@ -139,31 +112,6 @@ export default function ComplianceHero() {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className={`group bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transform hover:scale-105 transition-all duration-500 ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${(index + 4) * 150}ms` }}
-              >
-                <div
-                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <stat.icon className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-300 text-sm">{stat.label}</div>
-              </div>
-            ))}
           </div>
 
           {/* Trust Indicators */}

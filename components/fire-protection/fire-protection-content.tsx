@@ -132,6 +132,70 @@ export default function FireProtectionContent() {
 
   return (
     <>
+      {/* Introduction Section */}
+      <section
+        ref={ref}
+        className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
+      >
+        {/* Background Elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ease-out ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 mb-6">
+              <Shield className="w-5 h-5 text-blue-600 mr-2" />
+              <span className="text-blue-700 font-medium">
+                Professional Solutions
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-700 bg-clip-text text-transparent">
+                Professional Fire Protection Solutions
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Crystal Fire Services provides comprehensive fire protection
+              services designed to safeguard lives, property, and the
+              environment. Our expert team delivers professional installation,
+              compliance management, and inspection testing services across
+              Australia.
+            </p>
+          </div>
+
+          {/* Achievement Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            {achievements.map((achievement, index) => (
+              <div
+                key={index}
+                className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-out ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 150}ms` }}
+              >
+                <div
+                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${achievement.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <achievement.icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {achievement.value}
+                </div>
+                <div className="text-gray-600 text-sm">{achievement.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
