@@ -84,7 +84,7 @@ export default function ComplianceContent() {
               <div className="relative group">
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-10%20at%2009.22.39-OIt1lIv9Fq5isb5s5DFOnfSQB5lbh3.png"
+                    src="/images/testing.jpg"
                     alt="Fire sprinkler head compliance testing"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
