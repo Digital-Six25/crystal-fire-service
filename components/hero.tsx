@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState, useEffect } from "react";
 import { CheckCheck, Award, Clock, Users } from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   { icon: Award, value: "20+", label: "Years Experience" },
@@ -73,11 +74,17 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="group relative overflow-hidden bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:from-teal-600 hover:to-teal-700 hover:scale-105 hover:shadow-2xl">
+              <Link
+                href={"/contact"}
+                className="group relative overflow-hidden bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:from-teal-600 hover:to-teal-700 hover:scale-105 hover:shadow-2xl"
+              >
                 <span className="relative z-10">Get Free Quote</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              <button className="group border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              </Link>
+              <Link
+                href={"/about"}
+                className="group border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              >
                 <span className="flex items-center">
                   Learn More
                   <svg
@@ -94,7 +101,7 @@ export default function Hero() {
                     />
                   </svg>
                 </span>
-              </button>
+              </Link>
             </div>
 
             {/* Stats */}

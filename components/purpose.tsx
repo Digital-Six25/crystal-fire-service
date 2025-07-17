@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Shield, Target, Award, Users, ArrowRight } from "lucide-react";
+import { Shield, Target, Award, Users, ArrowRight, Link } from "lucide-react";
 import { useState } from "react";
 
 const values = [
@@ -128,12 +128,12 @@ export default function Purpose() {
             </div>
 
             {/* CTA Button */}
-            <button className="group bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:from-teal-600 hover:to-teal-700 hover:scale-105 hover:shadow-2xl">
+            {/* <button className="group bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:from-teal-600 hover:to-teal-700 hover:scale-105 hover:shadow-2xl">
               <span className="flex items-center">
                 Learn About Our Story
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-            </button>
+            </button> */}
           </div>
 
           {/* Right Content - Enhanced Image */}

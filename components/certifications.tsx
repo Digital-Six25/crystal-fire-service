@@ -197,7 +197,7 @@ export default function Certifications() {
             </p>
           </div>
 
-          <Link href="/certification">
+          <Link href="https://atlascertification.com.au/" target="_blank">
             <div
               className={`group relative bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/90 hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 overflow-hidden ${
                 isVisible

@@ -202,12 +202,17 @@ export default function Services() {
                 our certified experts
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                <Link
+                  href={"/contact"}
+                  className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                >
                   Get Free Assessment
-                </button>
-                <button className="border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
-                  Call 1300 790 702
-                </button>
+                </Link>
+                <a href="tel:1300790702">
+                  <button className="border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
+                    Call 1300 790 702
+                  </button>
+                </a>
               </div>
             </div>
           </div>
