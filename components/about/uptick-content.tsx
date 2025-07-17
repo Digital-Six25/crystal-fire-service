@@ -6,7 +6,7 @@ import {
   Monitor,
   Smartphone,
   FileText,
-  Shield,
+  ClipboardMinus,
   TrendingUp,
 } from "lucide-react";
 
@@ -34,7 +34,7 @@ const benefits = [
     description: "we remain on top of all of your fire equipment",
   },
   {
-    icon: Shield,
+    icon: ClipboardMinus,
     title: "Compliance Reporting",
     description:
       "with Uptick we are able to generate compliance reports, such as AFSS, AESMR, Form 3 and more, automatically",
@@ -75,7 +75,7 @@ export default function UptickContent() {
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-300">
                 <div className="text-center mb-8">
                   <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-full mb-4">
-                    <Shield className="w-4 h-4 text-teal-600 mr-2" />
+                    <ClipboardMinus className="w-4 h-4 text-teal-600 mr-2" />
                     <span className="text-teal-700 text-sm font-medium">
                       Fire Management System
                     </span>

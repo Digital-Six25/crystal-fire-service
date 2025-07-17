@@ -1,12 +1,11 @@
 "use client";
 
-import { Flame, Wifi, Droplets, Volume2, Zap, Sprout } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
+import Image from "next/image";
 
 const equipment = [
   {
-    icon: Flame,
     title: "PORTABLE FIRE EQUIPMENT",
     description: "Fire extinguishers and portable fire safety equipment",
     color: "from-red-500 to-orange-500",
@@ -17,9 +16,9 @@ const equipment = [
       "Portable equipment",
       "Emergency kits",
     ],
+    customIconSrc: "/images/fire-extinguisher.png",
   },
   {
-    icon: Wifi,
     title: "FIRE DETECTION SYSTEMS",
     description: "Smoke detectors and fire alarm systems",
     color: "from-blue-500 to-indigo-500",
@@ -30,9 +29,9 @@ const equipment = [
       "Fire alarms",
       "Control panels",
     ],
+    customIconSrc: "/images/smoke-detector.png",
   },
   {
-    icon: Droplets,
     title: "HYDRANTS & HOSE REELS",
     description: "Fire hydrant systems and hose reel installations",
     color: "from-cyan-500 to-blue-500",
@@ -43,9 +42,9 @@ const equipment = [
       "Water systems",
       "Pressure testing",
     ],
+    customIconSrc: "/images/hydrant.png",
   },
   {
-    icon: Volume2,
     title: "EWIS SYSTEMS",
     description: "Emergency Warning and Intercommunication Systems",
     color: "from-purple-500 to-pink-500",
@@ -56,17 +55,17 @@ const equipment = [
       "Emergency alerts",
       "Audio systems",
     ],
+    customIconSrc: "/images/firewall-protection.png",
   },
   {
-    icon: Zap,
     title: "FIRE PUMPSETS",
     description: "Fire pump systems and equipment",
     color: "from-yellow-500 to-orange-500",
     bgColor: "bg-yellow-50",
     details: ["Fire pumps", "Pump systems", "Pressure systems", "Maintenance"],
+    customIconSrc: "/images/firewall-protection.png",
   },
   {
-    icon: Sprout,
     title: "SPRINKLER & MIST SYSTEMS",
     description: "Automatic sprinkler and water mist systems",
     color: "from-green-500 to-teal-500",
@@ -77,6 +76,7 @@ const equipment = [
       "Automatic systems",
       "Installation",
     ],
+    customIconSrc: "/images/sprinkle.png",
   },
 ];
 
@@ -103,7 +103,13 @@ export default function Equipment() {
           }`}
         >
           <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-teal-300 text-sm font-medium mb-8">
-            <Zap className="w-4 h-4 mr-2" />
+            <Image
+              src="/images/fire-extinguisher.png"
+              alt="Fire equipment icon"
+              width={16}
+              height={16}
+              className="w-4 h-4 mr-2 filter brightness-0 invert"
+            />
             Professional Equipment & Systems
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-white mb-6">
@@ -139,7 +145,13 @@ export default function Equipment() {
                   <div
                     className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${item.color} rounded-2xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg`}
                   >
-                    <item.icon className="w-10 h-10 text-white" />
+                    <Image
+                      src={item.customIconSrc || "/placeholder.svg"}
+                      alt={item.title}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain filter brightness-0 invert"
+                    />
                   </div>
 
                   {/* Floating Indicator */}

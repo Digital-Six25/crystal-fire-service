@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState, useEffect } from "react";
-import { Shield, Award, Clock, Users } from "lucide-react";
+import { CheckCheck, Award, Clock, Users } from "lucide-react";
 
 const stats = [
-  { icon: Shield, value: "20+", label: "Years Experience" },
-  { icon: Award, value: "1000+", label: "Projects Completed" },
+  { icon: Award, value: "20+", label: "Years Experience" },
+  { icon: CheckCheck, value: "1000+", label: "Projects Completed" },
   { icon: Clock, value: "24/7", label: "Emergency Response" },
   { icon: Users, value: "50+", label: "Expert Technicians" },
 ];
@@ -52,7 +52,7 @@ export default function Hero() {
             }`}
           >
             <div className="inline-flex items-center px-4 py-2 bg-teal-500/20 rounded-full text-teal-300 text-sm font-medium mb-6 backdrop-blur-sm border border-teal-500/30">
-              <Shield className="w-4 h-4 mr-2" />
+              <CheckCheck className="w-4 h-4 mr-2" />
               Australia's Trusted Fire Protection Experts
             </div>
 
