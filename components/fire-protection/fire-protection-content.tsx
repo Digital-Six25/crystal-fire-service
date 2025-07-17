@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
   Shield,
@@ -34,6 +35,7 @@ const services = [
     link: "/fire-protection/installation",
     color: "from-blue-500 to-cyan-500",
     bgColor: "from-blue-50 to-cyan-50",
+    image: "/images/fire-extinguishers.jpg",
   },
   {
     icon: FileCheck,
@@ -51,6 +53,7 @@ const services = [
     link: "/fire-protection/compliance",
     color: "from-green-500 to-emerald-500",
     bgColor: "from-green-50 to-emerald-50",
+    image: "/images/maintenance.jpg",
   },
   {
     icon: Search,
@@ -68,6 +71,7 @@ const services = [
     link: "/fire-protection/inspection-testing",
     color: "from-purple-500 to-pink-500",
     bgColor: "from-purple-50 to-pink-50",
+    image: "/images/safety.jpg",
   },
 ];
 
@@ -132,14 +136,16 @@ export default function FireProtectionContent() {
 
   return (
     <>
-      {/* Introduction Section */}
-      <section
-        ref={ref}
-        className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
-      >
+      {/* Introduction Section with Background Image */}
+      <section ref={ref} className="py-20 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-gray-900/80 to-cyan-900/90"></div>
+        </div>
+
         {/* Background Elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div
@@ -149,18 +155,18 @@ export default function FireProtectionContent() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 mb-6">
-              <Shield className="w-5 h-5 text-blue-600 mr-2" />
-              <span className="text-blue-700 font-medium">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+              <Shield className="w-5 h-5 text-blue-300 mr-2" />
+              <span className="text-blue-200 font-medium">
                 Professional Solutions
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
                 Professional Fire Protection Solutions
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
               Crystal Fire Services provides comprehensive fire protection
               services designed to safeguard lives, property, and the
               environment. Our expert team delivers professional installation,
@@ -174,7 +180,7 @@ export default function FireProtectionContent() {
             {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-out ${
+                className={`group bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transform hover:scale-105 transition-all duration-500 ease-out ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
@@ -186,17 +192,17 @@ export default function FireProtectionContent() {
                 >
                   <achievement.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">
+                <div className="text-3xl font-bold text-white mb-2">
                   {achievement.value}
                 </div>
-                <div className="text-gray-600 text-sm">{achievement.label}</div>
+                <div className="text-gray-300 text-sm">{achievement.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid with Images */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
@@ -205,53 +211,76 @@ export default function FireProtectionContent() {
                 key={index}
                 className={`group bg-gradient-to-br ${
                   service.bgColor
-                } rounded-3xl p-8 border border-gray-200/50 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 ease-out ${
+                } rounded-3xl overflow-hidden border border-gray-200/50 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 ease-out ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <service.icon className="w-8 h-8 text-white" />
+                {/* Service Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg"}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div
+                    className={`absolute top-4 left-4 inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl shadow-lg`}
+                  >
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
 
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center text-gray-700"
-                    >
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-gray-700"
+                      >
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
 
-                <Link
-                  href={service.link}
-                  className={`group/btn inline-flex items-center px-6 py-3 bg-gradient-to-r ${service.color} text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300`}
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </Link>
+                  <Link
+                    href={service.link}
+                    className={`group/btn inline-flex items-center px-6 py-3 bg-gradient-to-r ${service.color} text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300`}
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
+      {/* Why Choose Us Section with Background Image */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/placeholder.svg?height=800&width=1600"
+            alt="Fire protection control room"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-blue-900/90 to-gray-900/95"></div>
+        </div>
+
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
@@ -305,21 +334,17 @@ export default function FireProtectionContent() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-teal-50 to-blue-50 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div
-            className={`bg-white/80 backdrop-blur-sm border border-teal-200/50 rounded-3xl p-12 shadow-xl transition-all duration-1000 ease-out delay-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <div className="text-center mb-12">
+      {/* Contact Section with Side-by-Side Layout */}
+      <section className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div
+              className={`transition-all duration-1000 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-8"
+              }`}
+            >
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-teal-500/10 to-blue-500/10 border border-teal-500/20 mb-6">
                 <Phone className="w-5 h-5 text-teal-600 mr-2" />
                 <span className="text-teal-700 font-medium">
@@ -331,50 +356,74 @@ export default function FireProtectionContent() {
                   Ready to Protect Your Property?
                 </span>
               </h3>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Contact our fire protection experts today to discuss your
                 requirements and get a comprehensive quote for your fire safety
-                needs.
+                needs. Our team is available 24/7 for emergency response and
+                consultations.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="group text-center p-8 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border border-blue-200/50 hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-8 h-8 text-white" />
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50">
+                  <div className="text-2xl font-bold text-teal-600 mb-1">
+                    24/7
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Emergency Response
+                  </div>
                 </div>
-                <h4 className="text-xl font-semibold text-blue-900 mb-4">
-                  Emergency & Consultation
-                </h4>
-                <p className="text-blue-700 mb-6">
-                  24/7 emergency response available
-                </p>
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50">
+                  <div className="text-2xl font-bold text-blue-600 mb-1">
+                    Free
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Initial Consultation
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="tel:1300790702"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
                   Call 1300 790 702
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <Phone className="ml-2 w-5 h-5" />
                 </a>
-              </div>
-
-              <div className="group text-center p-8 bg-gradient-to-br from-teal-50 to-green-50 rounded-2xl border border-teal-200/50 hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-teal-500 to-green-500 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="text-xl font-semibold text-teal-900 mb-4">
-                  Project Inquiries
-                </h4>
-                <p className="text-teal-700 mb-6">
-                  Get detailed quotes and project information
-                </p>
                 <a
                   href="mailto:projects@crystalfire.com.au"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white font-semibold rounded-xl hover:from-teal-700 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-teal-600 to-green-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
                   Email Projects Team
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <Mail className="ml-2 w-5 h-5" />
                 </a>
+              </div>
+            </div>
+
+            <div
+              className={`relative transition-all duration-1000 ease-out delay-300 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-8"
+              }`}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/protection.jpg"
+                  alt="Fire protection consultation"
+                  width={600}
+                  height={500}
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/50">
+                  <div className="text-sm font-semibold text-gray-900">
+                    Expert Consultation
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/50">
+                  <div className="text-sm font-semibold text-gray-900">
+                    Professional Service
+                  </div>
+                </div>
               </div>
             </div>
           </div>
