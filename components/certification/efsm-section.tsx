@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Shield, CheckCircle, Users, Award } from "lucide-react";
+import Link from "next/link";
 
 export default function EFSMSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -142,19 +143,26 @@ export default function EFSMSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Link
+                href={"https://www.afssfire.com.au/"}
+                target="_blank"
+                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
                 Learn More
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
 
-              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
+              <Link
+                href={"/contact"}
+                className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
+              >
                 Get Quote
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

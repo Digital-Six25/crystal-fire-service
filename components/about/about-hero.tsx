@@ -104,10 +104,10 @@ export default function AboutHero() {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
 
-              <button className="group inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-teal-300 hover:bg-teal-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+              {/* <button className="group inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-teal-300 hover:bg-teal-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
                 <Play className="mr-2 w-5 h-5 text-teal-600" />
                 Watch Story
-              </button>
+              </button> */}
             </div>
 
             {/* Stats Cards */}

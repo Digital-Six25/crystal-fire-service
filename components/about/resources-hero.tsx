@@ -113,10 +113,10 @@ export default function ResourcesHero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <button className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center">
+          {/* <button className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center">
             <Download className="w-5 h-5 mr-2" />
             Download All Resources
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

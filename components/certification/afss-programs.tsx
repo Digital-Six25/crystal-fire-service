@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { FileText, MapPin, Users, Clock } from "lucide-react";
+import Link from "next/link";
 
 export default function AFSSPrograms() {
   const { ref, isVisible } = useScrollAnimation();
@@ -130,19 +131,25 @@ export default function AFSSPrograms() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Link
+                href={"/certification/afss-management-programs"}
+                className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
                 Find out More
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
 
-              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
+              <Link
+                href={"/contact"}
+                className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
+              >
                 Contact Us
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

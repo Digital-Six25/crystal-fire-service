@@ -9,6 +9,7 @@ import {
   ClipboardMinus,
   TrendingUp,
 } from "lucide-react";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -246,9 +247,13 @@ export default function UptickContent() {
 
               {/* CTA Button */}
               <div className="mt-12 text-center">
-                <button className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:from-teal-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <Link
+                  href={"https://www.uptickhq.com/au"}
+                  target="_blank"
+                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:from-teal-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                >
                   Learn More About Uptick
-                </button>
+                </Link>
               </div>
             </div>
           </div>

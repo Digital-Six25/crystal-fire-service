@@ -14,7 +14,7 @@ import {
 const mediaFeatures = [
   {
     title: "Executive Media | Facility Perspectives",
-    url: "#",
+    url: "https://facilityperspectives.partica.online/facility-perspectives/facility-perspectives-vol-14-no-2/flipbook/56/",
     type: "Interview",
     date: "March 2024",
     description:
@@ -194,7 +194,7 @@ export default function MediaContent() {
           </div>
 
           {/* Awards & Recognition */}
-          <div className="mb-16">
+          {/* <div className="mb-16">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
               Awards & Recognition
             </h3>
@@ -230,7 +230,7 @@ export default function MediaContent() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Contact Section */}
           <div
@@ -261,9 +261,9 @@ export default function MediaContent() {
                   >
                     Call 1300 790 702
                   </a>
-                  <button className="bg-white text-purple-700 px-6 py-3 rounded-full font-semibold border-2 border-purple-200 hover:bg-purple-50 transition-all duration-300 hover:scale-105">
+                  {/* <button className="bg-white text-purple-700 px-6 py-3 rounded-full font-semibold border-2 border-purple-200 hover:bg-purple-50 transition-all duration-300 hover:scale-105">
                     Press Kit Download
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

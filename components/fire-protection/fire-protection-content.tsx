@@ -203,7 +203,7 @@ export default function FireProtectionContent() {
       </section>
 
       {/* Services Grid with Images */}
-      <section className="py-20 bg-white">
+      <section id="services" className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
             {services.map((service, index) => (

@@ -14,7 +14,7 @@ import {
 const usefulLinks = [
   {
     title: "NSW Government Fact sheet",
-    url: "#",
+    url: "https://www.planning.nsw.gov.au/Policy-and-Legislation/Buildings/Building-Regulation-and-Certification-Reform",
     description: "Official NSW Government fire safety fact sheet",
     category: "Government",
     icon: Shield,
@@ -22,7 +22,7 @@ const usefulLinks = [
   },
   {
     title: "AFSS – Effective 1st December 2017",
-    url: "#",
+    url: "https://www.planning.nsw.gov.au/~/media/Files/DPE/Other/annual-and-supplementary-fire-safety-statement-form-2017.ashx",
     description: "Annual Fire Safety Statement requirements",
     category: "Compliance",
     icon: Calendar,
@@ -31,7 +31,7 @@ const usefulLinks = [
   {
     title:
       "Fire Protection Association Australia – Fire Protection Accreditation Scheme (FPAS)",
-    url: "#",
+    url: "https://www.fpaa.com.au/fpas.aspx",
     description: "FPA Australia accreditation scheme information",
     category: "Accreditation",
     icon: Shield,
@@ -39,7 +39,7 @@ const usefulLinks = [
   },
   {
     title: "Building Fire Safety Regulation – Fact sheet August 2017",
-    url: "#",
+    url: "https://crystalfire.com.au/files/Building-Fire-Safety-Regulation-Fact-sheet-August-2017.pdf",
     description: "Building fire safety regulation guidelines",
     category: "Regulations",
     icon: AlertTriangle,
@@ -47,7 +47,7 @@ const usefulLinks = [
   },
   {
     title: "Planning Circular _Building Fire Safety Regulation",
-    url: "#",
+    url: "https://crystalfire.com.au/files/Planning-Circular_Building-Fire-Safety-Regulation.pdf",
     description: "Planning circular for building fire safety regulations",
     category: "Planning",
     icon: BookOpen,

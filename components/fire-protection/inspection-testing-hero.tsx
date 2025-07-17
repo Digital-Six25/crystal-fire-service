@@ -131,13 +131,13 @@ export default function InspectionTestingHero() {
                 Schedule Testing
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
-              <Link
+              {/* <Link
                 href="#services"
                 className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transform hover:scale-105 transition-all duration-300"
               >
                 View Services
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
+              </Link> */}
             </div>
           </div>
 

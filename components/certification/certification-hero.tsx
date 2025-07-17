@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Award, Shield, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function CertificationHero() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -106,12 +107,15 @@ export default function CertificationHero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <Link
+              href={"/fire-protection#services"}
+              className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            >
               Explore Our Services
               <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
