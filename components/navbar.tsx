@@ -77,7 +77,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-gray-800 text-white sticky top-0 z-50">
+    <header className="bg-brand-dark text-white sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -111,8 +111,8 @@ export default function Navbar() {
                       href={item.href}
                       className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-200 ${
                         isActive
-                          ? "bg-teal-500 text-white px-3 py-1 rounded"
-                          : "hover:text-teal-400"
+                          ? "bg-brand-primary text-white px-3 py-1 rounded"
+                          : "hover:text-brand-cyan"
                       }`}
                     >
                       <span>{item.name}</span>
@@ -125,12 +125,12 @@ export default function Navbar() {
 
                     {/* Dropdown */}
                     {activeDropdown === item.name && (
-                      <div className="absolute top-full left-0 mt-1 w-56 bg-gray-800 border border-gray-700 rounded-md shadow-lg py-1 z-50">
+                      <div className="absolute top-full left-0 mt-1 w-56 bg-brand-dark border border-gray-600 rounded-md shadow-lg py-1 z-50">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 hover:text-teal-400 transition-colors duration-200"
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-600 hover:text-brand-cyan transition-colors duration-200"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {dropdownItem.name}
@@ -148,8 +148,8 @@ export default function Navbar() {
                   href={item.href}
                   className={`text-sm font-medium transition-colors duration-200 ${
                     isActive
-                      ? "bg-teal-500 text-white px-3 py-1 rounded"
-                      : "hover:text-teal-400"
+                      ? "bg-brand-primary text-white px-3 py-1 rounded"
+                      : "hover:text-brand-cyan"
                   }`}
                 >
                   {item.name}
@@ -169,7 +169,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               type="button"
-              className="text-white hover:text-teal-400"
+              className="text-white hover:text-brand-cyan"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
@@ -197,8 +197,8 @@ export default function Navbar() {
                           href={item.href}
                           className={`flex-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-l ${
                             isActive
-                              ? "bg-teal-500 text-white"
-                              : "hover:text-teal-400"
+                              ? "bg-brand-primary text-white"
+                              : "hover:text-brand-cyan"
                           }`}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -210,8 +210,8 @@ export default function Navbar() {
                           }
                           className={`px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-r ${
                             isActive
-                              ? "bg-teal-500 text-white"
-                              : "hover:text-teal-400"
+                              ? "bg-brand-primary text-white"
+                              : "hover:text-brand-cyan"
                           }`}
                         >
                           <ChevronDown
@@ -233,8 +233,8 @@ export default function Navbar() {
                               href={dropdownItem.href}
                               className={`block px-3 py-2 text-sm font-medium transition-colors duration-200 rounded ${
                                 pathname === dropdownItem.href
-                                  ? "bg-teal-600 text-white"
-                                  : "text-gray-300 hover:text-teal-400"
+                                  ? "bg-brand-blue text-white"
+                                  : "text-gray-300 hover:text-brand-cyan"
                               }`}
                               onClick={() => {
                                 setMobileMenuOpen(false);
@@ -256,8 +256,8 @@ export default function Navbar() {
                     href={item.href}
                     className={`block px-3 py-2 text-sm font-medium transition-colors duration-200 rounded ${
                       isActive
-                        ? "bg-teal-500 text-white"
-                        : "hover:text-teal-400"
+                        ? "bg-brand-primary text-white"
+                        : "hover:text-brand-cyan"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -267,7 +267,7 @@ export default function Navbar() {
               })}
               <Link
                 href="/client-login"
-                className="block px-3 py-2 text-sm font-medium border border-teal-500 text-teal-400 hover:bg-teal-500 hover:text-white rounded-md mt-4 text-center transition-all duration-200"
+                className="block px-3 py-2 text-sm font-medium border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white rounded-md mt-4 text-center transition-all duration-200"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 CLIENT LOGIN

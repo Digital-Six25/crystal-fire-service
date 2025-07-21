@@ -1,8 +1,8 @@
-import Hero from "@/components/hero"
-import Services from "@/components/services"
-import Purpose from "@/components/purpose"
-import Equipment from "@/components/equipment"
-import Certifications from "@/components/certifications"
+import Hero from "@/components/hero";
+import Services from "@/components/services";
+import Purpose from "@/components/purpose";
+import Equipment from "@/components/equipment";
+import Certifications from "@/components/certifications";
 
 export default function Home() {
   return (
@@ -10,8 +10,8 @@ export default function Home() {
       <Hero />
       <Services />
       <Equipment />
-      <Purpose />
+      {/* <Purpose /> */}
       <Certifications />
     </main>
-  )
+  );
 }
