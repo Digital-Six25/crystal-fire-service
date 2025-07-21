@@ -7,7 +7,6 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -23,10 +22,10 @@ const services = [
       "Emergency repairs",
       "Compliance certification",
     ],
-    color: "from-red-500 to-orange-500",
-    bgColor: "bg-red-50",
-    iconBg: "bg-red-100",
-    iconColor: "text-red-600",
+    color: "from-brand-primary to-brand-blue",
+    bgColor: "bg-brand-light/30",
+    iconBg: "bg-brand-light",
+    iconColor: "text-brand-primary",
     link: "/fire-protection",
   },
   {
@@ -40,23 +39,19 @@ const services = [
       "Annual safety statements",
       "Regulatory support",
     ],
-    color: "from-teal-500 to-blue-500",
-    bgColor: "bg-teal-50",
-    iconBg: "bg-teal-100",
-    iconColor: "text-teal-600",
+    color: "from-brand-cyan to-brand-blue",
+    bgColor: "bg-brand-cyan/20",
+    iconBg: "bg-brand-cyan/30",
+    iconColor: "text-brand-cyan",
     link: "/certification",
   },
 ];
 
 export default function Services() {
-  const { ref, isVisible } = useScrollAnimation();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section
-      ref={ref}
-      className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
-    >
+    <section className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -69,17 +64,15 @@ export default function Services() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-20 transition-all duration-1000 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-20 transition-all duration-1000 ease-out `}
         >
-          <div className="inline-flex items-center px-4 py-2 bg-teal-100 rounded-full text-teal-700 text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-brand-light rounded-full text-brand-primary text-sm font-medium mb-6">
             <Shield className="w-4 h-4 mr-2" />
             Professional Services
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
             Our{" "}
-            <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
               Services
             </span>
           </h2>
@@ -93,11 +86,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative transition-all duration-700 ease-out ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
+              className={`group relative transition-all duration-700 ease-out `}
               style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -187,12 +176,10 @@ export default function Services() {
 
         {/* Bottom CTA Section */}
         <div
-          className={`mt-20 text-center transition-all duration-1000 ease-out delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`mt-20 text-center transition-all duration-1000 ease-out delay-500 `}
         >
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-12 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-blue-500/10"></div>
+          <div className="bg-gradient-to-r from-brand-dark to-brand-darker rounded-3xl p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/10 to-brand-blue/10"></div>
             <div className="relative">
               <h3 className="text-3xl font-bold text-white mb-4">
                 Ready to Protect Your Property?
@@ -202,17 +189,12 @@ export default function Services() {
                 our certified experts
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href={"/contact"}
-                  className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                >
+                <button className="bg-gradient-to-r from-brand-primary to-brand-blue text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-brand-blue hover:to-brand-primary transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   Get Free Assessment
-                </Link>
-                <a href="tel:1300790702">
-                  <button className="border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
-                    Call 1300 790 702
-                  </button>
-                </a>
+                </button>
+                <button className="border-2 border-brand-cyan text-brand-cyan hover:bg-brand-cyan hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
+                  Call 1300 790 702
+                </button>
               </div>
             </div>
           </div>
