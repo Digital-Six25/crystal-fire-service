@@ -21,21 +21,21 @@ const values = [
     title: "Our Mission",
     description:
       "To provide comprehensive fire protection solutions that safeguard lives, property, and the environment through innovative technology and professional excellence.",
-    color: "from-blue-500 to-blue-600",
+    color: "from-brand-primary to-brand-blue",
   },
   {
     icon: Eye,
     title: "Our Vision",
     description:
       "To build a brand based on honesty and integrity, leading to a safer community with minimal environmental impact through cost-effective solutions.",
-    color: "from-teal-500 to-teal-600",
+    color: "from-brand-cyan to-brand-blue",
   },
   {
     icon: Heart,
     title: "Our Values",
     description:
       "Integrity, excellence, innovation, and commitment to safety drive everything we do. We believe in building lasting relationships through trust and reliability.",
-    color: "from-purple-500 to-purple-600",
+    color: "from-brand-blue to-brand-primary",
   },
 ];
 
@@ -110,7 +110,7 @@ export default function AboutContent() {
                   >
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-blue-600 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand-primary group-hover:to-brand-blue transition-all duration-300">
                     {value.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -134,22 +134,12 @@ export default function AboutContent() {
             <div className="relative">
               <div className="aspect-video relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/fire-extinguishers.jpg"
+                  src="/images/solution.png"
                   alt="Professional fire protection equipment and systems"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-
-              {/* Floating Badge */}
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-900">
-                    Active 24/7
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -159,16 +149,16 @@ export default function AboutContent() {
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-8"
-            }`}
+            } text-center lg:text-left`}
           >
-            <div className="inline-flex items-center px-4 py-2 bg-teal-100 text-teal-800 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center justify-center lg:justify-start px-4 py-2 bg-brand-light text-brand-primary rounded-full text-sm font-medium mb-6 mx-auto lg:mx-0">
               <Target className="w-4 h-4 mr-2" />
               Our Purpose
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
               Safety & Protection Through
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600 block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-blue block">
                 Thoughtful Solutions
               </span>
             </h2>
@@ -189,7 +179,7 @@ export default function AboutContent() {
 
             <Link
               href="/fire-protection"
-              className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-700 text-white font-semibold rounded-xl hover:from-teal-700 hover:to-teal-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="group inline-flex justify-center lg:justify-start items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 mx-auto lg:mx-0"
             >
               Explore Our Services
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -204,16 +194,16 @@ export default function AboutContent() {
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-8"
-            }`}
+            } text-center lg:text-left`}
           >
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center justify-center lg:justify-start px-4 py-2 bg-brand-cyan/20 text-brand-cyan rounded-full text-sm font-medium mb-6 mx-auto lg:mx-0">
               <Shield className="w-4 h-4 mr-2" />
               Australian Owned & Operated
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
               Two Decades of
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-blue block">
                 Trusted Expertise
               </span>
             </h2>
@@ -225,59 +215,47 @@ export default function AboutContent() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-3 items-center text-center sm:text-left">
+                <CheckCircle className="w-6 h-6 text-brand-primary mb-2 sm:mb-0 flex-shrink-0" />
                 <p className="text-gray-600">
                   Leaders in our field offering customised and cost effective
                   solutions to all clients - large and small
                 </p>
               </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-3 items-center text-center sm:text-left">
+                <CheckCircle className="w-6 h-6 text-brand-primary mb-2 sm:mb-0 flex-shrink-0" />
                 <p className="text-gray-600">
                   Services are certified, insured and adhere to Australian
                   standards
                 </p>
               </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-3 items-center text-center sm:text-left">
+                <CheckCircle className="w-6 h-6 text-brand-primary mb-2 sm:mb-0 flex-shrink-0" />
                 <p className="text-gray-600">
                   Service commercial, industrial and residential properties
                   across the Sydney region
                 </p>
               </div>
             </div>
-
-            <Link
-              href="/about/our-team"
-              className="group inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
-            >
-              Meet Our Team
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
           </div>
 
           <div
-            className={`order-1 lg:order-2 relative transition-all duration-1000 ease-out delay-700 ${
+            className={`order-1 lg:order-2 transition-all duration-1000 ease-out delay-700 ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-8"
             }`}
           >
             <div className="relative">
-              <div className="aspect-video relative rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="aspect-video relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/expertise.jpg"
-                  alt="Professional technician maintaining fire safety equipment"
+                  alt="Experienced fire protection specialists"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-r from-teal-400 to-blue-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
             </div>
           </div>
         </div>
@@ -301,10 +279,10 @@ export default function AboutContent() {
             {achievements.map((achievement, index) => (
               <Card
                 key={index}
-                className="group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 border-gray-100 hover:border-teal-200 text-center"
+                className="group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 border-gray-100 hover:border-brand-primary text-center"
               >
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-brand-primary to-brand-blue rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <achievement.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-gray-900 mb-2">
