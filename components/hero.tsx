@@ -74,23 +74,36 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Stats */}
-            <div className="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className={`text-center transition-all duration-1000 ease-out `}
-                  style={{ transitionDelay: `${(index + 3) * 200}ms` }}
-                >
-                  <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/20 rounded-full mx-auto mb-3 backdrop-blur-sm border border-brand-primary/30">
-                    <stat.icon className="w-6 h-6 text-brand-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-brand-dark">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
-                </div>
-              ))}
+            {/* Certification Images */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 pt-6">
+              <div className="flex items-center justify-center sm:justify-start  p-3 ">
+                <img
+                  src="/images/iso-14001.png"
+                  alt="ISO 14001 Certification"
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center sm:justify-start  p-3 ">
+                <img
+                  src="/images/iso-45001.jpg"
+                  alt="ISO 45001 Certification"
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center sm:justify-start  p-3 ">
+                <img
+                  src="/images/iso-9001.png"
+                  alt="ISO 9001 Certification"
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center sm:justify-start  p-3 ">
+                <img
+                  src="/images/jasanz.png"
+                  alt="JAS-ANZ Accreditation"
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
             </div>
           </div>
 

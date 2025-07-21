@@ -1,8 +1,9 @@
 "use client";
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { useState } from "react";
+import { FireExtinguisher } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const equipment = [
   {
@@ -103,13 +104,7 @@ export default function Equipment() {
           }`}
         >
           <div className="inline-flex items-center px-6 py-3 bg-brand-primary/10 backdrop-blur-sm border border-brand-primary/20 rounded-full text-brand-primary text-sm font-medium mb-8">
-            <Image
-              src="/images/fire-extinguisher.png"
-              alt="Fire equipment icon"
-              width={16}
-              height={16}
-              className="w-4 h-4 mr-2 filter brightness-0 invert"
-            />
+            <FireExtinguisher className="w-4 h-4 mr-2" />
             Professional Equipment & Systems
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-brand-dark mb-6">
