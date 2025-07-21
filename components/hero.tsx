@@ -116,7 +116,7 @@ export default function Hero() {
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-cyan/20 to-brand-primary/20 backdrop-blur-sm border border-white/20">
                 <div className="absolute inset-4">
                   <Image
-                    src="/images/fire-extinguishers.png"
+                    src="/images/home-hero.png"
                     alt="Professional fire protection equipment and safety systems"
                     fill
                     className="object-cover rounded-2xl"

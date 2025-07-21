@@ -9,13 +9,16 @@ export default function ContactHero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"
+      className="relative min-h-screen bg-gradient-to-br from-brand-light via-white to-brand-light/50 overflow-hidden flex items-center justify-center"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full blur-3xl animate-pulse delay-500" />
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
@@ -25,24 +28,24 @@ export default function ContactHero() {
           }`}
         >
           {/* Professional Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8">
-            <Phone className="w-5 h-5 text-blue-400" />
-            <span className="text-white/90 font-medium">
+          <div className="inline-flex items-center gap-2 bg-brand-primary/10 rounded-full px-6 py-3 mb-8">
+            <Phone className="w-5 h-5 text-brand-primary" />
+            <span className="text-brand-primary font-medium">
               Professional Fire Protection Services
             </span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
               Contact Our
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
               Fire Safety Experts
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-white/80 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
             Ready to protect your property? Get in touch with Australia's
             leading fire protection specialists for expert advice and
             professional service.
@@ -50,30 +53,30 @@ export default function ContactHero() {
 
           {/* Quick Contact Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-brand-primary transition-all duration-300 hover:scale-105 shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-r from-brand-primary to-brand-blue rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white mb-2">24/7</div>
-              <div className="text-white/70">Emergency Response</div>
+              <div className="text-2xl font-bold text-gray-900 mb-2">24/7</div>
+              <div className="text-gray-600">Emergency Response</div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-brand-primary transition-all duration-300 hover:scale-105 shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white mb-2">
+              <div className="text-2xl font-bold text-gray-900 mb-2">
                 {"<2hrs"}
               </div>
-              <div className="text-white/70">Response Time</div>
+              <div className="text-gray-600">Response Time</div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-brand-primary transition-all duration-300 hover:scale-105 shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white mb-2">3</div>
-              <div className="text-white/70">Office Locations</div>
+              <div className="text-2xl font-bold text-gray-900 mb-2">3</div>
+              <div className="text-gray-600">Office Locations</div>
             </div>
           </div>
 
@@ -81,7 +84,7 @@ export default function ContactHero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:1300790702"
-              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 flex items-center justify-center gap-2"
+              className="group bg-gradient-to-r from-brand-primary to-brand-blue text-white px-8 py-4 rounded-xl font-semibold hover:from-brand-blue hover:to-brand-primary transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call Now: 1300 790 702
@@ -91,7 +94,7 @@ export default function ContactHero() {
             </a>
             <a
               href="mailto:hello@crystalfire.com.au"
-              className="group bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+              className="group border-2 border-brand-cyan text-brand-cyan hover:bg-brand-cyan hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 bg-transparent"
             >
               <Mail className="w-5 h-5" />
               Email Us
@@ -100,13 +103,6 @@ export default function ContactHero() {
               </span>
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>
