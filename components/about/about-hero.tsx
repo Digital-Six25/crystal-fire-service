@@ -1,8 +1,8 @@
 "use client";
 
+import { ArrowRight, Award } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play, Award } from "lucide-react";
 
 export default function AboutHero() {
   return (
@@ -64,7 +64,7 @@ export default function AboutHero() {
 
             {/* Certification Images */}
             <div
-              className={`grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center transition-all duration-1000 ease-out delay-600`}
+              className={`grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-2 justify-items-center transition-all duration-1000 ease-out delay-600`}
             >
               <div className="flex justify-center items-center w-20 h-16 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
                 <Image

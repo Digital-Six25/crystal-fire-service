@@ -149,9 +149,9 @@ export default function AboutContent() {
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-8"
-            }`}
+            } text-center lg:text-left`}
           >
-            <div className="inline-flex items-center px-4 py-2 bg-brand-light text-brand-primary rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center justify-center lg:justify-start px-4 py-2 bg-brand-light text-brand-primary rounded-full text-sm font-medium mb-6 mx-auto lg:mx-0">
               <Target className="w-4 h-4 mr-2" />
               Our Purpose
             </div>
@@ -179,7 +179,7 @@ export default function AboutContent() {
 
             <Link
               href="/fire-protection"
-              className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="group inline-flex justify-center lg:justify-start items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 mx-auto lg:mx-0"
             >
               Explore Our Services
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -194,9 +194,9 @@ export default function AboutContent() {
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-8"
-            }`}
+            } text-center lg:text-left`}
           >
-            <div className="inline-flex items-center px-4 py-2 bg-brand-cyan/20 text-brand-cyan rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center justify-center lg:justify-start px-4 py-2 bg-brand-cyan/20 text-brand-cyan rounded-full text-sm font-medium mb-6 mx-auto lg:mx-0">
               <Shield className="w-4 h-4 mr-2" />
               Australian Owned & Operated
             </div>
@@ -215,40 +215,32 @@ export default function AboutContent() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-brand-primary mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-3 items-center text-center sm:text-left">
+                <CheckCircle className="w-6 h-6 text-brand-primary mb-2 sm:mb-0 flex-shrink-0" />
                 <p className="text-gray-600">
                   Leaders in our field offering customised and cost effective
                   solutions to all clients - large and small
                 </p>
               </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-brand-primary mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-3 items-center text-center sm:text-left">
+                <CheckCircle className="w-6 h-6 text-brand-primary mb-2 sm:mb-0 flex-shrink-0" />
                 <p className="text-gray-600">
                   Services are certified, insured and adhere to Australian
                   standards
                 </p>
               </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-brand-primary mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-3 items-center text-center sm:text-left">
+                <CheckCircle className="w-6 h-6 text-brand-primary mb-2 sm:mb-0 flex-shrink-0" />
                 <p className="text-gray-600">
                   Service commercial, industrial and residential properties
                   across the Sydney region
                 </p>
               </div>
             </div>
-
-            <Link
-              href="/about/our-team"
-              className="group inline-flex items-center px-6 py-3 bg-white text-brand-primary font-semibold rounded-xl border-2 border-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
-            >
-              Meet Our Team
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
           </div>
 
           <div
-            className={`order-1 lg:order-2 relative transition-all duration-1000 ease-out delay-700 ${
+            className={`order-1 lg:order-2 transition-all duration-1000 ease-out delay-700 ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-8"
@@ -258,7 +250,7 @@ export default function AboutContent() {
               <div className="aspect-video relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/expertise.jpg"
-                  alt="Professional technician maintaining fire safety equipment"
+                  alt="Experienced fire protection specialists"
                   fill
                   className="object-cover"
                 />
