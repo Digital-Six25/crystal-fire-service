@@ -27,7 +27,7 @@ export default function InspectionTestingContent() {
                   : "opacity-0 -translate-x-8"
               }`}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-6">
                 PROFESSIONAL FIRE SYSTEM TESTING
               </h2>
 
@@ -52,18 +52,64 @@ export default function InspectionTestingContent() {
                 the NSW Fire Brigade.
               </p>
 
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+              <div className="bg-gradient-to-r from-brand-light/30 to-white rounded-2xl p-6 border border-brand-primary/20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {["AS1851", "BCA", "CFSP", "ISO9001"].map((cert, index) => (
-                    <div key={index} className="text-center">
-                      <div className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2">
-                        <Award className="w-6 h-6 text-purple-600" />
-                      </div>
-                      <div className="text-sm font-semibold text-gray-700">
-                        {cert}
-                      </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/iso-9001.png"
+                        alt="ISO 9001"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
                     </div>
-                  ))}
+                    <div className="text-sm font-semibold text-gray-700">
+                      ISO 9001
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/iso-14001.png"
+                        alt="FPA Australia"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">
+                      FPA Australia
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/iso-45001.jpg"
+                        alt="JAS-ANZ"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">
+                      JAS-ANZ
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/jasanz.png"
+                        alt="FMA"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">
+                      FMA
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,24 +132,12 @@ export default function InspectionTestingContent() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
-
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                  <span className="text-sm font-semibold text-purple-600">
-                    Certified Testing
-                  </span>
-                </div>
-
-                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                  <span className="text-sm font-semibold text-gray-700">
-                    25+ Years
-                  </span>
-                </div>
               </div>
             </div>
           </div>
 
           {/* FAQ Section - Our Testing Services Cover */}
-          <div className="bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl p-8 mb-20">
+          <div className="bg-gradient-to-br from-brand-light/20 to-white rounded-2xl p-8 mb-20">
             <div
               className={`text-center mb-12 transition-all duration-1000 ease-out delay-500 ${
                 isVisible
@@ -112,12 +146,12 @@ export default function InspectionTestingContent() {
               }`}
             >
               <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6">
-                <CheckCircle className="w-6 h-6 text-purple-600" />
+                <CheckCircle className="w-6 h-6 text-brand-primary" />
                 <span className="font-semibold text-gray-900">
                   Our Services
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-6">
                 OUR TESTING SERVICES COVER:
               </h3>
             </div>
@@ -126,11 +160,11 @@ export default function InspectionTestingContent() {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="inspection-testing"
-                  className="border border-purple-200 rounded-lg bg-white/80 backdrop-blur-sm"
+                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
                 >
                   <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-purple-600" />
+                      <ArrowRight className="w-5 h-5 text-brand-primary" />
                       Inspection Testing
                     </div>
                   </AccordionTrigger>
@@ -145,11 +179,11 @@ export default function InspectionTestingContent() {
 
                 <AccordionItem
                   value="fire-suppression"
-                  className="border border-purple-200 rounded-lg bg-white/80 backdrop-blur-sm"
+                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
                 >
                   <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-purple-600" />
+                      <ArrowRight className="w-5 h-5 text-brand-primary" />
                       Fire Suppression Systems
                     </div>
                   </AccordionTrigger>
@@ -164,11 +198,11 @@ export default function InspectionTestingContent() {
 
                 <AccordionItem
                   value="fire-maintenance"
-                  className="border border-purple-200 rounded-lg bg-white/80 backdrop-blur-sm"
+                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
                 >
                   <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-purple-600" />
+                      <ArrowRight className="w-5 h-5 text-brand-primary" />
                       Fire Maintenance Systems
                     </div>
                   </AccordionTrigger>
@@ -182,11 +216,11 @@ export default function InspectionTestingContent() {
 
                 <AccordionItem
                   value="portable-equipment"
-                  className="border border-purple-200 rounded-lg bg-white/80 backdrop-blur-sm"
+                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
                 >
                   <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-purple-600" />
+                      <ArrowRight className="w-5 h-5 text-brand-primary" />
                       Portable Fire Equipment
                     </div>
                   </AccordionTrigger>
@@ -201,11 +235,11 @@ export default function InspectionTestingContent() {
 
                 <AccordionItem
                   value="detection-evacuation"
-                  className="border border-purple-200 rounded-lg bg-white/80 backdrop-blur-sm"
+                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
                 >
                   <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-purple-600" />
+                      <ArrowRight className="w-5 h-5 text-brand-primary" />
                       Fire Detection & Emergency Evacuation Systems
                     </div>
                   </AccordionTrigger>
@@ -224,10 +258,10 @@ export default function InspectionTestingContent() {
       </section>
 
       {/* Why Choose Our Testing Services */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-brand-primary via-brand-blue to-brand-cyan text-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-brand-light/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
@@ -239,10 +273,10 @@ export default function InspectionTestingContent() {
             }`}
           >
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6">
-              <Award className="w-6 h-6 text-purple-300" />
+              <Award className="w-6 h-6" />
               <span className="font-semibold text-white">Why Choose Us</span>
             </div>
-            <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent mb-6">
+            <h3 className="text-3xl sm:text-4xl font-bold bg-clip-text  mb-6">
               WHY CHOOSE OUR TESTING SERVICES?
             </h3>
           </div>
@@ -292,16 +326,14 @@ export default function InspectionTestingContent() {
                 <h4 className="text-lg font-semibold text-white mb-3">
                   {item.title}
                 </h4>
-                <p className="text-purple-100 text-sm leading-relaxed">
-                  {item.description}
-                </p>
+                <p className="text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
 
           {/* Contact Section */}
           <div
-            className={`bg-gradient-to-r from-purple-600/80 to-pink-600/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 transition-all duration-1000 ease-out delay-1000 ${
+            className={`bg-gradient-to-r from-brand-primary/80 to-brand-blue/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 transition-all duration-1000 ease-out delay-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
@@ -311,7 +343,7 @@ export default function InspectionTestingContent() {
               <h3 className="text-2xl font-bold text-white mb-4">
                 Schedule Your Fire System Testing
               </h3>
-              <p className="text-purple-100 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-brand-light leading-relaxed max-w-2xl mx-auto">
                 Don't wait until it's too late. Contact our testing specialists
                 today to schedule your fire system inspection and ensure your
                 property remains compliant and protected.
@@ -326,12 +358,12 @@ export default function InspectionTestingContent() {
                     Emergency & Scheduling
                   </h4>
                 </div>
-                <p className="text-purple-100 mb-4">
+                <p className="text-brand-light mb-4">
                   24/7 emergency testing available
                 </p>
                 <a
                   href="tel:1300790702"
-                  className="inline-block bg-white text-purple-600 px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
+                  className="inline-block bg-white text-brand-primary px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
                 >
                   Call 1300 790 702
                 </a>
@@ -344,12 +376,12 @@ export default function InspectionTestingContent() {
                     Testing Inquiries
                   </h4>
                 </div>
-                <p className="text-purple-100 mb-4">
+                <p className="text-brand-light mb-4">
                   Get detailed testing schedules and quotes
                 </p>
                 <a
                   href="mailto:testing@crystalfire.com.au"
-                  className="inline-block bg-white text-purple-600 px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
+                  className="inline-block bg-white text-brand-primary px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
                 >
                   Email Testing Team
                 </a>

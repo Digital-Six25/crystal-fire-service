@@ -336,7 +336,7 @@ export default function FireProtectionContent() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/firefighter.jpg"
+                  src="/images/plan.png"
                   alt="Fire protection consultation"
                   width={600}
                   height={500}

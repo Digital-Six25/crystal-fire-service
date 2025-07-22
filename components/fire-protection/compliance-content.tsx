@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import {
-  ArrowRight,
-  Shield,
-  CheckCircle,
-  Clock,
-  Users,
-  Award,
-} from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 
 const complianceServices = [
   "Asset based reporting",
@@ -35,7 +28,7 @@ export default function ComplianceContent() {
                   : "opacity-0 -translate-x-8"
               }`}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-6">
                 COMPREHENSIVE COMPLIANCE SERVICES
               </h2>
 
@@ -49,7 +42,7 @@ export default function ComplianceContent() {
               <div className="space-y-4 mb-8">
                 {complianceServices.map((service, index) => (
                   <div key={index} className="flex items-center group">
-                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-200">
+                    <div className="w-8 h-8 bg-gradient-to-r from-brand-primary to-brand-blue rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-200">
                       <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-200" />
                     </div>
                     <span className="text-gray-700 font-medium">{service}</span>
@@ -57,18 +50,64 @@ export default function ComplianceContent() {
                 ))}
               </div>
 
-              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100">
+              <div className="bg-gradient-to-r from-brand-light/30 to-white rounded-2xl p-6 border border-brand-primary/20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {["AS1851", "BCA", "CFSP", "ISO9001"].map((cert, index) => (
-                    <div key={index} className="text-center">
-                      <div className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2">
-                        <Award className="w-6 h-6 text-emerald-600" />
-                      </div>
-                      <div className="text-sm font-semibold text-gray-700">
-                        {cert}
-                      </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/iso-9001.png"
+                        alt="ISO 9001"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
                     </div>
-                  ))}
+                    <div className="text-sm font-semibold text-gray-700">
+                      ISO 9001
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/iso-14001.png"
+                        alt="FPA Australia"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">
+                      FPA Australia
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/iso-45001.jpg"
+                        alt="JAS-ANZ"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">
+                      JAS-ANZ
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
+                      <Image
+                        src="/images/jasanz.png"
+                        alt="FMA"
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">
+                      FMA
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,18 +130,6 @@ export default function ComplianceContent() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
-
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                  <span className="text-sm font-semibold text-emerald-600">
-                    Certified Compliance
-                  </span>
-                </div>
-
-                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                  <span className="text-sm font-semibold text-gray-700">
-                    25+ Years
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -110,10 +137,10 @@ export default function ComplianceContent() {
       </section>
 
       {/* When Is Testing Required Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-brand-primary via-brand-blue to-brand-cyan text-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-brand-light/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
@@ -125,12 +152,12 @@ export default function ComplianceContent() {
             }`}
           >
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6">
-              <Clock className="w-6 h-6 text-blue-300" />
+              <Clock className="w-6 h-6 text-brand-light" />
               <span className="font-semibold text-white">
                 Compliance Requirements
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-brand-light to-white bg-clip-text text-transparent mb-4">
               WHEN IS TESTING REQUIRED?
             </h2>
           </div>
@@ -143,7 +170,7 @@ export default function ComplianceContent() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-xl font-semibold text-blue-300 mb-4">
+              <h3 className="text-xl font-semibold text-brand-light mb-4">
                 Legal Requirements
               </h3>
               <p className="text-gray-300 leading-relaxed text-lg">
@@ -160,7 +187,7 @@ export default function ComplianceContent() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-xl font-semibold text-indigo-300 mb-4">
+              <h3 className="text-xl font-semibold text-white mb-4">
                 Testing Frequency
               </h3>
               <p className="text-gray-300 leading-relaxed text-lg">
@@ -178,7 +205,7 @@ export default function ComplianceContent() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-xl font-semibold text-cyan-300 mb-4">
+              <h3 className="text-xl font-semibold text-brand-light mb-4">
                 Our Service Promise
               </h3>
               <p className="text-gray-300 leading-relaxed text-lg">
