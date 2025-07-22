@@ -49,12 +49,12 @@ export default function ContactMap() {
   return (
     <section
       ref={ref}
-      className="relative py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-hidden"
+      className="relative py-20 bg-gradient-to-br from-brand-light via-white to-brand-light/50 overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-20 left-20 w-72 h-72 bg-brand-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -63,17 +63,17 @@ export default function ContactMap() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary rounded-full px-4 py-2 mb-6">
             <MapPin className="w-4 h-4" />
             <span className="font-medium">Visit Our Offices</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary via-brand-blue to-brand-cyan bg-clip-text text-transparent">
               Our Locations Across
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
               Australia
             </span>
           </h2>
@@ -229,7 +229,7 @@ export default function ContactMap() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                  className="bg-gradient-to-r  text-white px-6 py-3 rounded-xl font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
                   <Navigation className="w-4 h-4" />
                   Get Directions
@@ -247,7 +247,7 @@ export default function ContactMap() {
         </div>
 
         {/* Service Coverage */}
-        <div
+        {/* <div
           className={`mt-16 transition-all duration-1000 ease-out delay-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
@@ -312,7 +312,7 @@ export default function ContactMap() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

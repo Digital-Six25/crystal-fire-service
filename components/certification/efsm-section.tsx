@@ -3,29 +3,24 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Shield, CheckCircle, Users, Award } from "lucide-react";
-import Link from "next/link";
 
 export default function EFSMSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   const keyPoints = [
     {
-      icon: Shield,
       title: "Safety Systems",
       description: "Fire and life safety systems for buildings",
     },
     {
-      icon: CheckCircle,
       title: "Compliance",
       description: "Meet statutory obligations effectively",
     },
     {
-      icon: Users,
       title: "Peace of Mind",
       description: "Reduce risk to life and property",
     },
     {
-      icon: Award,
       title: "Expert Service",
       description: "Professional maintenance solutions",
     },
@@ -34,11 +29,11 @@ export default function EFSMSection() {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-brand-primary via-brand-blue to-brand-cyan text-white relative overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-light/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -52,25 +47,12 @@ export default function EFSMSection() {
           >
             <div className="aspect-square relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600/20 to-indigo-600/20 backdrop-blur-sm border border-white/10">
               <Image
-                src="/images/safety.jpg"
+                src="/images/Image-5.png"
                 alt="Professional fire sprinkler system - Essential Fire Safety Measures"
                 fill
                 className="object-cover rounded-3xl"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-indigo-900/30"></div>
-            </div>
-
-            {/* Floating Badge */}
-            <div className="absolute -top-6 -right-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
-              <div className="flex items-center">
-                <Award className="w-6 h-6 text-yellow-400 mr-2" />
-                <div>
-                  <div className="text-sm font-semibold text-white">
-                    Certified
-                  </div>
-                  <div className="text-xs text-white/80">EFSM Experts</div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -83,25 +65,25 @@ export default function EFSMSection() {
             }`}
           >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-              <Shield className="w-5 h-5 text-blue-400 mr-2" />
+              <Shield className="w-5 h-5  mr-2" />
               <span className="text-white font-medium">
                 Essential Safety Measures
               </span>
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-light to-white bg-clip-text text-transparent">
                 ESSENTIAL FIRE
               </span>
               <br />
-              <span className="bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-brand-light bg-clip-text text-transparent">
                 SAFETY MEASURES
               </span>
               <br />
               <span className="text-white text-2xl">(EFSM)</span>
             </h2>
 
-            <div className="space-y-6 text-blue-100 leading-relaxed mb-8">
+            <div className="space-y-6 leading-relaxed mb-8">
               <p className="text-lg">
                 EFSM are defined as the fire and life safety systems installed
                 or constructed in buildings to ensure adequate levels of safety
@@ -133,36 +115,28 @@ export default function EFSMSection() {
                   }`}
                   style={{ transitionDelay: `${(index + 4) * 150}ms` }}
                 >
-                  <point.icon className="w-6 h-6 text-blue-400 mb-2" />
                   <h3 className="font-semibold text-white mb-1">
                     {point.title}
                   </h3>
-                  <p className="text-sm text-blue-100">{point.description}</p>
+                  <p className="text-sm ">{point.description}</p>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href={"https://www.afssfire.com.au/"}
-                target="_blank"
-                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              >
+              <button className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-primary/90 hover:to-brand-blue/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 Learn More
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </Link>
+              </button>
 
-              <Link
-                href={"/contact"}
-                className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
-              >
+              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
                 Get Quote
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

@@ -27,25 +27,25 @@ export default function AFSSContent() {
       icon: Clock,
       title: "Time Efficient",
       description: "Streamlined process saves you valuable time",
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-brand-primary to-brand-blue",
     },
     {
       icon: Shield,
       title: "100% Compliant",
       description: "Guaranteed compliance with all regulations",
-      gradient: "from-emerald-500 to-teal-500",
+      gradient: "from-brand-blue to-brand-cyan",
     },
     {
       icon: Users,
       title: "Expert Team",
       description: "Qualified fire safety practitioners",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-brand-cyan to-brand-primary",
     },
     {
       icon: Award,
       title: "Certified Process",
       description: "Government approved methodology",
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-brand-primary to-brand-cyan",
     },
   ];
 
@@ -75,11 +75,11 @@ export default function AFSSContent() {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-br from-gray-50 to-emerald-50 relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-brand-light via-white to-brand-light/50 relative overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         {/* Introduction Section */}
@@ -88,14 +88,14 @@ export default function AFSSContent() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200 mb-6">
-            <FileText className="w-5 h-5 text-emerald-600 mr-2" />
-            <span className="text-emerald-800 font-semibold">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-6">
+            <FileText className="w-5 h-5 text-brand-primary mr-2" />
+            <span className="text-brand-primary font-semibold">
               AFSS Management Solutions
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
               Annual Fire Safety Statement
             </span>
             <br />
@@ -143,11 +143,11 @@ export default function AFSSContent() {
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
                 OUR SERVICE PROCESS
               </span>
             </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-brand-primary to-brand-cyan mx-auto rounded-full"></div>
           </div>
 
           {/* Process Steps */}
@@ -162,7 +162,7 @@ export default function AFSSContent() {
                 }`}
                 style={{ transitionDelay: `${(index + 5) * 150}ms` }}
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
+                <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-blue rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
                   {step.step}
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-gray-800">
@@ -181,14 +181,14 @@ export default function AFSSContent() {
             {serviceInvolves.map((service, index) => (
               <div
                 key={index}
-                className={`flex items-start space-x-4 bg-gradient-to-r from-emerald-50 to-teal-50 p-4 rounded-xl border border-emerald-100 hover:shadow-md transition-all duration-300 ${
+                className={`flex items-start space-x-4 bg-gradient-to-r from-brand-light/30 to-white p-4 rounded-xl border border-brand-primary/20 hover:shadow-md transition-all duration-300 ${
                   isVisible
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-8"
                 }`}
                 style={{ transitionDelay: `${(index + 8) * 150}ms` }}
               >
-                <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mt-0.5">
+                <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-brand-primary to-brand-blue rounded-full flex items-center justify-center mt-0.5">
                   <CheckCircle className="w-4 h-4 text-white" />
                 </div>
                 <span className="text-gray-700 leading-relaxed font-medium">
@@ -199,7 +199,7 @@ export default function AFSSContent() {
           </div>
 
           <div
-            className={`mt-8 bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-2xl border border-emerald-200 transition-all duration-1000 ease-out delay-1000 ${
+            className={`mt-8 bg-gradient-to-r from-brand-light/30 to-white p-6 rounded-2xl border border-brand-primary/20 transition-all duration-1000 ease-out delay-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
@@ -214,7 +214,7 @@ export default function AFSSContent() {
 
         {/* Why We Offer This Service Section */}
         <div
-          className={`bg-gradient-to-r from-gray-800 to-emerald-800 rounded-3xl p-8 lg:p-12 text-white mb-16 transition-all duration-1000 ease-out delay-600 ${
+          className={`bg-gradient-to-r from-gray-800 to-brand-primary rounded-3xl p-8 lg:p-12 text-white mb-16 transition-all duration-1000 ease-out delay-600 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -226,7 +226,7 @@ export default function AFSSContent() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-emerald-100 leading-relaxed">
+            <div className="space-y-6 text-brand-light leading-relaxed">
               <p>
                 Recent changes to the Environmental Planning and Assessment
                 Regulation 2000 (the regulations) that became effective on 1
@@ -244,7 +244,7 @@ export default function AFSSContent() {
               </p>
             </div>
 
-            <div className="space-y-6 text-emerald-100 leading-relaxed">
+            <div className="space-y-6 text-brand-light leading-relaxed">
               <p>
                 Crystal Fire Services has worked with Industry bodies and within
                 Government guidelines to ensure we continue to maintain all of
@@ -262,7 +262,7 @@ export default function AFSSContent() {
 
         {/* Contact Section */}
         <div
-          className={`bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl p-8 lg:p-12 text-white transition-all duration-1000 ease-out delay-800 ${
+          className={`bg-gradient-to-r from-brand-primary to-brand-blue rounded-3xl p-8 lg:p-12 text-white transition-all duration-1000 ease-out delay-800 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -270,7 +270,7 @@ export default function AFSSContent() {
             <h3 className="text-3xl font-bold mb-4">
               Get Started with AFSS Management
             </h3>
-            <p className="text-emerald-100 leading-relaxed max-w-2xl mx-auto text-lg">
+            <p className="text-brand-light leading-relaxed max-w-2xl mx-auto text-lg">
               Contact our AFSS specialists to discuss your fire safety
               compliance requirements and learn how our management programs can
               streamline your processes.
@@ -283,12 +283,12 @@ export default function AFSSContent() {
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-semibold text-xl mb-2">Phone Consultation</h4>
-              <p className="text-emerald-100 mb-4">
+              <p className="text-brand-light mb-4">
                 Speak directly with our AFSS experts
               </p>
               <a
                 href="tel:1300790702"
-                className="inline-block bg-white text-emerald-600 px-6 py-3 rounded-xl hover:bg-emerald-50 transition-all duration-300 font-semibold hover:scale-105"
+                className="inline-block bg-white text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light transition-all duration-300 font-semibold hover:scale-105"
               >
                 Call 1300 790 702
               </a>
@@ -299,12 +299,12 @@ export default function AFSSContent() {
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-semibold text-xl mb-2">Email Inquiry</h4>
-              <p className="text-emerald-100 mb-4">
+              <p className="text-brand-light mb-4">
                 Get detailed information via email
               </p>
               <a
                 href="mailto:afss@crystalfire.com.au"
-                className="inline-block bg-white text-emerald-600 px-6 py-3 rounded-xl hover:bg-emerald-50 transition-all duration-300 font-semibold hover:scale-105"
+                className="inline-block bg-white text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light transition-all duration-300 font-semibold hover:scale-105"
               >
                 Email Us
               </a>
