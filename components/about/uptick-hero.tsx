@@ -58,14 +58,27 @@ export default function UptickHero() {
           ></div>
 
           <p
-            className={`text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 ease-out delay-400 ${
+            className={`text-xl sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 ease-out delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
-            Revolutionary fire maintenance management system transforming how
-            Australia manages fire safety compliance
+            At Crystal Fire Services, we use Uptick, a leading fire protection
+            software that streamlines compliance, asset management and
+            reporting.
+          </p>
+          <p
+            className={`text-xl sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 ease-out delay-400 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            It enables real-time job tracking, digital service records and clear
+            communication, giving clients full visibility and confidence. With
+            Uptick, we deliver faster, more accurate fire safety services that
+            keep your building compliant.
           </p>
         </div>
       </div>

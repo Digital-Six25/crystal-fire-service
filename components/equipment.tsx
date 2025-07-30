@@ -56,7 +56,7 @@ const equipment = [
       "Emergency alerts",
       "Audio systems",
     ],
-    customIconSrc: "/images/firewall-protection-ewis.png",
+    customIconSrc: "/images/alarm.png",
   },
   {
     title: "FIRE PUMPSETS",
@@ -184,45 +184,12 @@ export default function Equipment() {
                     </ul>
                   </div>
                 </div>
-
-                {/* Learn More Button */}
-                <div className="transition-all duration-500 opacity-100 translate-y-0">
-                  <button className="w-full bg-gradient-to-r from-brand-primary to-brand-blue text-white py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:scale-105 hover:from-brand-blue hover:to-brand-primary">
-                    Learn More
-                  </button>
-                </div>
-
                 {/* Decorative Elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-brand-primary/10 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-brand-primary/5 to-transparent rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom Stats */}
-        <div
-          className={`mt-20 transition-all duration-1000 ease-out delay-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "6", label: "Equipment Categories" },
-              { number: "1000+", label: "Installations" },
-              { number: "24/7", label: "Support Available" },
-              { number: "100%", label: "Compliance Rate" },
-            ].map((stat, index) => (
-              <div key={index} className="group">
-                <div className="text-4xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 text-sm font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

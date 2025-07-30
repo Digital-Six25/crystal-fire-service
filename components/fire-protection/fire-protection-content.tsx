@@ -317,13 +317,13 @@ export default function FireProtectionContent() {
                   Call 1300 790 702
                   <Phone className="ml-2 w-5 h-5" />
                 </a>
-                <a
-                  href="mailto:projects@crystalfire.com.au"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-brand-cyan to-brand-blue text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
-                  Email Projects Team
+                  Contact Us
                   <Mail className="ml-2 w-5 h-5" />
-                </a>
+                </Link>
               </div>
             </div>
 

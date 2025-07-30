@@ -125,7 +125,7 @@ export default function CertificationContent() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 text-blue-100 leading-relaxed">
+              <div className="space-y-6 text-white leading-relaxed">
                 <p className="text-lg">
                   In the wake of the NSW Government's announcements of major
                   reforms to the state's fire safety and building regulations,
@@ -295,7 +295,7 @@ export default function CertificationContent() {
             <h3 className="text-3xl font-bold mb-4">
               Need Expert Certification Guidance?
             </h3>
-            <p className="text-brand-light/80 leading-relaxed max-w-2xl mx-auto text-lg">
+            <p className="text-white leading-relaxed max-w-2xl mx-auto text-lg">
               Our certified fire safety practitioners are ready to help you
               navigate the complex world of fire safety compliance and
               certification requirements.
@@ -308,7 +308,7 @@ export default function CertificationContent() {
                 <Phone className="w-6 h-6 text-brand-light" />
               </div>
               <h4 className="font-semibold text-xl mb-2">Phone Consultation</h4>
-              <p className="text-brand-light/80 mb-4">
+              <p className="text-white mb-4">
                 Speak directly with our certification experts
               </p>
               <a
@@ -324,11 +324,11 @@ export default function CertificationContent() {
                 <Mail className="w-6 h-6 text-brand-light" />
               </div>
               <h4 className="font-semibold text-xl mb-2">Email Inquiry</h4>
-              <p className="text-brand-light/80 mb-4">
+              <p className="text-white mb-4">
                 Get detailed certification information
               </p>
               <a
-                href="mailto:certification@crystalfire.com.au"
+                href="/contact"
                 className="inline-block bg-brand-light text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light/90 transition-all duration-300 font-semibold hover:scale-105"
               >
                 Email Us

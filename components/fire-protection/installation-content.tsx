@@ -160,7 +160,7 @@ export default function InstallationContent() {
         </div>
       </section>
       {/* Licensed Services Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden" id="services">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-brand-blue to-brand-cyan">
           <div className="absolute top-20 right-20 w-72 h-72 bg-brand-light rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -183,7 +183,7 @@ export default function InstallationContent() {
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-brand-light bg-clip-text text-transparent mb-4">
-              WE ARE LICENSED TO INSTALL:
+              WE ARE LICENSED TO INSTALL
             </h2>
             <p className="text-brand-light/80 max-w-2xl mx-auto">
               Our certified technicians are licensed to install a comprehensive
@@ -208,7 +208,7 @@ export default function InstallationContent() {
                 {installationServices.map((service, index) => (
                   <div key={index} className="flex items-start py-2 group">
                     <ArrowRight className="w-4 h-4 text-brand-light mt-1 mr-3 group-hover:translate-x-1 transition-transform duration-200" />
-                    <span className="text-brand-light/90 group-hover:text-white transition-colors duration-200">
+                    <span className="text-white group-hover:text-white transition-colors duration-200">
                       {service}
                     </span>
                   </div>
@@ -232,7 +232,7 @@ export default function InstallationContent() {
                 {additionalServices.map((service, index) => (
                   <div key={index} className="flex items-start py-2 group">
                     <ArrowRight className="w-4 h-4 text-brand-cyan mt-1 mr-3 group-hover:translate-x-1 transition-transform duration-200" />
-                    <span className="text-brand-light/90 group-hover:text-white transition-colors duration-200">
+                    <span className="text-white group-hover:text-white transition-colors duration-200">
                       {service}
                     </span>
                   </div>

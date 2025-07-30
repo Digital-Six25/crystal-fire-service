@@ -3,6 +3,7 @@
 import { ArrowRight, Award } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CertificationCarousel from "../certificationCarousel";
 
 export default function AboutHero() {
   return (
@@ -26,7 +27,6 @@ export default function AboutHero() {
               <Award className="w-4 h-4 mr-2" />
               Leading Fire Protection Specialists
             </div>
-
             <h1
               className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 transition-all duration-1000 ease-out delay-300 `}
             >
@@ -35,7 +35,6 @@ export default function AboutHero() {
                 Crystal Fire Services
               </span>
             </h1>
-
             <p
               className={`text-lg sm:text-xl text-gray-600 max-w-2xl mb-8 leading-relaxed transition-all duration-1000 ease-out delay-400 `}
             >
@@ -43,7 +42,6 @@ export default function AboutHero() {
               lives, property, and the environment through innovative solutions
               and professional excellence for over two decades.
             </p>
-
             {/* Action Buttons */}
             <div
               className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 transition-all duration-1000 ease-out delay-500 `}
@@ -61,48 +59,8 @@ export default function AboutHero() {
                 Watch Story
               </button> */}
             </div>
-
             {/* Certification Images */}
-            <div
-              className={`grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-2 justify-items-center transition-all duration-1000 ease-out delay-600`}
-            >
-              <div className="flex justify-center items-center w-20 h-16 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
-                <Image
-                  src="/images/iso-14001.png"
-                  alt="ISO 14001 Certification"
-                  width={60}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex justify-center items-center w-20 h-16 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
-                <Image
-                  src="/images/iso-45001.jpg"
-                  alt="ISO 45001 Certification"
-                  width={60}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex justify-center items-center w-20 h-16 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
-                <Image
-                  src="/images/iso-9001.png"
-                  alt="ISO 9001 Certification"
-                  width={60}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex justify-center items-center w-20 h-16 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
-                <Image
-                  src="/images/jasanz.png"
-                  alt="JAS-ANZ Accreditation"
-                  width={60}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            <CertificationCarousel />
           </div>
 
           {/* Right Content - Image */}

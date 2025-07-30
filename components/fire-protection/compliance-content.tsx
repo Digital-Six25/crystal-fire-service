@@ -17,7 +17,7 @@ export default function ComplianceContent() {
   return (
     <>
       {/* Main Content Section */}
-      <section ref={ref} className="py-20 ">
+      <section ref={ref} className="py-20 " id="services">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
@@ -170,10 +170,10 @@ export default function ComplianceContent() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-xl font-semibold text-brand-light mb-4">
+              <h3 className="text-xl font-semibold text-white mb-4">
                 Legal Requirements
               </h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <p className="text-white leading-relaxed text-lg">
                 Testing your Fire Protection System is required by law. It also
                 provides you with peace of mind as you'll know your system will
                 perform correctly in the event of an emergency.
@@ -190,7 +190,7 @@ export default function ComplianceContent() {
               <h3 className="text-xl font-semibold text-white mb-4">
                 Testing Frequency
               </h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <p className="text-white leading-relaxed text-lg">
                 Frequency of testing is dependent on the system you have
                 installed. It must be tested in accordance with the AS1851
                 maintenance schedule. Most systems require at least two
@@ -205,10 +205,10 @@ export default function ComplianceContent() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-xl font-semibold text-brand-light mb-4">
+              <h3 className="text-xl font-semibold text-white mb-4">
                 Our Service Promise
               </h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <p className="text-white leading-relaxed text-lg">
                 Crystal Fire Services offers competitive pricing for full
                 inspection, testing and maintenance for any system that requires
                 certification. Our technicians are fully qualified and will
