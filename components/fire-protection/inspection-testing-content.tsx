@@ -9,6 +9,8 @@ import {
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { ArrowRight, Award, CheckCircle, Mail, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import CertificationCarousel from "../certificationCarousel";
 
 export default function InspectionTestingContent() {
   const { ref, isVisible } = useScrollAnimation();
@@ -53,64 +55,7 @@ export default function InspectionTestingContent() {
               </p>
 
               <div className="bg-gradient-to-r from-brand-light/30 to-white rounded-2xl p-6 border border-brand-primary/20">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
-                      <Image
-                        src="/images/iso-9001.png"
-                        alt="ISO 9001"
-                        width={48}
-                        height={48}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="text-sm font-semibold text-gray-700">
-                      ISO 9001
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
-                      <Image
-                        src="/images/iso-14001.png"
-                        alt="FPA Australia"
-                        width={48}
-                        height={48}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="text-sm font-semibold text-gray-700">
-                      FPA Australia
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
-                      <Image
-                        src="/images/iso-45001.jpg"
-                        alt="JAS-ANZ"
-                        width={48}
-                        height={48}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="text-sm font-semibold text-gray-700">
-                      JAS-ANZ
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-2 p-2">
-                      <Image
-                        src="/images/jasanz.png"
-                        alt="FMA"
-                        width={48}
-                        height={48}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="text-sm font-semibold text-gray-700">
-                      FMA
-                    </div>
-                  </div>
-                </div>
+                <CertificationCarousel />
               </div>
             </div>
 
@@ -137,7 +82,10 @@ export default function InspectionTestingContent() {
           </div>
 
           {/* FAQ Section - Our Testing Services Cover */}
-          <div className="bg-gradient-to-br from-brand-light/20 to-white rounded-2xl p-8 mb-20">
+          <div
+            className="bg-gradient-to-br from-brand-light/20 to-white rounded-2xl p-8 mb-20"
+            id="services"
+          >
             <div
               className={`text-center mb-12 transition-all duration-1000 ease-out delay-500 ${
                 isVisible
@@ -152,7 +100,7 @@ export default function InspectionTestingContent() {
                 </span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-6">
-                OUR TESTING SERVICES COVER:
+                OUR TESTING SERVICES COVER
               </h3>
             </div>
 
@@ -379,12 +327,12 @@ export default function InspectionTestingContent() {
                 <p className="text-brand-light mb-4">
                   Get detailed testing schedules and quotes
                 </p>
-                <a
-                  href="mailto:testing@crystalfire.com.au"
+                <Link
+                  href="/contact"
                   className="inline-block bg-white text-brand-primary px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
                 >
-                  Email Testing Team
-                </a>
+                  Email Us
+                </Link>
               </div>
             </div>
           </div>

@@ -37,14 +37,9 @@ export default function ContactMap() {
   const { ref, isVisible } = useScrollAnimation();
 
   // Generate Google Maps embed URL for the main location (Brookvale)
+  // Replace this block in your code
   const mainLocation = locations.find((loc) => loc.isMain);
-  const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.8234567890123!2d${
-    mainLocation?.lng
-  }!3d${
-    mainLocation?.lat
-  }!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a1234567890a%3A0x1234567890abcdef!2sCrystal%20Fire%20Services!5e0!3m2!1sen!2sau!4v1234567890123!5m2!1sen!2sau&q=${encodeURIComponent(
-    mainLocation?.address || ""
-  )}`;
+  const mapSrc = `https://maps.google.com/maps?q=${mainLocation?.lat},${mainLocation?.lng}&z=15&output=embed`;
 
   return (
     <section
@@ -245,74 +240,6 @@ export default function ContactMap() {
             </div>
           </div>
         </div>
-
-        {/* Service Coverage */}
-        {/* <div
-          className={`mt-16 transition-all duration-1000 ease-out delay-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Comprehensive Service Coverage
-                </span>
-              </h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                We provide professional fire protection services across New
-                South Wales and Victoria, with rapid response times and local
-                expertise in each region.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="font-bold text-gray-900 mb-3">NSW Coverage</h4>
-                <p className="text-gray-600 text-sm mb-4">
-                  Sydney, Central Coast, Newcastle, Hunter Valley, and
-                  surrounding metropolitan areas
-                </p>
-                <div className="text-xs text-blue-600 font-medium">
-                  Primary service area with fastest response times
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="font-bold text-gray-900 mb-3">VIC Coverage</h4>
-                <p className="text-gray-600 text-sm mb-4">
-                  Melbourne metropolitan, Geelong, Ballarat, and regional
-                  Victoria locations
-                </p>
-                <div className="text-xs text-indigo-600 font-medium">
-                  Expanding service area with local expertise
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="font-bold text-gray-900 mb-3">
-                  Emergency Service
-                </h4>
-                <p className="text-gray-600 text-sm mb-4">
-                  24/7 emergency fire protection services available across all
-                  coverage areas
-                </p>
-                <div className="text-xs text-purple-600 font-medium">
-                  Rapid response for critical situations
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ const services = [
     link: "/fire-protection/installation",
     color: "from-brand-primary to-brand-blue",
     bgColor: "from-brand-light/30 to-white",
-    image: "/images/fire-extinguishers.jpg",
+    image: "/images/installation.jpg",
   },
   {
     icon: FileCheck,
@@ -87,7 +87,7 @@ const certifications = [
     description: "Environmental Management",
   },
   {
-    image: "/images/fpa-australia-gold.jpg",
+    image: "/images/fpa-australia-gold.png",
     title: "FPA Australia",
     description: "Gold Member Status",
   },
@@ -97,7 +97,7 @@ const certifications = [
     description: "Accredited Certification",
   },
   {
-    image: "/images/fma.jpg",
+    image: "/images/fma.png",
     title: "FMA Australia",
     description: "Fire & Emergency Services",
   },
@@ -112,6 +112,7 @@ export default function FireProtectionContent() {
       <section
         ref={ref}
         className="py-20 bg-gradient-to-br from-gray-50 to-white"
+        id="services"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
@@ -317,13 +318,13 @@ export default function FireProtectionContent() {
                   Call 1300 790 702
                   <Phone className="ml-2 w-5 h-5" />
                 </a>
-                <a
-                  href="mailto:projects@crystalfire.com.au"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-brand-cyan to-brand-blue text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
                 >
-                  Email Projects Team
+                  Contact Us
                   <Mail className="ml-2 w-5 h-5" />
-                </a>
+                </Link>
               </div>
             </div>
 

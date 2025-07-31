@@ -10,6 +10,7 @@ import {
   Shield,
   Award,
 } from "lucide-react";
+import Link from "next/link";
 
 const serviceInvolves = [
   "Witnessing of system interface tests",
@@ -76,6 +77,7 @@ export default function AFSSContent() {
     <section
       ref={ref}
       className="py-20 bg-gradient-to-br from-brand-light via-white to-brand-light/50 relative overflow-hidden"
+      id="afssManagement"
     >
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl"></div>
@@ -270,7 +272,7 @@ export default function AFSSContent() {
             <h3 className="text-3xl font-bold mb-4">
               Get Started with AFSS Management
             </h3>
-            <p className="text-brand-light leading-relaxed max-w-2xl mx-auto text-lg">
+            <p className="text-white leading-relaxed max-w-2xl mx-auto text-lg">
               Contact our AFSS specialists to discuss your fire safety
               compliance requirements and learn how our management programs can
               streamline your processes.
@@ -283,7 +285,7 @@ export default function AFSSContent() {
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-semibold text-xl mb-2">Phone Consultation</h4>
-              <p className="text-brand-light mb-4">
+              <p className="text-white mb-4">
                 Speak directly with our AFSS experts
               </p>
               <a
@@ -299,15 +301,15 @@ export default function AFSSContent() {
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-semibold text-xl mb-2">Email Inquiry</h4>
-              <p className="text-brand-light mb-4">
+              <p className="text-white mb-4">
                 Get detailed information via email
               </p>
-              <a
-                href="mailto:afss@crystalfire.com.au"
+              <Link
+                href="/contact"
                 className="inline-block bg-white text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light transition-all duration-300 font-semibold hover:scale-105"
               >
                 Email Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

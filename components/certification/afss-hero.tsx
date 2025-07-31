@@ -2,6 +2,7 @@
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { FileText, Shield, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function AFSSHero() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -65,12 +66,15 @@ export default function AFSSHero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <button className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-blue hover:to-brand-primary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <Link
+              href={"#afssManagement"}
+              className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-blue hover:to-brand-primary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
               Learn More About AFSS
               <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

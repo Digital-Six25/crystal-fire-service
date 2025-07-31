@@ -112,31 +112,6 @@ export default function MediaContent() {
             </p>
           </div>
 
-          {/* Media Types Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {mediaTypes.map((type, index) => (
-              <div
-                key={index}
-                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-white/50 hover:shadow-xl hover:scale-105 transition-all duration-300 group ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div
-                  className={`bg-gradient-to-br ${type.color} w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <type.icon className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">
-                  {type.count}
-                </div>
-                <div className="text-sm text-gray-600">{type.name}</div>
-              </div>
-            ))}
-          </div>
-
           {/* Featured Media */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">

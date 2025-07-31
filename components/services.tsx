@@ -51,7 +51,10 @@ export default function Services() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section
+      className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+      id="ourServices"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div

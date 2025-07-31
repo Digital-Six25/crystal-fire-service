@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { FileText, MapPin, Users, Clock } from "lucide-react";
+import Link from "next/link";
 
 export default function AFSSPrograms() {
   const { ref, isVisible } = useScrollAnimation();
@@ -34,6 +35,7 @@ export default function AFSSPrograms() {
     <section
       ref={ref}
       className="py-20 bg-gradient-to-br from-brand-primary via-brand-blue to-brand-cyan text-white relative overflow-hidden"
+      id="certificatons"
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl"></div>
@@ -83,7 +85,7 @@ export default function AFSSPrograms() {
               <span className="text-white">PROGRAMS</span>
             </h2>
 
-            <div className="space-y-6 text-brand-light/90 leading-relaxed mb-8">
+            <div className="space-y-6 text-white leading-relaxed mb-8">
               <p className="text-lg">
                 Crystal Compliance Services provides an AFSS management
                 programme to help streamline the lodgement of your Annual Fire
@@ -117,19 +119,25 @@ export default function AFSSPrograms() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-primary/90 hover:to-brand-blue/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Link
+                href={"/certification/afss-management-programs"}
+                className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-primary/90 hover:to-brand-blue/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
                 Find out More
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
 
-              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105">
+              <Link
+                href={"/contact"}
+                className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
+              >
                 Contact Us
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

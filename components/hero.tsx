@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Shield, Award, Clock, Users } from "lucide-react";
+import { Button } from "./ui/button";
+import Link from "next/link";
+import CertificationCarousel from "./certificationCarousel";
 
 const stats = [
   { icon: Shield, value: "20+", label: "Years Experience" },
@@ -51,11 +54,17 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-              <button className="btn-primary w-full sm:w-auto">
-                Get Free Quote
-              </button>
-              <button className="btn-secondary w-full sm:w-auto">
-                <span className="flex items-center justify-center">
+              <Button asChild className="btn-primary w-full sm:w-auto">
+                <Link href={"/contact"}>Get Free Quote</Link>
+              </Button>
+              <Button
+                asChild
+                className="bg-transparent text-primary border border-primary hover:text-white w-full sm:w-auto"
+              >
+                <Link
+                  href={"#ourServices"}
+                  className="flex items-center justify-center"
+                >
                   Learn More
                   <svg
                     className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
@@ -70,41 +79,12 @@ export default function Hero() {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </span>
-              </button>
+                </Link>
+              </Button>
             </div>
 
             {/* Certification Images */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 pt-6">
-              <div className="flex items-center justify-center sm:justify-start  p-3 ">
-                <img
-                  src="/images/iso-14001.png"
-                  alt="ISO 14001 Certification"
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center justify-center sm:justify-start  p-3 ">
-                <img
-                  src="/images/iso-45001.jpg"
-                  alt="ISO 45001 Certification"
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center justify-center sm:justify-start  p-3 ">
-                <img
-                  src="/images/iso-9001.png"
-                  alt="ISO 9001 Certification"
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center justify-center sm:justify-start  p-3 ">
-                <img
-                  src="/images/jasanz.png"
-                  alt="JAS-ANZ Accreditation"
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-            </div>
+            <CertificationCarousel />
           </div>
 
           {/* Right Content - Single Image */}
