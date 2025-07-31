@@ -30,7 +30,7 @@ const services = [
     link: "/fire-protection/installation",
     color: "from-brand-primary to-brand-blue",
     bgColor: "from-brand-light/30 to-white",
-    image: "/images/fire-extinguishers.jpg",
+    image: "/images/installation.jpg",
   },
   {
     icon: FileCheck,
@@ -87,7 +87,7 @@ const certifications = [
     description: "Environmental Management",
   },
   {
-    image: "/images/fpa-australia-gold.jpg",
+    image: "/images/fpa-australia-gold.png",
     title: "FPA Australia",
     description: "Gold Member Status",
   },
@@ -97,7 +97,7 @@ const certifications = [
     description: "Accredited Certification",
   },
   {
-    image: "/images/fma.jpg",
+    image: "/images/fma.png",
     title: "FMA Australia",
     description: "Fire & Emergency Services",
   },
@@ -112,6 +112,7 @@ export default function FireProtectionContent() {
       <section
         ref={ref}
         className="py-20 bg-gradient-to-br from-gray-50 to-white"
+        id="services"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div

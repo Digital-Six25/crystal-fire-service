@@ -62,7 +62,7 @@ export default function Hero() {
                 className="bg-transparent text-primary border border-primary hover:text-white w-full sm:w-auto"
               >
                 <Link
-                  href={"/fire-protection"}
+                  href={"#ourServices"}
                   className="flex items-center justify-center"
                 >
                   Learn More

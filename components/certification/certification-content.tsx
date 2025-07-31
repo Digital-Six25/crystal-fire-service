@@ -40,7 +40,7 @@ export default function CertificationContent() {
       description: "Quality Management Systems",
     },
     {
-      image: "/images/fpa-australia-gold.jpg",
+      image: "/images/fpa-australia-gold.png",
       title: "FPA Australia",
       description: "Fire Protection Association",
     },
@@ -50,7 +50,7 @@ export default function CertificationContent() {
       description: "Joint Accreditation System",
     },
     {
-      image: "/images/fma.jpg",
+      image: "/images/fma.png",
       title: "FMA",
       description: "Fire & Emergency Management",
     },
