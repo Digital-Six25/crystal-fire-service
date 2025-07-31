@@ -281,17 +281,17 @@ export default function InspectionTestingContent() {
 
           {/* Contact Section */}
           <div
-            className={`bg-gradient-to-r from-brand-primary/80 to-brand-blue/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 transition-all duration-1000 ease-out delay-1000 ${
+            className={`bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-purple-900 mb-4">
                 Schedule Your Fire System Testing
               </h3>
-              <p className="text-brand-light leading-relaxed max-w-2xl mx-auto">
+              <p className="text-purple-800 leading-relaxed max-w-2xl mx-auto">
                 Don't wait until it's too late. Contact our testing specialists
                 today to schedule your fire system inspection and ensure your
                 property remains compliant and protected.
@@ -301,17 +301,19 @@ export default function InspectionTestingContent() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="text-center">
                 <div className="flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-white mr-3" />
-                  <h4 className="font-semibold text-white">
+                  <div className="bg-gradient-to-br from-purple-400 to-pink-500 w-8 h-8 rounded-md mr-2 flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <Phone className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-purple-800">
                     Emergency & Scheduling
                   </h4>
                 </div>
-                <p className="text-brand-light mb-4">
+                <p className="text-purple-800 mb-4">
                   24/7 emergency testing available
                 </p>
                 <a
                   href="tel:1300790702"
-                  className="inline-block bg-white text-brand-primary px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105 shadow-lg text-center"
                 >
                   Call 1300 790 702
                 </a>
@@ -319,17 +321,19 @@ export default function InspectionTestingContent() {
 
               <div className="text-center">
                 <div className="flex items-center justify-center mb-4">
-                  <Mail className="w-6 h-6 text-white mr-3" />
-                  <h4 className="font-semibold text-white">
+                  <div className="bg-gradient-to-br from-purple-400 to-pink-500 w-8 h-8 rounded-md mr-2 flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <Mail className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-purple-800">
                     Testing Inquiries
                   </h4>
                 </div>
-                <p className="text-brand-light mb-4">
+                <p className="text-purple-800 mb-4">
                   Get detailed testing schedules and quotes
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-block bg-white text-brand-primary px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200 font-medium"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105 shadow-lg text-center"
                 >
                   Email Us
                 </Link>
