@@ -69,7 +69,11 @@ export default function InstallationContent() {
   return (
     <>
       {/* Main Content Section */}
-      <section ref={ref} className="py-20 bg-white relative overflow-hidden">
+      <section
+        ref={ref}
+        className="py-20 bg-white relative overflow-hidden"
+        id="services"
+      >
         {/* Background Elements */}
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
@@ -160,7 +164,7 @@ export default function InstallationContent() {
         </div>
       </section>
       {/* Licensed Services Section */}
-      <section className="py-20 relative overflow-hidden" id="services">
+      <section className="py-20 relative overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-brand-blue to-brand-cyan">
           <div className="absolute top-20 right-20 w-72 h-72 bg-brand-light rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -246,14 +250,8 @@ export default function InstallationContent() {
             <div className="inline-flex flex-col sm:flex-row gap-4">
               <button className="group px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-cyan text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <span className="flex items-center gap-2">
-                  Get Installation Quote
+                  Get a Quote
                   <CheckCircle className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                </span>
-              </button>
-              <button className="group px-8 py-4 bg-brand-light/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-brand-light/20 hover:bg-brand-light/20 transition-all duration-300 hover:scale-105">
-                <span className="flex items-center gap-2">
-                  View Our Work
-                  <Award className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </button>
             </div>
