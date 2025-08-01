@@ -18,7 +18,7 @@ export default function InspectionTestingContent() {
   return (
     <div>
       {/* Main Content Section */}
-      <section ref={ref} className="py-20 bg-white">
+      <section ref={ref} className="py-20 bg-white" id="services">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             {/* Left Content */}
@@ -82,10 +82,7 @@ export default function InspectionTestingContent() {
           </div>
 
           {/* FAQ Section - Our Testing Services Cover */}
-          <div
-            className="bg-gradient-to-br from-brand-light/20 to-white rounded-2xl p-8 mb-20"
-            id="services"
-          >
+          <div className="bg-gradient-to-br from-brand-light/20 to-white rounded-2xl p-8 mb-20">
             <div
               className={`text-center mb-12 transition-all duration-1000 ease-out delay-500 ${
                 isVisible
