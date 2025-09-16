@@ -1,22 +1,32 @@
-import type { Metadata } from "next"
-import ResourcesHero from "@/components/about/resources-hero"
-import ResourcesContent from "@/components/about/resources-content"
-import Certifications from "@/components/certifications"
-
-export const metadata: Metadata = {
-  title: "Resources - Crystal Fire Services",
-  description:
-    "Access helpful fire safety resources, regulations, and compliance documents. Find NSW Government fact sheets, AFSS requirements, and FPA Australia information.",
-  keywords:
-    "fire safety resources, NSW Government, AFSS, Fire Protection Association Australia, building fire safety, compliance, regulations",
-}
+"use client";
+import ResourcesHero from "@/components/about/resources-hero";
+import ResourcesContent from "@/components/about/resources-content";
+import Certifications from "@/components/certifications";
+import { useHomepageData } from "@/hooks/useHomepageData";
+import { useResourcesPageData } from "@/hooks/useResourcespageData";
 
 export default function ResourcesPage() {
+  const {
+    data: home,
+    isLoading: homeLoading,
+    error: homeError,
+  } = useHomepageData();
+
+  const {
+    data: resource,
+    isLoading: resourceLoading,
+    error: resourceError,
+  } = useResourcesPageData();
+
+  if (homeLoading || resourceLoading) return <p>Loading...</p>;
+  if (homeError || resourceError) return <p>Error loading data</p>;
+  if (!home || !resource) return <p>No data found</p>;
+
   return (
     <main>
-      <ResourcesHero />
-      <ResourcesContent />
-      <Certifications />
+      <ResourcesHero hero={resource.hero} />
+      <ResourcesContent resources={resource.resources} cta={resource.cta} />
+      <Certifications certifications={home.certifications} />
     </main>
-  )
+  );
 }

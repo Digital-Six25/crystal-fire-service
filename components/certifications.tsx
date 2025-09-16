@@ -1,49 +1,25 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Shield, Award, Users, ArrowRight } from "lucide-react";
+import { Shield } from "lucide-react";
+import Image from "next/image";
 
-const certifications = [
-  {
-    image: "/images/iso-9001.png",
-    title: "ISO 9001:2015",
-    description: "Quality Management Systems",
-  },
-  {
-    image: "/images/iso-45001.jpg",
-    title: "ISO 45001:2018",
-    description: "Occupational Health & Safety",
-  },
-  {
-    image: "/images/iso-14001.png",
-    title: "ISO 14001:2015",
-    description: "Environmental Management",
-  },
-  {
-    image: "/images/fpa-australia-gold.png",
-    title: "FPA Australia",
-    description: "Gold Member Status",
-  },
-  {
-    image: "/images/jasanz.png",
-    title: "JAS-ANZ",
-    description: "Accredited Certification",
-  },
-  {
-    image: "/images/fma.png",
-    title: "FMA Australia",
-    description: "Fire & Emergency Services",
-  },
-  // {
-  //   image: "/images/property-council-australia.png",
-  //   title: "Property Council Australia",
-  //   description: "Member - Peak body for property industry professionals",
-  // },
-];
+interface CertificationsProps {
+  certifications: {
+    pill: string;
+    title: string;
+    subtitle: string;
+    cards: {
+      image: string | null;
+      title: string;
+      subtitle: string;
+    }[];
+  };
+}
 
-export default function Certifications() {
+export default function Certifications({
+  certifications,
+}: CertificationsProps) {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
@@ -66,21 +42,20 @@ export default function Certifications() {
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium mb-6">
             <Shield className="w-5 h-5 mr-2" />
-            Certifications & Accreditations
+            {certifications.pill || ""}
           </div>
           <h3 className="text-4xl sm:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              Industry Leading Standards
+              {certifications.title}
             </span>
           </h3>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our certifications demonstrate our commitment to quality, safety,
-            and environmental responsibility
+            {certifications.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {certifications.map((cert, index) => (
+          {certifications?.cards?.map((card, index) => (
             <div
               key={index}
               className={`group bg-white rounded-2xl p-6 border border-gray-200 hover:border-brand-primary transform hover:scale-105 transition-all duration-500 ease-out shadow-md hover:shadow-xl ${
@@ -92,17 +67,17 @@ export default function Certifications() {
             >
               <div className="relative h-16 mb-4">
                 <Image
-                  src={cert.image || "/placeholder.svg"}
-                  alt={cert.title}
+                  src={card.image || "/placeholder.svg"}
+                  alt={card.title}
                   fill
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <h4 className="text-sm font-semibold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors duration-300">
-                {cert.title}
+                {card.title}
               </h4>
               <p className="text-xs text-gray-600 leading-relaxed">
-                {cert.description}
+                {card.subtitle}
               </p>
             </div>
           ))}

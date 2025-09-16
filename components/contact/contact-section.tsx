@@ -4,7 +4,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import ContactInfo from "./contact-info";
 import ContactForm from "./contact-form";
 
-export default function ContactSection() {
+export default function ContactSection({ hero, info, locations }: any) {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
@@ -26,23 +26,17 @@ export default function ContactSection() {
         >
           <div className="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 bg-brand-primary rounded-full animate-pulse" />
-            <span className="font-medium">Get Professional Advice</span>
+            <span className="font-medium">{hero.pill}</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-gray-900 via-brand-primary to-brand-blue bg-clip-text text-transparent">
-              Let's Discuss Your
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              Fire Protection Needs
+              {hero.title}
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our certified fire protection specialists are ready to provide
-            expert consultation, professional installation, and ongoing
-            maintenance services tailored to your requirements.
+            {hero.subtitle}
           </p>
         </div>
 
@@ -54,7 +48,7 @@ export default function ContactSection() {
                 : "opacity-0 -translate-x-8"
             }`}
           >
-            <ContactInfo />
+            <ContactInfo info={info} />
           </div>
 
           <div

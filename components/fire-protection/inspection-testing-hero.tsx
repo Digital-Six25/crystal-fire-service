@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Search, Shield, Award, ArrowRight, Star } from "lucide-react";
 
-export default function InspectionTestingHero() {
+export default function InspectionTestingHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -35,7 +35,7 @@ export default function InspectionTestingHero() {
               }`}
             >
               <Search className="w-5 h-5 mr-2" />
-              Professional Testing Services
+              {hero.pill}
             </div>
 
             <h1
@@ -46,11 +46,7 @@ export default function InspectionTestingHero() {
               }`}
             >
               <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                FIRE SYSTEM
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                TESTING
+                {hero.title}
               </span>
             </h1>
 
@@ -61,9 +57,7 @@ export default function InspectionTestingHero() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              Professional fire system testing and inspection services ensuring
-              optimal performance and compliance with AS1851 standards across
-              all fire protection systems
+              {hero.subtitle}
             </p>
 
             {/* CTA Buttons */}
@@ -75,17 +69,17 @@ export default function InspectionTestingHero() {
               }`}
             >
               <Link
-                href="/contact"
+                href={hero.btn1.url}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Get A Quote
+                {hero.btn1.label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               <Link
-                href="#services"
+                href={hero.btn2.url}
                 className="group inline-flex items-center px-8 py-4 border-2 border-brand-cyan text-brand-cyan hover:bg-brand-cyan hover:text-white font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 bg-transparent"
               >
-                View Services
+                {hero.btn2.label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
@@ -101,15 +95,15 @@ export default function InspectionTestingHero() {
           >
             <div className="flex items-center text-brand-primary">
               <Shield className="w-6 h-6 mr-2" />
-              <span className="font-medium">AS1851 Compliant Testing</span>
+              <span className="font-medium">{hero.tags[0].tag}</span>
             </div>
             <div className="flex items-center text-brand-primary">
               <Award className="w-6 h-6 mr-2" />
-              <span className="font-medium">Certified Test Equipment</span>
+              <span className="font-medium">{hero.tags[1].tag}</span>
             </div>
             <div className="flex items-center text-brand-primary">
               <Star className="w-6 h-6 mr-2" />
-              <span className="font-medium">Detailed Reporting</span>
+              <span className="font-medium">{hero.tags[2].tag}</span>
             </div>
           </div>
         </div>

@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Users, ArrowRight, Award, Clock, Shield } from "lucide-react";
+import { ArrowRight, Users } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-export default function TeamHero() {
+export default function TeamHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -37,7 +37,7 @@ export default function TeamHero() {
               }`}
             >
               <Users className="w-4 h-4 mr-2" />
-              Meet Our Expert Team
+              {hero.pill}
             </div>
 
             <div
@@ -48,16 +48,13 @@ export default function TeamHero() {
               }`}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                LEADERSHIP
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-blue block">
-                  TEAM
+                  {hero.title}
                 </span>
               </h1>
 
               <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8">
-                Meet the experienced professionals who lead Crystal Fire
-                Services with expertise, integrity, and a commitment to
-                excellence in fire protection solutions.
+                {hero.subtitle}
               </p>
             </div>
 
@@ -79,10 +76,10 @@ export default function TeamHero() {
               }`}
             >
               <Link
-                href={"#team"}
+                href={hero.button.url}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Learn About Our Expertise
+                {hero.button.label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
@@ -100,7 +97,7 @@ export default function TeamHero() {
               {/* Main image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/placeholder.svg?height=600&width=500"
+                  src={hero.img || "/placeholder.svg?height=600&width=500"}
                   alt="Crystal Fire Services Leadership Team"
                   width={500}
                   height={600}

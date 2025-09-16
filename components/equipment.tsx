@@ -5,83 +5,20 @@ import { FireExtinguisher } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-const equipment = [
-  {
-    title: "PORTABLE FIRE EQUIPMENT",
-    description: "Fire extinguishers and portable fire safety equipment",
-    color: "from-red-500 to-orange-500",
-    bgColor: "bg-red-50",
-    details: [
-      "Fire extinguishers",
-      "Fire blankets",
-      "Portable equipment",
-      "Emergency kits",
-    ],
-    customIconSrc: "/images/fire-extinguisher.png",
-  },
-  {
-    title: "FIRE DETECTION SYSTEMS",
-    description: "Smoke detectors and fire alarm systems",
-    color: "from-blue-500 to-indigo-500",
-    bgColor: "bg-blue-50",
-    details: [
-      "Smoke detectors",
-      "Heat detectors",
-      "Fire alarms",
-      "Control panels",
-    ],
-    customIconSrc: "/images/smoke-detector.png",
-  },
-  {
-    title: "HYDRANTS & HOSE REELS",
-    description: "Fire hydrant systems and hose reel installations",
-    color: "from-cyan-500 to-blue-500",
-    bgColor: "bg-cyan-50",
-    details: [
-      "Fire hydrants",
-      "Hose reels",
-      "Water systems",
-      "Pressure testing",
-    ],
-    customIconSrc: "/images/hydrant.png",
-  },
-  {
-    title: "EWIS SYSTEMS",
-    description: "Emergency Warning and Intercommunication Systems",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-50",
-    details: [
-      "Warning systems",
-      "Intercommunication",
-      "Emergency alerts",
-      "Audio systems",
-    ],
-    customIconSrc: "/images/alarm.png",
-  },
-  {
-    title: "FIRE PUMPSETS",
-    description: "Fire pump systems and equipment",
-    color: "from-yellow-500 to-orange-500",
-    bgColor: "bg-yellow-50",
-    details: ["Fire pumps", "Pump systems", "Pressure systems", "Maintenance"],
-    customIconSrc: "/images/firewall-protection.png",
-  },
-  {
-    title: "SPRINKLER & MIST SYSTEMS",
-    description: "Automatic sprinkler and water mist systems",
-    color: "from-green-500 to-teal-500",
-    bgColor: "bg-green-50",
-    details: [
-      "Sprinkler systems",
-      "Water mist",
-      "Automatic systems",
-      "Installation",
-    ],
-    customIconSrc: "/images/sprinkle.png",
-  },
-];
+interface EquipmentProps {
+  maintain: {
+    pill: string;
+    title: string;
+    cards: {
+      icon: string | null;
+      title: string;
+      subtitle: string;
+      types: { type: string }[];
+    }[];
+  };
+}
 
-export default function Equipment() {
+export default function Equipment({ maintain }: EquipmentProps) {
   const { ref, isVisible } = useScrollAnimation();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -105,19 +42,16 @@ export default function Equipment() {
         >
           <div className="inline-flex items-center px-6 py-3 bg-brand-primary/10 backdrop-blur-sm border border-brand-primary/20 rounded-full text-brand-primary text-sm font-medium mb-8">
             <FireExtinguisher className="w-4 h-4 mr-2" />
-            Professional Equipment & Systems
+            {maintain.pill}{" "}
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-brand-dark mb-6">
-            WE INSTALL &
-            <span className="block bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              MAINTAIN
-            </span>
+            {maintain.title}
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-brand-primary to-brand-blue mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {equipment.map((item, index) => (
+          {maintain.cards.map((item, index) => (
             <div
               key={index}
               className={`group relative transition-all duration-700 ease-out ${
@@ -139,7 +73,7 @@ export default function Equipment() {
                     className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-blue rounded-2xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg`}
                   >
                     <Image
-                      src={item.customIconSrc || "/placeholder.svg"}
+                      src={item.icon || "/placeholder.svg"}
                       alt={item.title}
                       width={40}
                       height={40}
@@ -164,21 +98,21 @@ export default function Equipment() {
                 </h3>
 
                 <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-brand-dark transition-colors duration-300">
-                  {item.description}
+                  {item.subtitle}
                 </p>
 
                 {/* Expandable Details */}
                 <div className="transition-all duration-500 overflow-hidden max-h-40 opacity-100">
                   <div className="border-t border-brand-primary/20 pt-4 mb-4">
                     <ul className="space-y-2">
-                      {item.details.map((detail, detailIndex) => (
+                      {item.types.map((detail, detailIndex) => (
                         <li
                           key={detailIndex}
                           className="flex items-center text-sm text-gray-600 transition-all duration-300"
                           style={{ transitionDelay: `${detailIndex * 100}ms` }}
                         >
                           <div className="w-2 h-2 bg-gradient-to-r from-brand-primary to-brand-blue rounded-full mr-3"></div>
-                          {detail}
+                          {detail.type}
                         </li>
                       ))}
                     </ul>

@@ -1,35 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { FileText, MapPin, Users, Clock } from "lucide-react";
+import { FileText } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-export default function AFSSPrograms() {
+export default function AFSSPrograms({ management }: any) {
   const { ref, isVisible } = useScrollAnimation();
-
-  const features = [
-    {
-      icon: FileText,
-      title: "Streamlined Process",
-      description: "Simplified AFSS lodgement procedure",
-    },
-    {
-      icon: MapPin,
-      title: "Nationwide Service",
-      description: "Available across all Australian states",
-    },
-    {
-      icon: Users,
-      title: "Expert Management",
-      description: "Qualified fire safety practitioners",
-    },
-    {
-      icon: Clock,
-      title: "Timely Delivery",
-      description: "On-time compliance guarantee",
-    },
-  ];
 
   return (
     <section
@@ -53,7 +30,7 @@ export default function AFSSPrograms() {
           >
             <div className="aspect-square relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-600/20 to-teal-600/20 backdrop-blur-sm border border-white/10">
               <Image
-                src="/images/Image-4.png"
+                src={"/images/Image-4.png"}
                 alt="Professional fire sprinkler system installation"
                 fill
                 className="object-cover rounded-3xl"
@@ -72,25 +49,17 @@ export default function AFSSPrograms() {
           >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-light/20 backdrop-blur-sm border border-white/20 mb-6">
               <FileText className="w-5 h-5 text-brand-light mr-2" />
-              <span className="text-white font-medium">
-                Professional Management
-              </span>
+              <span className="text-white font-medium">{management.pill}</span>
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-bold mb-8">
               <span className="bg-gradient-to-r from-brand-light to-white bg-clip-text text-transparent">
-                AFSS MANAGEMENT
+                {management.title}
               </span>
-              <br />
-              <span className="text-white">PROGRAMS</span>
             </h2>
 
             <div className="space-y-6 text-white leading-relaxed mb-8">
-              <p className="text-lg">
-                Crystal Compliance Services provides an AFSS management
-                programme to help streamline the lodgement of your Annual Fire
-                Safety Statement (AFSS)
-              </p>
+              <p className="text-lg">{management.subtitle}</p>
 
               <p className="text-lg">
                 We provide this service nationally in accordance with State laws
@@ -99,7 +68,7 @@ export default function AFSSPrograms() {
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {features.map((feature, index) => (
+              {management.cards.map((feature: any, index: any) => (
                 <div
                   key={index}
                   className={`bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 ${
@@ -109,31 +78,37 @@ export default function AFSSPrograms() {
                   }`}
                   style={{ transitionDelay: `${(index + 4) * 150}ms` }}
                 >
-                  <feature.icon className="w-6 h-6 text-brand-light mb-2" />
+                  <Image
+                    src={feature.icon}
+                    height={32}
+                    width={32}
+                    alt="icon"
+                    className="mb-4"
+                  />
                   <h3 className="font-semibold text-white mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-sm">{feature.description}</p>
+                  <p className="text-sm">{feature.subtitle}</p>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href={"/certification/afss-management-programs"}
+                href={management.btn1.url}
                 className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-primary/90 hover:to-brand-blue/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               >
-                Find out More
+                {management.btn1.label}
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
               </Link>
 
               <Link
-                href={"/contact"}
+                href={management.btn2.url}
                 className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
               >
-                Contact Us
+                {management.btn2.label}
                 <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>

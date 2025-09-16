@@ -1,20 +1,23 @@
 "use client";
 
+import { Shield } from "lucide-react";
 import Image from "next/image";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Shield, Award, Clock, Users } from "lucide-react";
-import { Button } from "./ui/button";
 import Link from "next/link";
 import CertificationCarousel from "./certificationCarousel";
+import { Button } from "./ui/button";
+interface HeroProps {
+  hero: {
+    buttons: any;
+    pill: string;
+    title: string;
+    subtitle: string;
+    image: string | null;
+    certifications: { id: number; url: string }[];
+  };
+}
 
-const stats = [
-  { icon: Shield, value: "20+", label: "Years Experience" },
-  { icon: Award, value: "1000+", label: "Projects Completed" },
-  { icon: Clock, value: "24/7", label: "Emergency Response" },
-  { icon: Users, value: "50+", label: "Expert Technicians" },
-];
-
-export default function Hero() {
+export default function Hero({ hero }: HeroProps) {
+  if (!hero) return null;
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-brand-light via-white to-brand-light/50 overflow-hidden">
       {/* Animated Background Elements */}
@@ -34,38 +37,39 @@ export default function Hero() {
           >
             <div className="inline-flex items-center px-4 py-2 bg-brand-primary/20 rounded-full text-brand-primary text-sm font-medium mb-6 backdrop-blur-sm border border-brand-primary/30">
               <Shield className="w-4 h-4 mr-2" />
-              Australia's Trusted Fire Protection Experts
+              {hero.pill}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight mb-6">
-              Professional
+              {/* Professional
               <span className="block text-brand-gradient text-4xl sm:text-5xl lg:text-6xl">
                 Fire Protection
               </span>
               <span className="block text-3xl sm:text-4xl lg:text-5xl">
                 Services
-              </span>
+              </span> */}
+              {hero.title}
             </h1>
 
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed">
-              Protecting lives, property and the environment with comprehensive
-              fire safety solutions, professional installation, and expert
-              certification services across Australia.
+              {hero.subtitle}
             </p>
 
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
               <Button asChild className="btn-primary w-full sm:w-auto">
-                <Link href={"/contact"}>Get Free Quote</Link>
+                <Link href={hero.buttons[0].button.url}>
+                  {hero.buttons[0].button.label}
+                </Link>
               </Button>
               <Button
                 asChild
                 className="bg-transparent text-primary border border-primary hover:text-white w-full sm:w-auto"
               >
                 <Link
-                  href={"#ourServices"}
+                  href={hero.buttons[1].button.url}
                   className="flex items-center justify-center"
                 >
-                  Learn More
+                  {hero.buttons[1].button.label}
                   <svg
                     className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"
@@ -84,7 +88,7 @@ export default function Hero() {
             </div>
 
             {/* Certification Images */}
-            <CertificationCarousel />
+            <CertificationCarousel certifications={hero.certifications} />
           </div>
 
           {/* Right Content - Single Image */}
@@ -96,7 +100,7 @@ export default function Hero() {
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-cyan/20 to-brand-primary/20 backdrop-blur-sm border border-white/20">
                 <div className="absolute inset-4">
                   <Image
-                    src="/images/home-hero.png"
+                    src={hero.image || "/images/home-hero.png"}
                     alt="Professional fire protection equipment and safety systems"
                     fill
                     className="object-cover rounded-2xl"

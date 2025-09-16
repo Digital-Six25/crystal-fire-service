@@ -1,24 +1,38 @@
-import type { Metadata } from "next";
-import AFSSHero from "@/components/certification/afss-hero";
+"use client";
 import AFSSContent from "@/components/certification/afss-content";
-import EFSMSection from "@/components/certification/efsm-section";
+import AFSSHero from "@/components/certification/afss-hero";
 import Certifications from "@/components/certifications";
-
-export const metadata: Metadata = {
-  title: "AFSS Management Programs - Crystal Fire Services",
-  description:
-    "Professional AFSS management programs to streamline Annual Fire Safety Statement lodgement. Expert compliance solutions for fire safety regulations across Australia.",
-  keywords:
-    "AFSS management, Annual Fire Safety Statement, fire safety compliance, building compliance, fire protection documentation, Crystal Fire Services, EFSM, Essential Fire Safety Measures",
-};
+import { useAfssPageData } from "@/hooks/useAfsspageData";
+import { useHomepageData } from "@/hooks/useHomepageData";
 
 export default function AFSSManagementPage() {
+  const {
+    data: home,
+    isLoading: homeLoading,
+    error: homeError,
+  } = useHomepageData();
+
+  const {
+    data: afss,
+    isLoading: afssLoading,
+    error: afssError,
+  } = useAfssPageData();
+
+  if (homeLoading || afssLoading) return <p>Loading...</p>;
+  if (homeError || afssError) return <p>Error loading data</p>;
+  if (!home || !afss) return <p>No data found</p>;
+  console.log("afss", afss);
   return (
     <main>
-      <AFSSHero />
-      <AFSSContent />
-      {/* <EFSMSection /> */}
-      <Certifications />
+      <AFSSHero hero={afss.hero} />
+      <AFSSContent
+        solutions={afss.afss_management_solutions}
+        process={afss.service_process}
+        offer={afss.service_offer}
+        cta={afss.cta}
+      />
+
+      <Certifications certifications={home.certifications} />
     </main>
   );
 }

@@ -33,13 +33,10 @@ const locations = [
   },
 ];
 
-export default function ContactMap() {
+export default function ContactMap({ locations: loco, map_location }: any) {
   const { ref, isVisible } = useScrollAnimation();
 
-  // Generate Google Maps embed URL for the main location (Brookvale)
-  // Replace this block in your code
-  const mainLocation = locations.find((loc) => loc.isMain);
-  const mapSrc = `https://maps.google.com/maps?q=${mainLocation?.lat},${mainLocation?.lng}&z=15&output=embed`;
+  const mapSrc = `https://maps.google.com/maps?q=${map_location?.latitude},${map_location?.longitude}&z=15&output=embed`;
 
   return (
     <section
@@ -60,28 +57,23 @@ export default function ContactMap() {
         >
           <div className="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary rounded-full px-4 py-2 mb-6">
             <MapPin className="w-4 h-4" />
-            <span className="font-medium">Visit Our Offices</span>
+            <span className="font-medium">{loco.pill}</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-brand-primary via-brand-blue to-brand-cyan bg-clip-text text-transparent">
-              Our Locations Across
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              Australia
+              {loco.title}
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Visit us at any of our convenient locations across NSW and Victoria
-            for professional fire protection services and expert consultation.
+            {loco.subtitle}
           </p>
         </div>
 
         {/* Location Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {locations.map((location, index) => (
+          {loco.cards.map((location: any, index: any) => (
             <div
               key={index}
               className={`group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
@@ -97,7 +89,7 @@ export default function ContactMap() {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
-                {location.isMain && (
+                {location.main_office && (
                   <span className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full border border-blue-200">
                     Main Office
                   </span>
@@ -105,7 +97,7 @@ export default function ContactMap() {
               </div>
 
               <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-800 transition-colors duration-300">
-                {location.name}
+                {location.title}
               </h3>
 
               <div className="space-y-3 mb-6">
@@ -119,16 +111,18 @@ export default function ContactMap() {
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-gray-500 flex-shrink-0" />
                   <a
-                    href={`tel:${location.phone.replace(/\s/g, "")}`}
+                    href={`${location.call_button.url}`}
                     className="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200"
                   >
-                    {location.phone}
+                    {location.call_button.label}
                   </a>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                  <p className="text-gray-600 text-sm">{location.hours}</p>
+                  <p className="text-gray-600 text-sm">
+                    {location.opening_time}
+                  </p>
                 </div>
               </div>
 
@@ -145,7 +139,7 @@ export default function ContactMap() {
                   Directions
                 </a>
                 <a
-                  href={`tel:${location.phone.replace(/\s/g, "")}`}
+                  href={`${location.call_button.url}`}
                   className="bg-white border border-gray-300 text-gray-700 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
                   <Phone className="w-4 h-4" />
@@ -170,13 +164,13 @@ export default function ContactMap() {
                     <MapPin className="w-5 h-5 text-blue-600" />
                     Main Office - Brookvale
                   </h3>
-                  <p className="text-gray-600">{mainLocation?.address}</p>
+                  {/* <p className="text-gray-600">{mainLocation?.address}</p> */}
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-medium text-gray-900 mb-1">
                     Business Hours
                   </p>
-                  <p className="text-sm text-gray-600">{mainLocation?.hours}</p>
+                  {/* <p className="text-sm text-gray-600">{mainLocation?.hours}</p> */}
                 </div>
               </div>
             </div>
@@ -219,9 +213,7 @@ export default function ContactMap() {
 
               <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-                    mainLocation?.address || ""
-                  )}`}
+                  href={`https://www.google.com/maps/dir/?api=1&destination=$Unit 26, 122-126 Old Pittwater Rd, Brookvale NSW 2100`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r  text-white px-6 py-3 rounded-xl font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"

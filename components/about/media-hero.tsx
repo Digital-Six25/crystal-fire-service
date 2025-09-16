@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Camera, Award } from "lucide-react";
 
-export default function MediaHero() {
+export default function MediaHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -35,7 +35,7 @@ export default function MediaHero() {
           >
             <Camera className="w-4 h-4 text-brand-primary mr-2" />
             <span className="text-brand-primary text-sm font-medium">
-              In the Spotlight
+              {hero.pill}
             </span>
           </div>
 
@@ -47,7 +47,7 @@ export default function MediaHero() {
             }`}
           >
             <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              MEDIA
+              {hero.title}
             </span>
           </h1>
 
@@ -64,8 +64,7 @@ export default function MediaHero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            Discover our media coverage, press releases, and industry
-            recognition in fire protection excellence
+            {hero.subtitle}
           </p>
 
           {/* Featured Badge */}

@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { FileCheck, Shield, Award, ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Award, FileCheck, Shield, Star } from "lucide-react";
+import Link from "next/link";
 
-export default function ComplianceHero() {
+export default function ComplianceHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -35,7 +35,7 @@ export default function ComplianceHero() {
               }`}
             >
               <FileCheck className="w-5 h-5 mr-2" />
-              Regulatory Compliance Services
+              {hero.pill}
             </div>
 
             <h1
@@ -46,11 +46,7 @@ export default function ComplianceHero() {
               }`}
             >
               <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                FIRE PROTECTION
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                COMPLIANCE
+                {hero.title}
               </span>
             </h1>
 
@@ -61,9 +57,7 @@ export default function ComplianceHero() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              Ensuring your fire protection systems meet all Australian
-              standards and regulatory requirements with comprehensive
-              compliance services and expert documentation
+              {hero.subtitle}
             </p>
 
             {/* CTA Buttons */}
@@ -75,17 +69,17 @@ export default function ComplianceHero() {
               }`}
             >
               <Link
-                href="/contact"
+                href={hero.btn1.url}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Get Compliance Audit
+                {hero.btn1.label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               <Link
-                href="#services"
+                href={hero.btn2.url}
                 className="group inline-flex items-center px-8 py-4 border-2 border-brand-cyan text-brand-cyan hover:bg-brand-cyan hover:text-white font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 bg-transparent"
               >
-                View Services
+                {hero.btn2.label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
@@ -101,17 +95,15 @@ export default function ComplianceHero() {
           >
             <div className="flex items-center text-brand-primary">
               <Shield className="w-6 h-6 mr-2" />
-              <span className="font-medium">
-                Australian Standards Certified
-              </span>
+              <span className="font-medium">{hero.tags[0].tag}</span>
             </div>
             <div className="flex items-center text-brand-primary">
               <Award className="w-6 h-6 mr-2" />
-              <span className="font-medium">Government Approved</span>
+              <span className="font-medium">{hero.tags[1].tag}</span>
             </div>
             <div className="flex items-center text-brand-primary">
               <Star className="w-6 h-6 mr-2" />
-              <span className="font-medium">Expert Compliance Team</span>
+              <span className="font-medium">{hero.tags[2].tag}</span>
             </div>
           </div>
         </div>

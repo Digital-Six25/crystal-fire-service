@@ -5,7 +5,21 @@ import Image from "next/image";
 import Link from "next/link";
 import CertificationCarousel from "../certificationCarousel";
 
-export default function AboutHero() {
+interface HeroProps {
+  hero?: {
+    button: any;
+    pill: string;
+    title: string;
+    subtitle: string;
+    image: string | null;
+  };
+  certifications: { id: number; url: string | null }[];
+}
+
+export default function AboutHero({ hero, certifications }: HeroProps) {
+  if (!hero) return null;
+  const { button, image, pill, subtitle, title } = hero;
+
   return (
     <section className="relative bg-gradient-to-br from-[#bee5e9] via-white to-[#bee5e9] py-20 lg:py-32 overflow-hidden">
       {/* Background Pattern */}
@@ -25,42 +39,34 @@ export default function AboutHero() {
               className={`inline-flex items-center px-4 py-2 bg-[#bee5e9] text-[#0192a8] rounded-full text-sm font-medium mb-6 transition-all duration-1000 ease-out delay-200 `}
             >
               <Award className="w-4 h-4 mr-2" />
-              Leading Fire Protection Specialists
+              {pill}
             </div>
             <h1
               className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 transition-all duration-1000 ease-out delay-300 `}
             >
-              About
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0192a8] to-[#188bc0] block">
-                Crystal Fire Services
+                {title}
               </span>
             </h1>
             <p
               className={`text-lg sm:text-xl text-gray-600 max-w-2xl mb-8 leading-relaxed transition-all duration-1000 ease-out delay-400 `}
             >
-              Leading fire protection specialists committed to safeguarding
-              lives, property, and the environment through innovative solutions
-              and professional excellence for over two decades.
+              {subtitle}
             </p>
             {/* Action Buttons */}
             <div
               className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 transition-all duration-1000 ease-out delay-500 `}
             >
               <Link
-                href="/fire-protection"
+                href={button.url}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#0192a8] to-[#188bc0] text-white font-semibold rounded-xl hover:from-[#188bc0] hover:to-[#0192a8] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Our Services
+                {button.label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
-
-              {/* <button className="group inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-[#55c5d2] hover:bg-[#bee5e9] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                <Play className="mr-2 w-5 h-5 text-[#0192a8]" />
-                Watch Story
-              </button> */}
             </div>
             {/* Certification Images */}
-            <CertificationCarousel />
+            <CertificationCarousel certifications={certifications} />
           </div>
 
           {/* Right Content - Image */}
@@ -71,7 +77,7 @@ export default function AboutHero() {
               {/* Main Image - No tilt effect */}
               <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/firefighter.png"
+                  src={image || ""}
                   alt="Crystal Fire Services professional firefighter with equipment"
                   fill
                   className="object-cover"

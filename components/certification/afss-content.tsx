@@ -10,6 +10,7 @@ import {
   Shield,
   Award,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const serviceInvolves = [
@@ -20,35 +21,8 @@ const serviceInvolves = [
   "Prepare Annual Fire Safety statement and sign off as Competent Fire Safety Practitioner",
 ];
 
-export default function AFSSContent() {
+export default function AFSSContent({ solutions, process, offer, cta }: any) {
   const { ref, isVisible } = useScrollAnimation();
-
-  const benefits = [
-    {
-      icon: Clock,
-      title: "Time Efficient",
-      description: "Streamlined process saves you valuable time",
-      gradient: "from-brand-primary to-brand-blue",
-    },
-    {
-      icon: Shield,
-      title: "100% Compliant",
-      description: "Guaranteed compliance with all regulations",
-      gradient: "from-brand-blue to-brand-cyan",
-    },
-    {
-      icon: Users,
-      title: "Expert Team",
-      description: "Qualified fire safety practitioners",
-      gradient: "from-brand-cyan to-brand-primary",
-    },
-    {
-      icon: Award,
-      title: "Certified Process",
-      description: "Government approved methodology",
-      gradient: "from-brand-primary to-brand-cyan",
-    },
-  ];
 
   const processSteps = [
     {
@@ -93,22 +67,16 @@ export default function AFSSContent() {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-6">
             <FileText className="w-5 h-5 text-brand-primary mr-2" />
             <span className="text-brand-primary font-semibold">
-              AFSS Management Solutions
+              {solutions.pill}
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">
             <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              Annual Fire Safety Statement
+              {solutions.title}
             </span>
-            <br />
-            <span className="text-gray-800">Management Programs</span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-            Under the new reforms the lodgement of the Annual Fire Safety
-            Statement (AFSS) can become a difficult process, particularly when
-            more than one contractor is involved. Crystal Certification Services
-            provides an AFSS management programme to help streamline this
-            procedure.
+            {solutions.subtitle}
           </p>
         </div>
 
@@ -118,21 +86,25 @@ export default function AFSSContent() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          {benefits.map((benefit, index) => (
+          {solutions.cards.map((benefit: any, index: any) => (
             <div
               key={index}
-              className={`bg-gradient-to-br ${
-                benefit.gradient
-              } p-6 rounded-2xl text-white hover:scale-105 transition-all duration-300 hover:shadow-xl ${
+              className={`bg-gradient-to-br from-brand-blue to-brand-cyan p-6 rounded-2xl text-white hover:scale-105 transition-all duration-300 hover:shadow-xl ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${(index + 2) * 150}ms` }}
             >
-              <benefit.icon className="w-8 h-8 mb-4" />
+              <Image
+                src={benefit.icon}
+                className="mb-4"
+                height={30}
+                width={30}
+                alt="icon"
+              />
               <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-              <p className="text-sm opacity-90">{benefit.description}</p>
+              <p className="text-sm opacity-90">{benefit.subtitle}</p>
             </div>
           ))}
         </div>
@@ -146,7 +118,7 @@ export default function AFSSContent() {
           <div className="text-center mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold mb-6">
               <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                OUR SERVICE PROCESS
+                {process.title}
               </span>
             </h3>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-primary to-brand-cyan mx-auto rounded-full"></div>
@@ -154,7 +126,7 @@ export default function AFSSContent() {
 
           {/* Process Steps */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {processSteps.map((step, index) => (
+            {process.cards.map((step: any, index: any) => (
               <div
                 key={index}
                 className={`text-center transition-all duration-1000 ease-out ${
@@ -170,7 +142,7 @@ export default function AFSSContent() {
                 <h4 className="font-bold text-lg mb-2 text-gray-800">
                   {step.title}
                 </h4>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-gray-600">{step.subtitle}</p>
               </div>
             ))}
           </div>
@@ -180,7 +152,7 @@ export default function AFSSContent() {
             <h4 className="text-2xl font-bold text-gray-800 mb-6 text-center">
               What's Included:
             </h4>
-            {serviceInvolves.map((service, index) => (
+            {process.types.map((service: any, index: any) => (
               <div
                 key={index}
                 className={`flex items-start space-x-4 bg-gradient-to-r from-brand-light/30 to-white p-4 rounded-xl border border-brand-primary/20 hover:shadow-md transition-all duration-300 ${
@@ -194,7 +166,7 @@ export default function AFSSContent() {
                   <CheckCircle className="w-4 h-4 text-white" />
                 </div>
                 <span className="text-gray-700 leading-relaxed font-medium">
-                  {service}
+                  {service.type}
                 </span>
               </div>
             ))}
@@ -208,8 +180,7 @@ export default function AFSSContent() {
             }`}
           >
             <p className="text-gray-700 leading-relaxed text-center font-medium">
-              This service can also be provided for any new fit outs within the
-              building to avoid complications during the annual inspection.
+              {process.subtext}
             </p>
           </div>
         </div>
@@ -222,42 +193,18 @@ export default function AFSSContent() {
         >
           <div className="text-center mb-8">
             <h3 className="text-3xl sm:text-4xl font-bold mb-4">
-              Why Do We Offer This Service?
+              {offer.title}
             </h3>
             <div className="w-24 h-1 bg-white mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-brand-light leading-relaxed">
-              <p>
-                Recent changes to the Environmental Planning and Assessment
-                Regulation 2000 (the regulations) that became effective on 1
-                October 2017, will impact building owners who are required to
-                issue fire safety statements for their buildings.
-              </p>
-
-              <p>
-                Building owners must now engage a "Competent Fire Safety
-                Practitioner" (CFSP) to sign off on the testing of each
-                Essential Fire Safety Measure. This term means an individual
-                signing off on the testing or final certification on an Annual
-                Fire Safety Statement must be accredited by a NSW Government
-                recognised body.
-              </p>
+              <p>{offer.left_para}</p>
             </div>
 
             <div className="space-y-6 text-brand-light leading-relaxed">
-              <p>
-                Crystal Fire Services has worked with Industry bodies and within
-                Government guidelines to ensure we continue to maintain all of
-                the required competencies.
-              </p>
-
-              <p>
-                Our Crystal Certification programs are tailored specifically for
-                each State and Territory's defined building regulations and
-                legislation.
-              </p>
+              <p>{offer.right_para}</p>{" "}
             </div>
           </div>
         </div>
@@ -269,47 +216,53 @@ export default function AFSSContent() {
           }`}
         >
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-4">
-              Get Started with AFSS Management
-            </h3>
+            <h3 className="text-3xl font-bold mb-4">{cta.title}</h3>
             <p className="text-white leading-relaxed max-w-2xl mx-auto text-lg">
-              Contact our AFSS specialists to discuss your fire safety
-              compliance requirements and learn how our management programs can
-              streamline your processes.
+              {cta.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 mx-auto">
-                <Phone className="w-6 h-6 text-white" />
+              <div className="flex items-center justify-center w-12 h-12 bg-brand-light/20 rounded-xl mb-4 mx-auto">
+                <Image
+                  src={cta.cards[0].icon}
+                  height={30}
+                  width={30}
+                  alt="icon"
+                />
               </div>
-              <h4 className="font-semibold text-xl mb-2">Phone Consultation</h4>
-              <p className="text-white mb-4">
-                Speak directly with our AFSS experts
-              </p>
+              <h4 className="font-semibold text-xl mb-2">
+                {cta.cards[0].title}
+              </h4>
+              <p className="text-white mb-4">{cta.cards[0].subtitle}</p>
               <a
-                href="tel:1300790702"
-                className="inline-block bg-white text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light transition-all duration-300 font-semibold hover:scale-105"
+                href={cta.cards[0].btn.url}
+                className="inline-block bg-brand-light text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light/90 transition-all duration-300 font-semibold hover:scale-105"
               >
-                Call 1300 790 702
+                {cta.cards[0].btn.label}
               </a>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 mx-auto">
-                <Mail className="w-6 h-6 text-white" />
+              <div className="flex items-center justify-center w-12 h-12 bg-brand-light/20 rounded-xl mb-4 mx-auto">
+                <Image
+                  src={cta.cards[1].icon}
+                  height={30}
+                  width={30}
+                  alt="icon"
+                />
               </div>
-              <h4 className="font-semibold text-xl mb-2">Email Inquiry</h4>
-              <p className="text-white mb-4">
-                Get detailed information via email
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-white text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light transition-all duration-300 font-semibold hover:scale-105"
+              <h4 className="font-semibold text-xl mb-2">
+                {cta.cards[1].title}
+              </h4>
+              <p className="text-white mb-4">{cta.cards[1].subtitle}</p>
+              <a
+                href={cta.cards[1].btn.url}
+                className="inline-block bg-brand-light text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light/90 transition-all duration-300 font-semibold hover:scale-105"
               >
-                Email Us
-              </Link>
+                {cta.cards[1].btn.label}
+              </a>
             </div>
           </div>
         </div>

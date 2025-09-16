@@ -4,7 +4,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { FileText, Shield, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
-export default function AFSSHero() {
+export default function AFSSHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -32,17 +32,13 @@ export default function AFSSHero() {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium mb-8">
             <FileText className="w-5 h-5 mr-2" />
-            Annual Fire Safety Statement Management
+            {hero.pill}
           </div>
 
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              AFSS MANAGEMENT
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              PROGRAMS
+              {hero.title}
             </span>
           </h1>
 
@@ -54,8 +50,7 @@ export default function AFSSHero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            Streamline your Annual Fire Safety Statement lodgement with our
-            expert management programs
+            {hero.subtitle}
           </p>
 
           {/* CTA Button */}
@@ -67,10 +62,10 @@ export default function AFSSHero() {
             }`}
           >
             <Link
-              href={"#afssManagement"}
+              href={hero.btn.url}
               className="group bg-gradient-to-r from-brand-primary to-brand-blue hover:from-brand-blue hover:to-brand-primary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              Learn More About AFSS
+              {hero.btn.label}
               <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>

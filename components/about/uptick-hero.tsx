@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Zap } from "lucide-react";
 
-export default function UptickHero() {
+export default function UptickHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -35,7 +34,7 @@ export default function UptickHero() {
           >
             <Zap className="w-4 h-4 text-brand-primary mr-2" />
             <span className="text-brand-primary text-sm font-medium">
-              Australia's Leading Fire Management System
+              {hero.pill}
             </span>
           </div>
 
@@ -47,7 +46,7 @@ export default function UptickHero() {
             }`}
           >
             <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-              UPTICK
+              {hero.title}
             </span>
           </h1>
 
@@ -64,21 +63,7 @@ export default function UptickHero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            At Crystal Fire Services, we use Uptick, a leading fire protection
-            software that streamlines compliance, asset management and
-            reporting.
-          </p>
-          <p
-            className={`text-xl sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 ease-out delay-400 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            It enables real-time job tracking, digital service records and clear
-            communication, giving clients full visibility and confidence. With
-            Uptick, we deliver faster, more accurate fire safety services that
-            keep your building compliant.
+            {hero.subtitle}
           </p>
         </div>
       </div>

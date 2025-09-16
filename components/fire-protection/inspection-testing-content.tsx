@@ -12,7 +12,12 @@ import Image from "next/image";
 import Link from "next/link";
 import CertificationCarousel from "../certificationCarousel";
 
-export default function InspectionTestingContent() {
+export default function InspectionTestingContent({
+  testing,
+  faq,
+  choose,
+  cta,
+}: any) {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
@@ -30,32 +35,15 @@ export default function InspectionTestingContent() {
               }`}
             >
               <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-6">
-                PROFESSIONAL FIRE SYSTEM TESTING
+                {testing.title}
               </h2>
 
               <p className="text-gray-600 leading-relaxed mb-6">
-                Testing your Fire Protection System is required by law. It also
-                provides you with peace of mind as you'll know your system will
-                perform correctly in the event of an emergency.
-              </p>
-
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Crystal Fire Services offers competitive pricing for full
-                inspection, testing and maintenance for any system that requires
-                certification. Our technicians are fully qualified and will
-                thoroughly test and audit your system to ensure its compliance
-                with all regional industry standards and government regulations.
-              </p>
-
-              <p className="text-gray-600 leading-relaxed mb-8">
-                We retain comprehensive maintenance records and complete all
-                necessary compliance reports. This enables us to provide an
-                Annual Fire Safety Statement, which is enforced by Council and
-                the NSW Fire Brigade.
+                {testing.subtitle}
               </p>
 
               <div className="bg-gradient-to-r from-brand-light/30 to-white rounded-2xl p-6 border border-brand-primary/20">
-                <CertificationCarousel />
+                <CertificationCarousel certifications={testing.certificates} />
               </div>
             </div>
 
@@ -70,7 +58,7 @@ export default function InspectionTestingContent() {
               <div className="relative group">
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/testing.jpg"
+                    src={testing.img || "/images/testing.jpg"}
                     alt="Professional fire system testing and inspection"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -92,110 +80,32 @@ export default function InspectionTestingContent() {
             >
               <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6">
                 <CheckCircle className="w-6 h-6 text-brand-primary" />
-                <span className="font-semibold text-gray-900">
-                  Our Services
-                </span>
+                <span className="font-semibold text-gray-900">{faq.pill}</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent mb-6">
-                OUR TESTING SERVICES COVER
+                {faq.title}
               </h3>
             </div>
 
             <div className="max-w-4xl mx-auto">
               <Accordion type="single" collapsible className="w-full space-y-4">
-                <AccordionItem
-                  value="inspection-testing"
-                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
-                >
-                  <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-brand-primary" />
-                      Inspection Testing
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600">
-                    Comprehensive inspection testing services for all fire
-                    protection systems to ensure optimal performance and
-                    compliance with Australian standards. Our qualified
-                    technicians conduct thorough visual inspections, functional
-                    testing, and performance verification.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem
-                  value="fire-suppression"
-                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
-                >
-                  <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-brand-primary" />
-                      Fire Suppression Systems
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600">
-                    Testing and maintenance of fire suppression systems
-                    including sprinkler systems, deluge systems, pre-action
-                    systems, and special hazard suppression systems. We ensure
-                    proper water flow, pressure testing, and system
-                    functionality.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem
-                  value="fire-maintenance"
-                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
-                >
-                  <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-brand-primary" />
-                      Fire Maintenance Systems
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600">
-                    Regular maintenance and testing of fire protection systems
-                    in accordance with AS1851 standards. This includes routine
-                    servicing, component replacement, system optimization, and
-                    preventive maintenance to ensure reliable operation.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem
-                  value="portable-equipment"
-                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
-                >
-                  <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-brand-primary" />
-                      Portable Fire Equipment
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600">
-                    Testing and maintenance of portable fire equipment including
-                    fire extinguishers, fire blankets, and hose reels. We
-                    provide pressure testing, agent replacement, and
-                    certification to ensure your portable equipment is ready
-                    when needed.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem
-                  value="detection-evacuation"
-                  className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
-                >
-                  <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <ArrowRight className="w-5 h-5 text-brand-primary" />
-                      Fire Detection & Emergency Evacuation Systems
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600">
-                    Comprehensive testing of fire detection systems, smoke
-                    alarms, heat detectors, and emergency evacuation systems
-                    including EWIS (Emergency Warning and Intercommunication
-                    Systems). We ensure proper functionality and compliance with
-                    safety standards.
-                  </AccordionContent>
-                </AccordionItem>
+                {faq.faqs.map((faq: any, i: any) => (
+                  <AccordionItem
+                    key={i}
+                    value="inspection-testing"
+                    className="border border-brand-primary/20 rounded-lg bg-white/80 backdrop-blur-sm"
+                  >
+                    <AccordionTrigger className="px-6 py-4 text-left font-medium text-gray-900 hover:no-underline">
+                      <div className="flex items-center gap-3">
+                        <ArrowRight className="w-5 h-5 text-brand-primary" />
+                        {faq.question}
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4 text-gray-600">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
               </Accordion>
             </div>
           </div>
@@ -219,46 +129,15 @@ export default function InspectionTestingContent() {
           >
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6">
               <Award className="w-6 h-6" />
-              <span className="font-semibold text-white">Why Choose Us</span>
+              <span className="font-semibold text-white">{choose.pill}</span>
             </div>
             <h3 className="text-3xl sm:text-4xl font-bold bg-clip-text  mb-6">
-              WHY CHOOSE OUR TESTING SERVICES?
+              {choose.title}
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                title: "Legal Compliance",
-                description:
-                  "Ensure your systems meet all Australian fire safety regulations and standards",
-              },
-              {
-                title: "Qualified Technicians",
-                description:
-                  "Our certified professionals have extensive experience in fire system testing",
-              },
-              {
-                title: "Comprehensive Reports",
-                description:
-                  "Detailed testing reports and maintenance records for your compliance needs",
-              },
-              {
-                title: "Competitive Pricing",
-                description:
-                  "Cost-effective testing solutions without compromising on quality or thoroughness",
-              },
-              {
-                title: "Regular Scheduling",
-                description:
-                  "Automated reminders and scheduling to ensure you never miss required testing",
-              },
-              {
-                title: "Emergency Response",
-                description:
-                  "24/7 emergency testing and repair services when you need them most",
-              },
-            ].map((item, index) => (
+            {choose.cards.map((item: any, index: any) => (
               <div
                 key={index}
                 className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 ${
@@ -271,7 +150,7 @@ export default function InspectionTestingContent() {
                 <h4 className="text-lg font-semibold text-white mb-3">
                   {item.title}
                 </h4>
-                <p className="text-sm leading-relaxed">{item.description}</p>
+                <p className="text-sm leading-relaxed">{item.subtitle}</p>
               </div>
             ))}
           </div>
@@ -286,12 +165,10 @@ export default function InspectionTestingContent() {
           >
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-purple-900 mb-4">
-                Schedule Your Fire System Testing
+                {cta.title}
               </h3>
               <p className="text-purple-800 leading-relaxed max-w-2xl mx-auto">
-                Don't wait until it's too late. Contact our testing specialists
-                today to schedule your fire system inspection and ensure your
-                property remains compliant and protected.
+                {cta.subtitle}
               </p>
             </div>
 
@@ -302,17 +179,15 @@ export default function InspectionTestingContent() {
                     <Phone className="w-4 h-4 text-white" />
                   </div>
                   <h4 className="font-semibold text-purple-800">
-                    Emergency & Scheduling
+                    {cta.cards[0].title}
                   </h4>
                 </div>
-                <p className="text-purple-800 mb-4">
-                  24/7 emergency testing available
-                </p>
+                <p className="text-purple-800 mb-4">{cta.cards[0].subtitle}</p>
                 <a
-                  href="tel:1300790702"
+                  href={cta.cards[0].btn_url}
                   className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105 shadow-lg text-center"
                 >
-                  Call 1300 790 702
+                  {cta.cards[0].btn_label}
                 </a>
               </div>
 
@@ -322,17 +197,15 @@ export default function InspectionTestingContent() {
                     <Mail className="w-4 h-4 text-white" />
                   </div>
                   <h4 className="font-semibold text-purple-800">
-                    Testing Inquiries
+                    {cta.cards[1].title}
                   </h4>
                 </div>
-                <p className="text-purple-800 mb-4">
-                  Get detailed testing schedules and quotes
-                </p>
+                <p className="text-purple-800 mb-4">{cta.cards[1].subtitle}</p>
                 <Link
-                  href="/contact"
+                  href={cta.cards[1].btn_url}
                   className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105 shadow-lg text-center"
                 >
-                  Email Us
+                  {cta.cards[1].btn_label}
                 </Link>
               </div>
             </div>

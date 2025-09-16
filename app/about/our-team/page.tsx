@@ -1,21 +1,34 @@
-import type { Metadata } from "next"
-import TeamHero from "@/components/about/team-hero"
-import LeadershipTeam from "@/components/about/leadership-team"
-import Certifications from "@/components/certifications"
-
-export const metadata: Metadata = {
-  title: "Our Team - Crystal Fire Services",
-  description:
-    "Meet the experienced leadership team at Crystal Fire Services. Learn about our Managing Director Chris Osborne and General Manager Ryan Libbis.",
-  keywords: "team, leadership, Chris Osborne, Ryan Libbis, Crystal Fire Services, fire protection experts, management",
-}
+"use client";
+import LeadershipTeam from "@/components/about/leadership-team";
+import TeamHero from "@/components/about/team-hero";
+import Certifications from "@/components/certifications";
+import { useHomepageData } from "@/hooks/useHomepageData";
+import { useTeamsPageData } from "@/hooks/useTeamspageData";
 
 export default function OurTeamPage() {
+  // ALL hooks at the top
+  const {
+    data: home,
+    isLoading: homeLoading,
+    error: homeError,
+  } = useHomepageData();
+
+  const {
+    data: teamsData,
+    isLoading: teamsLoading,
+    error: teamsError,
+  } = useTeamsPageData();
+
+  // Conditional rendering based on loading/error
+  if (homeLoading || teamsLoading) return <p>Loading...</p>;
+  if (homeError || teamsError) return <p>Error loading data</p>;
+  if (!home || !teamsData) return <p>No data found</p>;
+
   return (
     <main>
-      <TeamHero />
-      <LeadershipTeam />
-      <Certifications />
+      <TeamHero hero={teamsData.hero} />
+      <LeadershipTeam teams={teamsData.teams} />
+      <Certifications certifications={home.certifications} />
     </main>
-  )
+  );
 }

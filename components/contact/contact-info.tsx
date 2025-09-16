@@ -1,45 +1,17 @@
 "use client";
 
-import { Phone, Mail, MapPin, Clock, Award, Shield } from "lucide-react";
+import { Clock, Mail, Phone } from "lucide-react";
 
-const contactDetails = {
-  phone: "1300 790 702",
-  email: "hello@crystalfire.com.au",
-  addresses: [
-    {
-      name: "Main Office - Brookvale",
-      street: "Unit 26, 122-126 Old Pittwater Rd",
-      city: "Brookvale NSW 2100",
-      isMain: true,
-    },
-    {
-      name: "Central Coast Office",
-      street: "3 Amy Close",
-      city: "Wyong NSW 2259",
-      isMain: false,
-    },
-    {
-      name: "Melbourne Office",
-      street: "425 Smith Street",
-      city: "Fitzroy VIC 3065",
-      isMain: false,
-    },
-  ],
-};
-
-export default function ContactInfo() {
+export default function ContactInfo({ info }: any) {
   return (
     <div className="space-y-8">
       <div className={`transition-all duration-1000 ease-out `}>
         <h2 className="text-3xl font-bold mb-2">
           <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-            Get in Touch
+            {info.title}
           </span>
         </h2>
-        <p className="text-gray-600 mb-8">
-          Contact our certified fire protection specialists for expert
-          consultation and professional service.
-        </p>
+        <p className="text-gray-600 mb-8">{info.subtitle}</p>
       </div>
 
       {/* Contact Methods */}
@@ -54,16 +26,16 @@ export default function ContactInfo() {
               <Phone className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900 mb-2">Call Us Now</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                {info.call.title}
+              </h3>
               <a
-                href={`tel:${contactDetails.phone.replace(/\s/g, "")}`}
+                href={`tel:${info.call.phone}`}
                 className="text-2xl font-bold text-brand-primary hover:text-brand-primary/80 transition-colors duration-200 block mb-2"
               >
-                {contactDetails.phone}
+                {info.call.phone}
               </a>
-              <p className="text-sm text-gray-600">
-                24/7 Emergency Response Available
-              </p>
+              <p className="text-sm text-gray-600">{info.call.subtitle}</p>
             </div>
           </div>
         </div>
@@ -78,16 +50,16 @@ export default function ContactInfo() {
               <Mail className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                {info.email.title}
+              </h3>
               <a
-                href={`mailto:${contactDetails.email}`}
+                href={`mailto:${info.email.email}`}
                 className="text-lg font-medium text-brand-blue hover:text-brand-blue/80 transition-colors duration-200 block mb-2"
               >
-                {contactDetails.email}
+                {info.email.email}
               </a>
-              <p className="text-sm text-gray-600">
-                We respond within 2 hours during business hours
-              </p>
+              <p className="text-sm text-gray-600">{info.email.subtitle}</p>
             </div>
           </div>
         </div>

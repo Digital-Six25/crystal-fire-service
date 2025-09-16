@@ -4,7 +4,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { ArrowRight, Wrench } from "lucide-react";
 import Link from "next/link";
 
-export default function InstallationHero() {
+export default function InstallationHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -35,7 +35,7 @@ export default function InstallationHero() {
               }`}
             >
               <Wrench className="w-5 h-5 mr-2" />
-              Professional Installation Services
+              {hero.pill}
             </div>
 
             <h1
@@ -46,11 +46,7 @@ export default function InstallationHero() {
               }`}
             >
               <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                FIRE SYSTEM
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                INSTALLATION
+                {hero.title}
               </span>
             </h1>
 
@@ -61,9 +57,7 @@ export default function InstallationHero() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              Professional installation of wet, dry and passive fire systems as
-              well as portable firefighting equipment to all building types and
-              industries across Australia
+              {hero.subtitle}
             </p>
 
             {/* CTA Buttons */}
@@ -75,17 +69,17 @@ export default function InstallationHero() {
               }`}
             >
               <Link
-                href="/contact"
+                href={hero.btns[0].url}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Get a Quote
+                {hero.btns[0].label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               <a
-                href="#services"
+                href={hero.btns[1].url}
                 className="group inline-flex items-center px-8 py-4 border-2 border-brand-cyan text-brand-cyan hover:bg-brand-cyan hover:text-white font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 bg-transparent"
               >
-                View Services
+                {hero.btns[1].label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
             </div>

@@ -1,69 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import {
-  Shield,
-  CheckCircle,
-  Award,
-  Users,
-  Clock,
-  Star,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, Award, CheckCircle, Shield } from "lucide-react";
+import Image from "next/image";
 
-const installationServices = [
-  "Smoke detection and heat detection systems",
-  "EWIS systems",
-  "Sprinkler and hydrant systems",
-  "Fire pumpsets",
-  "Extinguishers",
-  "Fire Hose Reel Systems",
-];
-
-const additionalServices = [
-  "Smoke alarms",
-  "Exit and Emergency Lighting",
-  "Fire doors and other passive fire protection",
-  "Special Hazard and Gaseous Systems",
-  "Fire System Block Plans",
-];
-
-const stats = [
-  {
-    icon: Shield,
-    label: "Systems Installed",
-    value: "2,500+",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Award,
-    label: "Years Experience",
-    value: "25+",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: Users,
-    label: "Certified Technicians",
-    value: "50+",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Clock,
-    label: "Response Time",
-    value: "24hrs",
-    color: "from-orange-500 to-red-500",
-  },
-];
-
-const certifications = [
-  { name: "Australian Standards", code: "AS1851", icon: Shield },
-  { name: "Building Code", code: "BCA", icon: Award },
-  { name: "Fire Safety", code: "CFSP", icon: CheckCircle },
-  { name: "Quality Assured", code: "ISO9001", icon: Star },
-];
-
-export default function InstallationContent() {
+export default function InstallationContent({ professional, licensed }: any) {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
@@ -95,7 +36,7 @@ export default function InstallationContent() {
               <div className="relative group">
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/installation.jpg"
+                    src={professional.img || "/images/installation.jpg"}
                     alt="Fire sprinkler head installation"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -107,7 +48,7 @@ export default function InstallationContent() {
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500" />
                     <span className="text-sm font-semibold text-gray-700">
-                      Certified Install
+                      {professional.tag}
                     </span>
                   </div>
                 </div>
@@ -124,36 +65,33 @@ export default function InstallationContent() {
             >
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-200/50 shadow-lg">
                 <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-6">
-                  Professional Installation
+                  {professional.title}
                 </h3>
 
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  We install wet, dry and passive fire systems as well as
-                  portable firefighting equipment to all building types and
-                  industries
-                </p>
-
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  All installations are commissioned in accordance with the
-                  relevant Australian Standard and current Building Code of
-                  Australia. The Final Fire Safety Certificate is provided by
-                  Crystal Fire Services and endorsed by a Competent Fire Safety
-                  Practitioner.
+                  {professional.subtitle}
                 </p>
 
                 {/* Certification Badges */}
                 <div className="grid grid-cols-2 gap-3">
-                  {certifications.map((cert, index) => (
+                  {professional.cards.map((cert: any, index: any) => (
                     <div
                       key={index}
                       className="flex items-center gap-2 p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200/30 hover:shadow-md transition-shadow duration-200"
                     >
-                      <cert.icon className="w-4 h-4 text-blue-600" />
+                      <Image
+                        src={cert.icon || ""}
+                        height={20}
+                        width={20}
+                        alt="icon"
+                      />
                       <div className="text-left">
                         <div className="text-xs font-semibold text-blue-600">
-                          {cert.code}
+                          {cert.title}
                         </div>
-                        <div className="text-xs text-gray-600">{cert.name}</div>
+                        <div className="text-xs text-gray-600">
+                          {cert.subtitle}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -183,15 +121,14 @@ export default function InstallationContent() {
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-brand-light/20 backdrop-blur-sm rounded-full border border-brand-light/30 mb-6">
               <Shield className="w-5 h-5 text-brand-light" />
               <span className="text-sm font-semibold text-brand-light">
-                Licensed Installation Services
+                {licensed.pill}
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-brand-light bg-clip-text text-transparent mb-4">
-              WE ARE LICENSED TO INSTALL
+              {licensed.title}
             </h2>
             <p className="text-brand-light/80 max-w-2xl mx-auto">
-              Our certified technicians are licensed to install a comprehensive
-              range of fire protection systems
+              {licensed.subtitle}
             </p>
           </div>
 
@@ -207,13 +144,13 @@ export default function InstallationContent() {
               <div className="bg-brand-light/10 backdrop-blur-sm rounded-2xl p-6 border border-brand-light/20">
                 <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  Primary Systems
+                  {licensed.cards[0].title}
                 </h3>
-                {installationServices.map((service, index) => (
+                {licensed.cards[0].types.map((service: any, index: any) => (
                   <div key={index} className="flex items-start py-2 group">
                     <ArrowRight className="w-4 h-4 text-brand-light mt-1 mr-3 group-hover:translate-x-1 transition-transform duration-200" />
                     <span className="text-white group-hover:text-white transition-colors duration-200">
-                      {service}
+                      {service.type}
                     </span>
                   </div>
                 ))}
@@ -231,13 +168,13 @@ export default function InstallationContent() {
               <div className="bg-brand-light/10 backdrop-blur-sm rounded-2xl p-6 border border-brand-light/20">
                 <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                   <Award className="w-5 h-5 text-yellow-400" />
-                  Additional Services
+                  {licensed.cards[1].title}
                 </h3>
-                {additionalServices.map((service, index) => (
+                {licensed.cards[1].types.map((service: any, index: any) => (
                   <div key={index} className="flex items-start py-2 group">
                     <ArrowRight className="w-4 h-4 text-brand-cyan mt-1 mr-3 group-hover:translate-x-1 transition-transform duration-200" />
                     <span className="text-white group-hover:text-white transition-colors duration-200">
-                      {service}
+                      {service.type}
                     </span>
                   </div>
                 ))}

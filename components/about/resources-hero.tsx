@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Download, BookOpen } from "lucide-react";
 
-export default function ResourcesHero() {
+export default function ResourcesHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const certifications = [
@@ -56,7 +56,7 @@ export default function ResourcesHero() {
           >
             <BookOpen className="w-4 h-4 text-[#0192a8] mr-2" />
             <span className="text-[#0192a8] text-sm font-medium">
-              Fire Safety Knowledge Hub
+              {hero.pill}
             </span>
           </div>
 
@@ -68,7 +68,7 @@ export default function ResourcesHero() {
             }`}
           >
             <span className="bg-gradient-to-r from-[#0192a8] via-[#188bc0] to-[#55c5d2] bg-clip-text text-transparent">
-              RESOURCES
+              {hero.title}
             </span>
           </h1>
 
@@ -85,18 +85,17 @@ export default function ResourcesHero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            Essential fire safety resources, regulations, and compliance
-            documents to keep you informed and compliant
+            {hero.subtitle}
           </p>
         </div>
 
         {/* Certifications Grid - Replacing Stats */}
         <div className="mb-12">
           <h2 className="text-center text-2xl font-bold text-[#0192a8] mb-8">
-            Our Certifications
+            {hero.certificates.title}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto justify-items-center">
-            {certifications.map((cert, index) => (
+            {hero.certificates.image.map((cert: any, index: any) => (
               <div
                 key={index}
                 className={`bg-white/70 backdrop-blur-sm border border-[#bee5e9] rounded-2xl p-4 flex items-center justify-center hover:bg-white hover:border-[#0192a8] hover:scale-105 transition-all duration-300 w-full max-w-[180px] h-[120px] shadow-sm ${
@@ -108,8 +107,8 @@ export default function ResourcesHero() {
               >
                 <div className="relative w-full h-full">
                   <Image
-                    src={cert.image || "/placeholder.svg"}
-                    alt={cert.alt}
+                    src={cert || "/placeholder.svg"}
+                    alt={"certificates"}
                     fill
                     className="object-contain p-2"
                   />
@@ -127,7 +126,7 @@ export default function ResourcesHero() {
         >
           <button className="bg-gradient-to-r from-[#0192a8] to-[#188bc0] text-white px-8 py-4 rounded-full font-semibold hover:from-[#188bc0] hover:to-[#0192a8] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center">
             <Download className="w-5 h-5 mr-2" />
-            Download All Resources
+            {hero.btn.label}
           </button>
         </div>
       </div>

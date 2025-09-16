@@ -1,60 +1,16 @@
 "use client";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Phone, Mail, Award, Shield, CheckCircle, Users } from "lucide-react";
+import { Award, Shield, Users } from "lucide-react";
+import Image from "next/image";
 
-export default function CertificationContent() {
+export default function CertificationContent({
+  certificates,
+  recog,
+  process,
+  expertise,
+  cta,
+}: any) {
   const { ref, isVisible } = useScrollAnimation();
-
-  const achievements = [
-    {
-      icon: Award,
-      title: "FPA Accredited",
-      description: "Fully accredited by Fire Protection Association Australia",
-      gradient: "from-yellow-400 to-orange-500",
-    },
-    {
-      icon: Shield,
-      title: "Government Approved",
-      description:
-        "NSW Government recognised competent fire safety practitioners",
-      gradient: "from-blue-500 to-indigo-600",
-    },
-    {
-      icon: CheckCircle,
-      title: "100% Compliance",
-      description: "Perfect track record in fire safety compliance",
-      gradient: "from-green-500 to-emerald-600",
-    },
-    {
-      icon: Users,
-      title: "Expert Team",
-      description: "Qualified professionals with decades of experience",
-      gradient: "from-purple-500 to-pink-600",
-    },
-  ];
-
-  const certifications = [
-    {
-      image: "/images/iso-9001.png",
-      title: "ISO 9001",
-      description: "Quality Management Systems",
-    },
-    {
-      image: "/images/fpa-australia-gold.png",
-      title: "FPA Australia",
-      description: "Fire Protection Association",
-    },
-    {
-      image: "/images/jasanz.png",
-      title: "JAS-ANZ",
-      description: "Joint Accreditation System",
-    },
-    {
-      image: "/images/fma.png",
-      title: "FMA",
-      description: "Fire & Emergency Management",
-    },
-  ];
 
   return (
     <section
@@ -72,7 +28,7 @@ export default function CertificationContent() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          {certifications.map((cert, index) => (
+          {certificates.map((cert: any, index: any) => (
             <div
               key={index}
               className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/50 hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:border-brand-primary/30 ${
@@ -84,7 +40,7 @@ export default function CertificationContent() {
             >
               <div className="flex items-center justify-center w-16 h-16 mb-4 mx-auto overflow-hidden rounded-xl border border-brand-primary/20">
                 <img
-                  src={cert.image || "/placeholder.svg"}
+                  src={cert.img || "/placeholder.svg"}
                   alt={cert.title}
                   className="w-full h-full object-contain"
                 />
@@ -93,7 +49,7 @@ export default function CertificationContent() {
                 {cert.title}
               </div>
               <div className="text-gray-600 font-medium text-sm">
-                {cert.description}
+                {cert.subtitle}
               </div>
             </div>
           ))}
@@ -114,45 +70,20 @@ export default function CertificationContent() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-light/20 backdrop-blur-sm border border-brand-light/30 mb-6">
                 <Award className="w-5 h-5 text-white mr-2" />
-                <span className="text-white font-semibold">
-                  Industry Recognition
-                </span>
+                <span className="text-white font-semibold">{recog.pill}</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                Fire Protection Association of Australia (FPA) launches NSW FPAS
-                Accreditation
+                {recog.title}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 text-white leading-relaxed">
-                <p className="text-lg">
-                  In the wake of the NSW Government's announcements of major
-                  reforms to the state's fire safety and building regulations,
-                  FPA Australia has prepared an accreditation scheme for Fire
-                  Safety Assessment to cover Part 9 Division 5 and 7 of EP & A
-                  Regulation.
-                </p>
-
-                <p>
-                  This accreditation scheme was launched 1st April 2019 and
-                  gives competent fire safety practitioners 12 months to gain
-                  final accreditation. Crystal Certification is pre-qualified to
-                  sign off on any AFSS and registered for final qualification to
-                  ensure we stay at the forefront of the industry.
-                </p>
-
-                <p>
-                  These reforms are possibly the most important change to the
-                  fire protection industry in decades, and FPA Australia is
-                  working closely with government and industry to ensure the
-                  reforms both improve fire safety outcomes and are practical
-                  for the industry.
-                </p>
+                <p className="text-lg">{recog.subtitle}</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {achievements.map((achievement, index) => (
+                {recog.cards.map((achievement: any, index: any) => (
                   <div
                     key={index}
                     className={`bg-brand-light/10 backdrop-blur-sm p-6 rounded-2xl border border-brand-light/20 hover:bg-brand-light/15 transition-all duration-300 hover:scale-105 ${
@@ -162,11 +93,17 @@ export default function CertificationContent() {
                     }`}
                     style={{ transitionDelay: `${(index + 4) * 150}ms` }}
                   >
-                    <achievement.icon className="w-8 h-8 mb-4 " />
+                    <Image
+                      src={achievement.icon}
+                      height={30}
+                      width={30}
+                      alt="icon"
+                      className="mb-4"
+                    />
                     <h3 className="font-bold text-lg mb-2 ">
                       {achievement.title}
                     </h3>
-                    <p className="text-sm">{achievement.description}</p>
+                    <p className="text-sm">{achievement.subtitle}</p>
                   </div>
                 ))}
               </div>
@@ -185,36 +122,31 @@ export default function CertificationContent() {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-primary/10 to-brand-blue/10 border border-brand-primary/20 mb-6">
                 <Shield className="w-5 h-5 text-brand-primary mr-2" />
                 <span className="text-brand-primary font-semibold">
-                  Certification Process
+                  {process.pill}
                 </span>
               </div>
               <h3 className="text-3xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                  Professional Fire Safety Assessment
+                  {process.title}
                 </span>
               </h3>
               <div className="space-y-4 text-gray-700">
-                <p className="text-lg">
-                  Our certified professionals follow a comprehensive assessment
-                  process to ensure your building meets all fire safety
-                  requirements and regulatory standards.
-                </p>
+                <p className="text-lg">{process.subtitle}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-brand-primary/5 p-4 rounded-xl border border-brand-primary/20">
                     <h4 className="font-semibold text-brand-primary mb-2">
-                      Initial Assessment
+                      {process.cards[0].title}
                     </h4>
                     <p className="text-sm text-brand-primary/70">
-                      Comprehensive site evaluation and documentation review
+                      {process.cards[0].subtitle}
                     </p>
                   </div>
                   <div className="bg-brand-blue/5 p-4 rounded-xl border border-brand-blue/20">
                     <h4 className="font-semibold text-brand-blue mb-2">
-                      Compliance Review
+                      {process.cards[1].title}
                     </h4>
                     <p className="text-sm text-brand-blue/70">
-                      Detailed analysis against current regulations and
-                      standards
+                      {process.cards[1].subtitle}
                     </p>
                   </div>
                 </div>
@@ -223,7 +155,7 @@ export default function CertificationContent() {
 
             <div className="relative">
               <img
-                src="/images/safety.jpg"
+                src={process.img || "/images/safety.jpg"}
                 alt="Fire Safety Assessment Process"
                 className="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
@@ -239,7 +171,7 @@ export default function CertificationContent() {
         >
           <div className="relative">
             <img
-              src="/images/solution.png"
+              src={expertise.img || "/images/solution.png"}
               alt="Expert Fire Safety Team"
               className="w-full h-80 object-cover rounded-2xl shadow-lg"
             />
@@ -249,35 +181,31 @@ export default function CertificationContent() {
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-cyan/10 to-brand-primary/10 border border-brand-cyan/20 mb-6">
               <Users className="w-5 h-5 text-brand-cyan mr-2" />
               <span className="text-brand-cyan font-semibold">
-                Professional Expertise
+                {expertise.pill}
               </span>
             </div>
             <h3 className="text-3xl font-bold mb-6">
               <span className="bg-gradient-to-r from-brand-cyan to-brand-primary bg-clip-text text-transparent">
-                Qualified Fire Safety Practitioners
+                {expertise.title}
               </span>
             </h3>
             <div className="space-y-4 text-gray-700">
-              <p className="text-lg">
-                Our team of certified fire safety practitioners brings decades
-                of combined experience in fire protection, compliance, and
-                safety assessment.
-              </p>
+              <p className="text-lg">{expertise.subtitle}</p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-brand-cyan/5 rounded-xl border border-brand-cyan/20">
                   <div className="text-2xl font-bold text-brand-cyan mb-1">
-                    100%
+                    {expertise.cards[0].title}
                   </div>
                   <div className="text-sm text-brand-cyan/70">
-                    Certified Professionals
+                    {expertise.cards[0].subtitle}
                   </div>
                 </div>
                 <div className="text-center p-4 bg-brand-primary/5 rounded-xl border border-brand-primary/20">
                   <div className="text-2xl font-bold text-brand-primary mb-1">
-                    25+
+                    {expertise.cards[1].title}
                   </div>
                   <div className="text-sm text-brand-primary/70">
-                    Years Experience
+                    {expertise.cards[1].subtitle}
                   </div>
                 </div>
               </div>
@@ -292,46 +220,52 @@ export default function CertificationContent() {
           }`}
         >
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-4">
-              Need Expert Certification Guidance?
-            </h3>
+            <h3 className="text-3xl font-bold mb-4">{cta.title}</h3>
             <p className="text-white leading-relaxed max-w-2xl mx-auto text-lg">
-              Our certified fire safety practitioners are ready to help you
-              navigate the complex world of fire safety compliance and
-              certification requirements.
+              {cta.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-brand-light/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-brand-light/20 hover:bg-brand-light/15 transition-all duration-300 hover:scale-105">
               <div className="flex items-center justify-center w-12 h-12 bg-brand-light/20 rounded-xl mb-4 mx-auto">
-                <Phone className="w-6 h-6 text-brand-light" />
+                <Image
+                  src={cta.cards[0].icon}
+                  height={30}
+                  width={30}
+                  alt="icon"
+                />
               </div>
-              <h4 className="font-semibold text-xl mb-2">Phone Consultation</h4>
-              <p className="text-white mb-4">
-                Speak directly with our certification experts
-              </p>
+              <h4 className="font-semibold text-xl mb-2">
+                {cta.cards[0].title}
+              </h4>
+              <p className="text-white mb-4">{cta.cards[0].subtitle}</p>
               <a
-                href="tel:1300790702"
+                href={cta.cards[0].btn.url}
                 className="inline-block bg-brand-light text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light/90 transition-all duration-300 font-semibold hover:scale-105"
               >
-                Call 1300 790 702
+                {cta.cards[0].btn.label}
               </a>
             </div>
 
             <div className="bg-brand-light/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-brand-light/20 hover:bg-brand-light/15 transition-all duration-300 hover:scale-105">
               <div className="flex items-center justify-center w-12 h-12 bg-brand-light/20 rounded-xl mb-4 mx-auto">
-                <Mail className="w-6 h-6 text-brand-light" />
+                <Image
+                  src={cta.cards[1].icon}
+                  height={30}
+                  width={30}
+                  alt="icon"
+                />
               </div>
-              <h4 className="font-semibold text-xl mb-2">Email Inquiry</h4>
-              <p className="text-white mb-4">
-                Get detailed certification information
-              </p>
+              <h4 className="font-semibold text-xl mb-2">
+                {cta.cards[1].title}
+              </h4>
+              <p className="text-white mb-4">{cta.cards[1].subtitle}</p>
               <a
-                href="/contact"
+                href={cta.cards[1].btn.url}
                 className="inline-block bg-brand-light text-brand-primary px-6 py-3 rounded-xl hover:bg-brand-light/90 transition-all duration-300 font-semibold hover:scale-105"
               >
-                Email Us
+                {cta.cards[1].btn.label}
               </a>
             </div>
           </div>

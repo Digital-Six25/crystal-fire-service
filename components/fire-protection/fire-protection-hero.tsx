@@ -1,69 +1,11 @@
 "use client";
-import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import {
-  Shield,
-  Wrench,
-  FileCheck,
-  Search,
-  ArrowRight,
-  CheckCircle,
-  Award,
-} from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function FireProtectionHero() {
+export default function FireProtectionHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
-
-  const stats = [
-    {
-      icon: Shield,
-      label: "Years Experience",
-      value: "20+",
-      color: "from-brand-primary to-brand-blue",
-    },
-    {
-      icon: CheckCircle,
-      label: "Projects Completed",
-      value: "5000+",
-      color: "from-brand-cyan to-brand-blue",
-    },
-    {
-      icon: Award,
-      label: "Certified Technicians",
-      value: "50+",
-      color: "from-brand-blue to-brand-primary",
-    },
-    {
-      icon: Wrench,
-      label: "Service Areas",
-      value: "24/7",
-      color: "from-brand-primary to-brand-cyan",
-    },
-  ];
-
-  const services = [
-    {
-      icon: Wrench,
-      title: "Installation",
-      description: "Professional fire system installation",
-      href: "/fire-protection/installation",
-      color: "from-brand-primary to-brand-blue",
-    },
-    {
-      icon: FileCheck,
-      title: "Compliance",
-      description: "Regulatory compliance services",
-      href: "/fire-protection/compliance",
-      color: "from-brand-cyan to-brand-blue",
-    },
-    {
-      icon: Search,
-      title: "Testing",
-      description: "Inspection and testing services",
-      href: "/fire-protection/inspection-testing",
-      color: "from-brand-blue to-brand-primary",
-    },
-  ];
 
   return (
     <section
@@ -93,7 +35,7 @@ export default function FireProtectionHero() {
               }`}
             >
               <Shield className="w-5 h-5 mr-2" />
-              Professional Fire Protection
+              {hero.pill}
             </div>
 
             <h1
@@ -104,11 +46,7 @@ export default function FireProtectionHero() {
               }`}
             >
               <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                FIRE PROTECTION
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-primary to-brand-blue bg-clip-text text-transparent">
-                SERVICES
+                {hero.title}
               </span>
             </h1>
 
@@ -119,9 +57,7 @@ export default function FireProtectionHero() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              Comprehensive fire protection solutions including installation,
-              compliance, and inspection testing for commercial, residential,
-              and industrial properties across Australia
+              {hero.subtitle}
             </p>
 
             {/* CTA Buttons */}
@@ -133,17 +69,17 @@ export default function FireProtectionHero() {
               }`}
             >
               <Link
-                href="/contact"
+                href={hero.btns[0].url}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-blue text-white font-semibold rounded-xl hover:from-brand-blue hover:to-brand-primary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Get Free Quote
+                {hero.btns[0].label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               <Link
-                href="#services"
+                href={hero.btns[1].url}
                 className="group inline-flex items-center px-8 py-4 border-2 border-brand-cyan text-brand-cyan hover:bg-brand-cyan hover:text-white font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 bg-transparent"
               >
-                Our Services
+                {hero.btns[1].label}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
@@ -151,7 +87,7 @@ export default function FireProtectionHero() {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => (
+            {hero.stats.map((stat: any, index: any) => (
               <div
                 key={index}
                 className={`group bg-white rounded-2xl p-6 border border-gray-100 hover:border-brand-primary transform hover:scale-105 transition-all duration-500 ease-out shadow-md ${
@@ -162,14 +98,14 @@ export default function FireProtectionHero() {
                 style={{ transitionDelay: `${(index + 4) * 150}ms` }}
               >
                 <div
-                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue mb-4 group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <stat.icon className="w-6 h-6 text-white" />
+                  <Image src={stat.icon} height={24} width={24} alt="icon" />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2">
-                  {stat.value}
+                  {stat.num}
                 </div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
+                <div className="text-gray-600 text-sm">{stat.title}</div>
               </div>
             ))}
           </div>
