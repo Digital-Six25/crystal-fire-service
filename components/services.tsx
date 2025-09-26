@@ -77,7 +77,11 @@ export default function Services({ service }: ServicesProps) {
             {service.pill}
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-            {service.title}
+            {service.title.split(" ").map((word, i) => (
+              <span key={i} className={i === 1 ? "text-brand-gradient" : ""}>
+                {word}{" "}
+              </span>
+            ))}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {service.subtitle}

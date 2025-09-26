@@ -147,7 +147,10 @@ export default function FireProtectionContent({
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {getStarted.cards.map((card: any, i: any) => (
-                  <div className="bg-brand-light/50 rounded-xl p-4 border border-brand-primary/20">
+                  <div
+                    key={i}
+                    className="bg-brand-light/50 rounded-xl p-4 border border-brand-primary/20"
+                  >
                     <div className="text-2xl font-bold text-brand-primary mb-1">
                       {card.title}
                     </div>

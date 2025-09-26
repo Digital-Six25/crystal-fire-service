@@ -44,7 +44,7 @@ export default function Equipment({ maintain }: EquipmentProps) {
             <FireExtinguisher className="w-4 h-4 mr-2" />
             {maintain.pill}{" "}
           </div>
-          <h2 className="text-5xl sm:text-6xl font-bold text-brand-dark mb-6">
+          <h2 className="text-5xl sm:text-6xl font-bold text-brand-gradient mb-6">
             {maintain.title}
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-brand-primary to-brand-blue mx-auto rounded-full"></div>
