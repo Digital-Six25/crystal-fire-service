@@ -2,6 +2,7 @@
 import Certifications from "@/components/certifications";
 import InspectionTestingContent from "@/components/fire-protection/inspection-testing-content";
 import InspectionTestingHero from "@/components/fire-protection/inspection-testing-hero";
+import Skeleton from "@/components/serviceSkeleton";
 import { useHomepageData } from "@/hooks/useHomepageData";
 import { useInspectionTestingPageData } from "@/hooks/useInspectionTestingpageData";
 
@@ -18,7 +19,7 @@ export default function InspectionTestingPage() {
     error: inspectionError,
   } = useInspectionTestingPageData();
 
-  if (homeLoading || inspectionLoading) return <p>Loading...</p>;
+  if (homeLoading || inspectionLoading) return <Skeleton />;
   if (homeError || inspectionError) return <p>Error loading data</p>;
   if (!home || !inspection) return <p>No data found</p>;
 

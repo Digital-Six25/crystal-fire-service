@@ -4,6 +4,7 @@ import MediaContent from "@/components/about/media-content";
 import Certifications from "@/components/certifications";
 import { useHomepageData } from "@/hooks/useHomepageData";
 import { useMediaPageData } from "@/hooks/useMediapageData";
+import HomeSkeleton from "@/components/homePageSkeleton";
 
 export default function MediaPage() {
   const {
@@ -18,7 +19,7 @@ export default function MediaPage() {
     error: mediaError,
   } = useMediaPageData();
 
-  if (homeLoading || mediaLoading) return <p>Loading...</p>;
+  if (homeLoading || mediaLoading) return <HomeSkeleton />;
   if (homeError || mediaError) return <p>Error loading data</p>;
   if (!home || !media) return <p>No data found</p>;
 

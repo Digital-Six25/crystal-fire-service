@@ -4,6 +4,7 @@ import UptickContent from "@/components/about/uptick-content";
 import Certifications from "@/components/certifications";
 import { useHomepageData } from "@/hooks/useHomepageData";
 import { useUptickPageData } from "@/hooks/useUptickpageData";
+import HomeSkeleton from "@/components/homePageSkeleton";
 
 export default function UptickPage() {
   const {
@@ -18,7 +19,7 @@ export default function UptickPage() {
     error: uptickError,
   } = useUptickPageData();
 
-  if (homeLoading || uptickLoading) return <p>Loading...</p>;
+  if (homeLoading || uptickLoading) return <HomeSkeleton />;
   if (homeError || uptickError) return <p>Error loading data</p>;
   if (!home || !uptick) return <p>No data found</p>;
 

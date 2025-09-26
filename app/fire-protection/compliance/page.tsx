@@ -2,6 +2,7 @@
 import Certifications from "@/components/certifications";
 import ComplianceContent from "@/components/fire-protection/compliance-content";
 import ComplianceHero from "@/components/fire-protection/compliance-hero";
+import Skeleton from "@/components/serviceSkeleton";
 import { useCompliancePageData } from "@/hooks/useCompliancepageData";
 import { useHomepageData } from "@/hooks/useHomepageData";
 
@@ -18,7 +19,7 @@ export default function CompliancePage() {
     error: complianceError,
   } = useCompliancePageData();
 
-  if (homeLoading || complianceLoading) return <p>Loading...</p>;
+  if (homeLoading || complianceLoading) return <Skeleton />;
   if (homeError || complianceError) return <p>Error loading data</p>;
   if (!home || !compliance) return <p>No data found</p>;
 

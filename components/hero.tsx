@@ -20,13 +20,6 @@ export default function Hero({ hero }: HeroProps) {
   if (!hero) return null;
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-brand-light via-white to-brand-light/50 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-cyan/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-brand-cyan/5 to-transparent rounded-full"></div>
-      </div>
-
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
@@ -41,14 +34,18 @@ export default function Hero({ hero }: HeroProps) {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight mb-6">
-              {/* Professional
-              <span className="block text-brand-gradient text-4xl sm:text-5xl lg:text-6xl">
-                Fire Protection
-              </span>
-              <span className="block text-3xl sm:text-4xl lg:text-5xl">
-                Services
-              </span> */}
-              {hero.title}
+              {hero.title.split(" ").map((word, i) => (
+                <span
+                  key={i}
+                  className={
+                    i === 1 || i === 2 // 2nd and 3rd words (0-based index)
+                      ? "text-brand-gradient"
+                      : ""
+                  }
+                >
+                  {word}{" "}
+                </span>
+              ))}
             </h1>
 
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed">

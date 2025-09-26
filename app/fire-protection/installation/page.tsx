@@ -3,6 +3,8 @@ import Certifications from "@/components/certifications";
 import Equipment from "@/components/equipment";
 import InstallationContent from "@/components/fire-protection/installation-content";
 import InstallationHero from "@/components/fire-protection/installation-hero";
+import Skeleton from "@/components/serviceSkeleton";
+
 import { useHomepageData } from "@/hooks/useHomepageData";
 import { useInstallationPageData } from "@/hooks/useInstallationpageData";
 
@@ -19,7 +21,7 @@ export default function InstallationPage() {
     error: installationError,
   } = useInstallationPageData();
 
-  if (homeLoading || installationLoading) return <p>Loading...</p>;
+  if (homeLoading || installationLoading) return <Skeleton />;
   if (homeError || installationError) return <p>Error loading data</p>;
   if (!home || !installation) return <p>No data found</p>;
 

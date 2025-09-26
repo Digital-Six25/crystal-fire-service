@@ -2,13 +2,14 @@
 import Certifications from "@/components/certifications";
 import Equipment from "@/components/equipment";
 import Hero from "@/components/hero";
+import HomeSkeleton from "@/components/homePageSkeleton";
 import Services from "@/components/services";
 import { useHomepageData } from "@/hooks/useHomepageData";
 
 export default function Home() {
   const { data, isLoading, error } = useHomepageData();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <HomeSkeleton />;
   if (error) return <p>Error loading data</p>;
   if (!data) return <p>No data found</p>;
 

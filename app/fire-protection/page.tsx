@@ -1,6 +1,7 @@
 "use client";
 import FireProtectionContent from "@/components/fire-protection/fire-protection-content";
 import FireProtectionHero from "@/components/fire-protection/fire-protection-hero";
+import Skeleton from "@/components/serviceSkeleton";
 import { useFireProtectionPageData } from "@/hooks/useFireProtectionpageData";
 import { useHomepageData } from "@/hooks/useHomepageData";
 
@@ -17,7 +18,7 @@ export default function FireProtectionPage() {
     error: fireProtectionError,
   } = useFireProtectionPageData();
 
-  if (homeLoading || fireProtectionLoading) return <p>Loading...</p>;
+  if (homeLoading || fireProtectionLoading) return <Skeleton />;
   if (homeError || fireProtectionError) return <p>Error loading data</p>;
   if (!home || !fireProtection) return <p>No data found</p>;
 

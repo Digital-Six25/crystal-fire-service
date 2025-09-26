@@ -3,6 +3,7 @@ import AFSSPrograms from "@/components/certification/afss-programs";
 import CertificationContent from "@/components/certification/certification-content";
 import CertificationHero from "@/components/certification/certification-hero";
 import Certifications from "@/components/certifications";
+import Skeleton from "@/components/serviceSkeleton";
 import { useCertificationPageData } from "@/hooks/useCertificationpage";
 import { useHomepageData } from "@/hooks/useHomepageData";
 
@@ -19,10 +20,9 @@ export default function CertificationPage() {
     error: certError,
   } = useCertificationPageData();
 
-  if (homeLoading || certLoading) return <p>Loading...</p>;
+  if (homeLoading || certLoading) return <Skeleton />;
   if (homeError || certError) return <p>Error loading data</p>;
   if (!home || !cert) return <p>No data found</p>;
-  console.log("cert", cert);
 
   return (
     <main>
