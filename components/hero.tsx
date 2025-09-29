@@ -101,7 +101,7 @@ export default function Hero({ hero }: HeroProps) {
                     alt="Professional fire protection equipment and safety systems"
                     fill
                     className="object-cover rounded-2xl"
-                    priority
+                    fetchPriority="high"
                   />
                 </div>
 
