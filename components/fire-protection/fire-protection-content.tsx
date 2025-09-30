@@ -1,17 +1,8 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import {
-  Shield,
-  CheckCircle,
-  Wrench,
-  FileCheck,
-  Search,
-  Phone,
-  Mail,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, Phone, Shield } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import Certifications from "../certifications";
 
 export default function FireProtectionContent({

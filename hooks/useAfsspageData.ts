@@ -1,4 +1,4 @@
-import { getImageUrl } from "@/lib/getImageUrl";
+// hooks/useAfssPageData.ts
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the AFSS page data
@@ -57,21 +57,17 @@ async function fetchAfssPageData(): Promise<AfssPageData> {
   const data = pages[0];
   const acf = data.acf;
 
-  // CTA cards (process icons)
-  const ctaCards = await Promise.all(
-    acf.cta.cards.map(async (c: any) => ({
-      ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
-  );
+  // CTA cards
+  const ctaCards = acf.cta.cards.map((c: any) => ({
+    ...c,
+    icon: c.icon || null,
+  }));
 
   // AFSS Management Solutions cards
-  const afssCards = await Promise.all(
-    acf.afss_management_solutions.cards.map(async (c: any) => ({
-      ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
-  );
+  const afssCards = acf.afss_management_solutions.cards.map((c: any) => ({
+    ...c,
+    icon: c.icon || null,
+  }));
 
   return {
     hero: acf.hero,

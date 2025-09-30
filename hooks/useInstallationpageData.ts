@@ -1,4 +1,3 @@
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the Installation page data
@@ -42,19 +41,17 @@ async function fetchInstallationPageData(): Promise<InstallationPageData> {
   const data = pages[0];
   const acf = data.acf;
 
-  // Professional Installation main image
-  const profImage = acf.professional_installation.img
-    ? await getImageUrl(acf.professional_installation.img)
-    : null;
-
-  // Professional Installation cards icons
-  const profCards = await Promise.all(
-    acf.professional_installation.cards.map(async (card: any) => ({
-      icon: card.icon ? await getImageUrl(card.icon) : null,
+  // Professional Installation cards
+  const profCards = (acf.professional_installation.cards ?? []).map(
+    (card: any) => ({
+      icon: card.icon ?? null,
       title: card.title,
       subtitle: card.subtitle,
-    }))
+    })
   );
+
+  // Professional Installation main image
+  const profImage = acf.professional_installation.img ?? null;
 
   return {
     hero: acf.hero,

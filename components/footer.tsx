@@ -16,6 +16,7 @@ export default function Footer() {
                   alt="Crystal Fire Services"
                   fill
                   className="object-contain"
+                  priority
                 />
               </div>
             </div>

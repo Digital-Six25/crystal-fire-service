@@ -1,4 +1,3 @@
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the Media page data
@@ -40,16 +39,17 @@ async function fetchMediaPageData(): Promise<MediaPageData> {
   const data = pages[0];
   const acf = data.acf;
 
-  // Media cards icons
-  const mediaCards = await Promise.all(
-    acf.media.cards.map(async (card: any) => ({
-      ...card,
-      icon: card.icon ? await getImageUrl(card.icon) : null,
-    }))
-  );
+  // Media cards
+  const mediaCards = (acf.media.cards ?? []).map((card: any) => ({
+    ...card,
+    icon: card.icon ?? null,
+  }));
 
-  // CTA icon
-  const ctaIcon = acf.cta.icon ? await getImageUrl(acf.cta.icon) : null;
+  // CTA
+  const cta = {
+    ...acf.cta,
+    icon: acf.cta.icon ?? null,
+  };
 
   return {
     hero: acf.hero,
@@ -57,10 +57,7 @@ async function fetchMediaPageData(): Promise<MediaPageData> {
       ...acf.media,
       cards: mediaCards,
     },
-    cta: {
-      ...acf.cta,
-      icon: ctaIcon,
-    },
+    cta,
   };
 }
 

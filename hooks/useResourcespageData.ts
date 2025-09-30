@@ -1,4 +1,3 @@
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the Resources page data
@@ -49,39 +48,33 @@ async function fetchResourcesPageData(): Promise<ResourcesPageData> {
   const acf = data.acf;
 
   // Hero certificates images
-  const certificateImages = await Promise.all(
-    (acf.hero.certificates.image || []).map(async (img: any) =>
-      img.img ? await getImageUrl(img.img) : null
-    )
-  );
+  const certificateImages = (acf.hero.certificates.image ?? []).filter(Boolean);
 
-  // Resources cards with icon URLs
-  const resourceCards = await Promise.all(
-    acf.resources.cards.map(async (c: any) => ({
-      ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
-  );
+  // Resources cards
+  const resourceCards = (acf.resources.cards ?? []).map((c: any) => ({
+    ...c,
+    icon: c.icon ?? null,
+  }));
 
-  // CTA icon
-  const ctaIcon = acf.cta.icon ? await getImageUrl(acf.cta.icon) : null;
+  // CTA
+  const cta = {
+    ...acf.cta,
+    icon: acf.cta.icon ?? null,
+  };
 
   return {
     hero: {
       ...acf.hero,
       certificates: {
         ...acf.hero.certificates,
-        image: certificateImages.filter(Boolean) as string[],
+        image: certificateImages,
       },
     },
     resources: {
       ...acf.resources,
       cards: resourceCards,
     },
-    cta: {
-      ...acf.cta,
-      icon: ctaIcon,
-    },
+    cta,
   };
 }
 

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords:
     "fire protection, fire safety, AFSS, certification, fire systems, Australia",
   authors: [{ name: "Crystal Fire Services" }],
-  viewport: "width=device-width, initial-scale=1",
+
   generator: "v0.dev",
 };
 

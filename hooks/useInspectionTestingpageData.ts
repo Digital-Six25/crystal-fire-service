@@ -1,4 +1,3 @@
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the Inspection Testing page data
@@ -51,16 +50,14 @@ async function fetchInspectionTestingPageData(): Promise<InspectionTestingPageDa
   const acf = data.acf;
 
   // Inspection Testing certificates
-  const certificates = await Promise.all(
-    acf.inspection_testing.certificates.map(async (c: any) => ({
-      img: c.img ? await getImageUrl(c.img) : null,
-    }))
+  const certificates = (acf.inspection_testing.certificates ?? []).map(
+    (c: any) => ({
+      img: c.img ?? null,
+    })
   );
 
   // Inspection Testing main image
-  const inspectionImage = acf.inspection_testing.img
-    ? await getImageUrl(acf.inspection_testing.img)
-    : null;
+  const inspectionImage = acf.inspection_testing.img ?? null;
 
   return {
     hero: acf.hero,

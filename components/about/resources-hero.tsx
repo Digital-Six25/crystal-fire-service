@@ -7,19 +7,6 @@ import { Download, BookOpen } from "lucide-react";
 export default function ResourcesHero({ hero }: any) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
-  const certifications = [
-    {
-      image: "/images/iso-14001.png",
-      alt: "ISO 14001 - Environmental Management",
-    },
-    {
-      image: "/images/iso-45001.jpg",
-      alt: "ISO 45001 - Occupational Health & Safety",
-    },
-    { image: "/images/iso-9001.png", alt: "ISO 9001 - Quality Management" },
-    { image: "/images/jasanz.png", alt: "JAS-ANZ Accreditation" },
-  ];
-
   return (
     <section
       ref={ref}
@@ -107,10 +94,11 @@ export default function ResourcesHero({ hero }: any) {
               >
                 <div className="relative w-full h-full">
                   <Image
-                    src={cert || "/placeholder.svg"}
+                    src={cert.img || "/placeholder.svg"}
                     alt={"certificates"}
                     fill
                     className="object-contain p-2"
+                    priority
                   />
                 </div>
               </div>

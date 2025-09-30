@@ -1,5 +1,4 @@
 // hooks/useUptickPageData.ts
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the Uptick page data
@@ -41,28 +40,21 @@ async function fetchUptickPageData(): Promise<UptickPageData> {
   const data = pages[0];
   const acf = data.acf;
 
-  // About image
-  const aboutImage = acf.about.img ? await getImageUrl(acf.about.img) : null;
-
-  // Benefits cards icons
-  const benefitCards = await Promise.all(
-    acf.benefits.cards.map(async (c: any) => ({
-      ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
-  );
-
   return {
     hero: {
       ...acf.hero,
     },
     about: {
       ...acf.about,
-      img: aboutImage,
+      img: acf.about.img ?? null, // return URL directly from ACF
     },
     benefits: {
       ...acf.benefits,
-      cards: benefitCards,
+      cards: (acf.benefits.cards ?? []).map((c: any) => ({
+        icon: c.icon ?? null, // return URL directly from ACF
+        title: c.title ?? "",
+        subtitle: c.subtitle ?? "",
+      })),
     },
   };
 }

@@ -1,4 +1,4 @@
-import { getImageUrl } from "@/lib/getImageUrl";
+// hooks/useAboutPageData.ts
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define a TypeScript type for the About page data
@@ -57,33 +57,25 @@ async function fetchAboutPageData(): Promise<AboutPageData> {
   const acf = data.acf;
 
   // Hero
-  const heroImage = acf.hero.image ? await getImageUrl(acf.hero.image) : null;
+  const heroImage = acf.hero.image || null;
 
   // Foundation
-  const foundationCards = await Promise.all(
-    acf.foundation.cards.map(async (c: any) => ({
-      ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
-  );
+  const foundationCards = acf.foundation.cards.map((c: any) => ({
+    ...c,
+    icon: c.icon || null,
+  }));
 
   // Purpose
-  const purposeImage = acf.purpose.image
-    ? await getImageUrl(acf.purpose.image)
-    : null;
+  const purposeImage = acf.purpose.image || null;
 
   // Expertise
-  const expertiseImage = acf.expertise.image
-    ? await getImageUrl(acf.expertise.image)
-    : null;
+  const expertiseImage = acf.expertise.image || null;
 
   // Achievements
-  const achievementStats = await Promise.all(
-    acf.achievements.stats.map(async (s: any) => ({
-      ...s,
-      icon: s.icon ? await getImageUrl(s.icon) : null,
-    }))
-  );
+  const achievementStats = acf.achievements.stats.map((s: any) => ({
+    ...s,
+    icon: s.icon || null,
+  }));
 
   return {
     hero: {

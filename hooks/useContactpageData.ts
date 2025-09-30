@@ -36,20 +36,11 @@ export interface ContactPageData {
       address: string;
       phone: string;
       opening_time: string;
-      direction_button: {
-        label: string;
-        url: string;
-      };
-      call_button: {
-        label: string;
-        url: string;
-      };
+      direction_button: { label: string; url: string };
+      call_button: { label: string; url: string };
     }[];
   };
-  map_location: {
-    latitude: string;
-    longitude: string;
-  };
+  map_location: { latitude: string; longitude: string };
 }
 
 // ---------- Fetcher ----------
@@ -102,8 +93,8 @@ async function fetchContactPageData(): Promise<ContactPageData> {
       })),
     },
     map_location: {
-      latitude: acf.map_location?.latitude,
-      longitude: acf.map_location?.longitude,
+      latitude: acf.map_location?.latitude ?? "",
+      longitude: acf.map_location?.longitude ?? "",
     },
   };
 }

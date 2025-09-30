@@ -55,10 +55,10 @@ async function fetchTeamsPageData(): Promise<TeamsPageData> {
         label: acf.hero?.button?.label ?? "",
         url: acf.hero?.button?.url ?? "#",
       },
-      img: acf.hero?.img || null,
+      img: acf.hero?.img ?? null, // return URL directly from ACF
     },
     teams: (acf.teams ?? []).map((t: any) => ({
-      image: t.image || null,
+      image: t.image ?? null, // return URL directly from ACF
       name: t.name ?? "",
       designation: t.designation ?? "",
       experience: t.experience ?? "",

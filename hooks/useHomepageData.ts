@@ -1,5 +1,4 @@
 // hooks/useHomepageData.ts
-import { getImageUrl } from "@/lib/getImageUrl";
 import { HomepageData } from "@/types/homepage";
 import { useQuery } from "@tanstack/react-query";
 
@@ -14,43 +13,33 @@ async function fetchHomepageData(): Promise<HomepageData> {
   const acf = data.acf;
 
   // Hero
-  const heroImage = await getImageUrl(acf.hero.image);
-  const heroCertifications = await Promise.all(
-    acf.hero.certifications.map(async (c: { certificate: number }) => ({
-      id: c.certificate,
-      url: await getImageUrl(c.certificate),
-    }))
-  );
+  const heroCertifications = acf.hero.certifications.map((c: any) => ({
+    id: c.certificate,
+    url: c.certificate_url || c.certificate, // URL should now come directly from ACF
+  }));
 
   // Services
-  const serviceCards = await Promise.all(
-    acf.service.cards.map(async (card: any) => ({
-      ...card,
-      icon: await getImageUrl(card.icon),
-    }))
-  );
+  const serviceCards = acf.service.cards.map((card: any) => ({
+    ...card,
+    icon: card.icon || null, // Already a URL from ACF
+  }));
 
   // Maintain
-  const maintainCards = await Promise.all(
-    acf.maintain.cards.map(async (card: any) => ({
-      ...card,
-      icon: card.icon ? await getImageUrl(card.icon) : null,
-    }))
-  );
+  const maintainCards = acf.maintain.cards.map((card: any) => ({
+    ...card,
+    icon: card.icon || null,
+  }));
 
   // Certifications
-  const certificationCards = await Promise.all(
-    acf.certifications.cards.map(async (c: any) => ({
-      title: c.card.title,
-      subtitle: c.card.subtitle,
-      image: await getImageUrl(c.card.image),
-    }))
-  );
+  const certificationCards = acf.certifications.cards.map((c: any) => ({
+    title: c.card.title,
+    subtitle: c.card.subtitle,
+    image: c.card.image || null, // Already a URL
+  }));
 
   return {
     hero: {
       ...acf.hero,
-      image: heroImage,
       certifications: heroCertifications,
     },
     service: {

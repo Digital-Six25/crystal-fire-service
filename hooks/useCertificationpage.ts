@@ -1,7 +1,6 @@
 // hooks/useCertificationPageData.ts
 "use client";
 
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -69,45 +68,37 @@ async function fetchCertificationPageData(): Promise<CertificationPageData> {
   const acf = data.acf;
 
   // Certificates
-  const certificates = await Promise.all(
-    (acf.certificates ?? []).map(async (c: any) => ({
-      ...c,
-      img: c.img ? await getImageUrl(c.img) : null,
-    }))
-  );
+  const certificates = (acf.certificates ?? []).map((c: any) => ({
+    ...c,
+    img: c.img || null,
+  }));
 
   // Industry recognition cards
-  const industryRecognitionCards = await Promise.all(
-    (acf.industry_recognition.cards ?? []).map(async (card: any) => ({
+  const industryRecognitionCards = (acf.industry_recognition.cards ?? []).map(
+    (card: any) => ({
       ...card,
-      icon: card.icon ? await getImageUrl(card.icon) : null,
-    }))
+      icon: card.icon || null,
+    })
   );
 
   // Certification process image
-  const certProcessImg = acf.certification_process?.img
-    ? await getImageUrl(acf.certification_process.img)
-    : null;
+  const certProcessImg = acf.certification_process?.img || null;
 
   // Professional expertise image
-  const profExpertiseImg = acf.professional_expertise?.img
-    ? await getImageUrl(acf.professional_expertise.img)
-    : null;
+  const profExpertiseImg = acf.professional_expertise?.img || null;
 
   // CTA cards
-  const ctaCards = await Promise.all(
-    (acf.cta.cards ?? []).map(async (c: any) => ({
-      ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
-  );
+  const ctaCards = (acf.cta.cards ?? []).map((c: any) => ({
+    ...c,
+    icon: c.icon || null,
+  }));
 
   // Professional management cards
-  const profManagementCards = await Promise.all(
-    (acf.professional_management.cards ?? []).map(async (c: any) => ({
+  const profManagementCards = (acf.professional_management.cards ?? []).map(
+    (c: any) => ({
       ...c,
-      icon: c.icon ? await getImageUrl(c.icon) : null,
-    }))
+      icon: c.icon || null,
+    })
   );
 
   return {

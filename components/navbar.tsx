@@ -89,6 +89,7 @@ export default function Navbar() {
                   alt="Crystal Fire Services"
                   fill
                   className="object-contain"
+                  priority
                 />
               </div>
             </Link>

@@ -102,6 +102,7 @@ export default function Hero({ hero }: HeroProps) {
                     fill
                     className="object-cover rounded-2xl"
                     fetchPriority="high"
+                    loading="lazy"
                   />
                 </div>
 

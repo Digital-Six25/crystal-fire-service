@@ -6,7 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Send, CheckCircle, User, Mail, MessageSquare } from "lucide-react";
 
 interface FormData {
-  name: string;
+  fullName: string;
   email: string;
   phone: string;
   service: string;
@@ -14,7 +14,7 @@ interface FormData {
 }
 
 interface FormErrors {
-  name?: string;
+  fullName?: string;
   email?: string;
   phone?: string;
   service?: string;
@@ -31,9 +31,9 @@ const serviceOptions = [
 ];
 
 export default function ContactForm() {
-  const { ref, isVisible } = useScrollAnimation();
+  const { isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState<FormData>({
-    name: "",
+    fullName: "",
     email: "",
     phone: "",
     service: "",
@@ -46,8 +46,8 @@ export default function ContactForm() {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Name is required";
     }
 
     if (!formData.email.trim()) {
@@ -75,19 +75,25 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      const res = await fetch("/api", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData), // ✅ send state directly
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        alert("Something went wrong: " + result.error);
+      }
     } catch (error) {
-      console.error("Form submission error:", error);
+      alert("Failed to send message");
     } finally {
       setIsSubmitting(false);
     }
@@ -178,21 +184,21 @@ export default function ContactForm() {
             </label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="fullName"
+              name="fullName"
+              value={formData.fullName}
               onChange={handleChange}
               className={`w-full px-4 py-3 border rounded-xl focus:ring-brand-primary focus:border-brand-primary transition-all duration-200 bg-white/50 backdrop-blur-sm ${
-                errors.name
+                errors.fullName
                   ? "border-red-500 ring-2 ring-red-200"
                   : "border-gray-300"
               }`}
               placeholder="Your full name"
             />
-            {errors.name && (
+            {errors.fullName && (
               <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
                 <span className="w-4 h-4">⚠</span>
-                {errors.name}
+                {errors.fullName}
               </p>
             )}
           </div>

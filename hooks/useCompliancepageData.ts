@@ -1,7 +1,11 @@
-import { getImageUrl } from "@/lib/getImageUrl";
+// hooks/useCompliancePageData.ts
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 
-// 1. Define a TypeScript type for the Compliance page data
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+// ---------- Types ----------
 export interface CompliancePageData {
   hero: {
     pill: string;
@@ -28,9 +32,7 @@ export interface CompliancePageData {
   };
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
-// 2. Fetcher function
+// ---------- Fetcher ----------
 async function fetchCompliancePageData(): Promise<CompliancePageData> {
   const res = await fetch(`${API_URL}?slug=compliance`);
   if (!res.ok) throw new Error("Failed to fetch Compliance page data");
@@ -39,17 +41,15 @@ async function fetchCompliancePageData(): Promise<CompliancePageData> {
   const data = pages[0];
   const acf = data.acf;
 
-  // Compliance Service Certificates
-  const certificates = await Promise.all(
-    acf.compliance_service.certificates.map(async (c: any) => ({
-      img: c.img ? await getImageUrl(c.img) : null,
-    }))
+  // Compliance Service Certificates (image URLs directly from ACF)
+  const certificates = (acf.compliance_service.certificates ?? []).map(
+    (c: any) => ({
+      img: c.img || null,
+    })
   );
 
   // Compliance Service Image
-  const serviceImage = acf.compliance_service.img
-    ? await getImageUrl(acf.compliance_service.img)
-    : null;
+  const serviceImage = acf.compliance_service.img || null;
 
   return {
     hero: acf.hero,
@@ -62,7 +62,7 @@ async function fetchCompliancePageData(): Promise<CompliancePageData> {
   };
 }
 
-// 3. React Query hook
+// ---------- Hook ----------
 export function useCompliancePageData() {
   return useQuery({
     queryKey: ["compliancePage"],

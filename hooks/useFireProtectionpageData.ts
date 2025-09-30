@@ -1,4 +1,3 @@
-import { getImageUrl } from "@/lib/getImageUrl";
 import { useQuery } from "@tanstack/react-query";
 
 // 1. Define TypeScript type for Fire Protection page data
@@ -44,27 +43,21 @@ async function fetchFireProtectionPageData(): Promise<FireProtectionPageData> {
   const data = pages[0];
   const acf = data.acf;
 
-  // Hero stats (resolve icons to URLs)
-  const stats = await Promise.all(
-    acf.hero.stats.map(async (s: any) => ({
-      ...s,
-      icon: s.icon ? await getImageUrl(s.icon) : null,
-    }))
-  );
+  // Hero stats
+  const stats = (acf.hero.stats ?? []).map((s: any) => ({
+    ...s,
+    icon: s.icon ?? null,
+  }));
 
-  // Service cards (resolve icons + images)
-  const serviceCards = await Promise.all(
-    acf.services.cards.map(async (card: any) => ({
-      ...card,
-      icon: card.icon ? await getImageUrl(card.icon) : null,
-      img: card.img ? await getImageUrl(card.img) : null,
-    }))
-  );
+  // Service cards
+  const serviceCards = (acf.services.cards ?? []).map((card: any) => ({
+    ...card,
+    icon: card.icon ?? null,
+    img: card.img ?? null,
+  }));
 
   // Get Started image
-  const getStartedImg = acf.get_started.img
-    ? await getImageUrl(acf.get_started.img)
-    : null;
+  const getStartedImg = acf.get_started.img ?? null;
 
   return {
     hero: {
